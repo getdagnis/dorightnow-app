@@ -1,5 +1,5 @@
 .left-side {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -8,7 +8,7 @@
   min-width: 300px;
   max-width: 410px;
   height: 100vh;
-  padding: 5.5vh 5px;
+  padding: calc(50px + 2vh) 12px;
   background: var(--bgDarker);
   box-sizing: border-box;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -19,27 +19,24 @@
 
 .left-side-top {
   display: flex;
+  margin: 10px 0 5px;
   justify-content: space-between;
-  margin: 14px 0 4px;
-  padding-right: 8px;
 }
 
 .side-top-h3 {
   position: relative;
-  padding-left: 12px;
-  margin-bottom: 3px;
-  margin-top: 0;
+  margin: 0;
   font-size: 1rem;
   color: #e8e8e8;
   transition: all 0.3s ease-in-out;
 }
 
-.side-top-h3:hover {
+.title-drop:hover {
   cursor: pointer;
-  margin-top: -2px;
+  margin-left: 5px;
 }
 
-.side-top-h3::after {
+.title-drop::after {
   content: "";
   display: block;
   position: absolute;
@@ -60,18 +57,6 @@
   border-top: palegoldenrod 10px solid; */
 }
 
-.side-top-h3:hover::after {
+.title-drop:hover::after {
   border-top: #bbb 9px solid;
-}
-
-@media (max-height: 800px) {
-  .left-side {
-    padding-top: 8vh;
-  }
-}
-
-@media (max-height: 520px) {
-  .left-side {
-    padding-top: 10vh;
-  }
 }
