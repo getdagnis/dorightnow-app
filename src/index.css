@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", "Open Sans", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  font-size: 1rem;
+  --textColor: #fff;
+  --colorLight: #e8e8e9;
+  --colorRed: #910b1b;
+  --colorRedDark: #630712;
+  --colorGrey: #27272b;
+  --bgGrey: #68676f;
+  --bgDarker: #53545b;
+  --bgMidDark: #4e4f57;
+  --bgDarkest: #41434b;
+  --bgEvenDarkest: #393a42;
+  --bgLight: #b1afbb;
+  --bgMidLight: #777580;
+
+  --catA: teal;
+  --catAtransp: rgba(0, 128, 128, 0.9);
+  --catB: olive;
+  --catBtransp: rgba(128, 128, 0, 0.9);
+  --catC: salmon;
+  --catCtransp: rgba(250, 128, 114, 0.9);
+  --catD: palegoldenrod;
+  --catDtransp: rgba(238, 232, 170, 0.9);
+}
+
+ul {
+  list-style: none;
+  margin: none;
+  padding: none;
+}
+
+a {
+  color: var(--textColor);
+  text-decoration: none;
+}
