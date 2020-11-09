@@ -22,20 +22,20 @@ code {
   --colorRedDark: #630712;
   --colorGrey: #27272b;
   --bgGrey: #68676f;
-  --bgDarker: #53545b;
-  --bgMidDark: #4e4f57;
+  --bgMidDark: #555761;
+  --bgDarker: #44454e;
   --bgDarkest: #41434b;
-  --bgEvenDarkest: #393a42;
+  --bgEvenDarkest: #33343b;
   --bgLight: #b1afbb;
   --bgMidLight: #777580;
 
-  --catA: teal;
+  --catA: rgb(0, 110, 124);
   --catAtransp: rgba(0, 128, 128, 0.9);
-  --catB: olive;
+  --catB: rgb(101, 126, 35);
   --catBtransp: rgba(128, 128, 0, 0.9);
-  --catC: salmon;
+  --catC: rgb(202, 103, 57);
   --catCtransp: rgba(250, 128, 114, 0.9);
-  --catD: palegoldenrod;
+  --catD: rgb(151, 146, 93);
   --catDtransp: rgba(238, 232, 170, 0.9);
 }
 
@@ -48,4 +48,8 @@ ul {
 a {
   color: var(--textColor);
   text-decoration: none;
+}
+
+p {
+  margin: 0;
 }

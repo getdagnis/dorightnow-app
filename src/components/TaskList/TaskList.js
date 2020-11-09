@@ -3,13 +3,15 @@ import "./TaskList.css";
 import Task from "../Task/Task";
 
 const TaskList = (props) => {
-  const { tasks } = props;
+  const { tasks, listType } = props;
   return (
     <div className="task-list">
-      {tasks.length > 0 ? (
+      {tasks && tasks.length > 0 ? (
         tasks.map((t) => {
-          return <Task key={t.id} type="todo" task={t.task} cat={t.cat} />;
+          return <Task key={t.id} type={t.type} task={t.task} cat={t.cat} />;
         })
+      ) : listType === "done" ? (
+        <h3 className="no-tasks">Nothing done today</h3>
       ) : (
         <h3 className="no-tasks">no tasks added</h3>
       )}

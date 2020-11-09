@@ -1,0 +1,6 @@
+.left-side {
+  left: 0;
+  width: 30vw;
+  min-width: 320px;
+  max-width: 440px;
+}

@@ -1,5 +1,5 @@
 .btn-small,
-.grey-btn {
+.btn-grey {
   background: var(--bgDarkest);
   height: 18px;
   padding: 3px 16px 1px;
@@ -14,7 +14,7 @@
 }
 
 .btn-small:hover,
-.grey-btn:hover {
+.btn-grey:hover {
   opacity: 1;
   padding: 3px 32px 1px;
   transition: all 0.3s ease;
@@ -23,6 +23,26 @@
 
 .btn-red {
   background: var(--colorRed);
+}
+
+.btn-a {
+  background: var(--catA);
+}
+
+.btn-b {
+  background: var(--catB);
+}
+
+.btn-c {
+  background: var(--catC);
+}
+
+.btn-d {
+  background: var(--catD);
+}
+
+.btn-grey {
+  background: var(--bgMidLight);
 }
 
 .btn-grey:hover {
