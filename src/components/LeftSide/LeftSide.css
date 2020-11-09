@@ -93,4 +93,8 @@
     max-width: 100%;
     box-shadow: none;
   }
+
+  .title-drop::after {
+    border-top: #999 9px solid;
+  }
 }
