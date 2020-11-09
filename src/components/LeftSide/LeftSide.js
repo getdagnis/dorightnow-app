@@ -30,14 +30,19 @@ export const LeftSide = () => {
 
   return (
     <div className="left-side">
-      <div className="left-side-top">
-        <h3 className="side-top-h3 title-drop">do today</h3>
-        <ButtonSmall title="+ add new" color="red" />
+      <div className="safari-flex-height-fix">
+        <div className="left-side-top">
+          <h3 className="side-top-h3 title-drop">do today</h3>
+          <ButtonSmall title="+ add new" color="red" />
+        </div>
       </div>
       <TaskList tasks={tasks} />
-      <div className="left-side-top">
-        <h3 className="side-top-h3">coming soon</h3>
-        <ButtonSmall title="+ add new" color="grey" />
+
+      <div className="safari-flex-height-fix">
+        <div className="left-side-top">
+          <h3 className="side-top-h3">coming soon</h3>
+          <ButtonSmall title="+ add new" color="grey" />
+        </div>
       </div>
       <TaskList tasks={tasks} />
     </div>

@@ -1,12 +1,12 @@
 .left-side {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: absolute;
   top: 0;
   left: 0;
   width: 25vw;
-  min-width: 300px;
-  max-width: 410px;
+  min-width: 350px;
+  max-width: 450px;
   height: 100vh;
   padding: calc(50px + 2vh) 12px;
   background: var(--bgDarker);
@@ -19,8 +19,8 @@
 
 .left-side-top {
   display: flex;
-  margin: 10px 0 5px;
   justify-content: space-between;
+  margin: 10px 0 5px;
 }
 
 .side-top-h3 {
