@@ -5,8 +5,8 @@
   top: 0;
   left: 0;
   width: 25vw;
-  min-width: 350px;
-  max-width: 450px;
+  min-width: 320px;
+  max-width: 420px;
   height: 100vh;
   padding: calc(50px + 2vh) 12px;
   background: var(--bgDarker);
@@ -59,4 +59,16 @@
 
 .title-drop:hover::after {
   border-top: #bbb 9px solid;
+}
+
+@media (max-width: 768px) {
+  .left-side {
+    position: relative;
+    background: none;
+    padding-top: 0;
+    width: 100%;
+    height: auto;
+    min-width: none;
+    max-width: 100%;
+  }
 }
