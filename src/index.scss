@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", "Open Sans", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  font-size: 1rem;
+
+  --catA: rgb(0, 110, 124);
+  --catAtransp: rgba(0, 128, 128, 0.9);
+  --catB: rgb(101, 126, 35);
+  --catBtransp: rgba(128, 128, 0, 0.9);
+  --catC: rgb(202, 103, 57);
+  --catCtransp: rgba(250, 128, 114, 0.9);
+  --catD: rgb(151, 146, 93);
+  --catDtransp: rgba(238, 232, 170, 0.9);
+}
+
+$imgKey: random(9);
+$darkList: dark1, dark2, dark3, dark4, dark5, dark6, dark7, dark8, dark9;
+$lightList: light1, light2, light3, light4, light5, light6, light7, light8,
+  light9;
+$darkNth: nth($darkList, $imgKey);
+$lightNth: nth($lightList, $imgKey);
+
+:root .dark {
+  --textColor: #fff;
+  --darkText: #272b38d5;
+  --bgTopbar: #e8e8e9ee;
+  --hamburgerColor: #b1afbb;
+  --hamburgerColorDark: #64626b;
+  --colorLight: #e8e8e9ee;
+  --colorMidLight: #8d8d8dee;
+  --colorRed: #a71021;
+  --colorRedDark: #910b1b99;
+  --colorGrey: #191c24;
+  --bgGrey: #686977;
+  --bgSides: #20253144;
+  --bgTask: rgba(46, 47, 59, 0.533);
+  --bgTaskEdit: #2e303dea;
+  --bgTaskDone: #262835ea;
+  --bgGreyButton: #7c7c8b44;
+  --bgMainTaskEmpty: none;
+  --bgImage: url(img/bg_dark7.jpg) no-repeat center center fixed;
+  // --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
+  --bgMainTaskEmpty: none;
+}
+
+:root .light {
+  --textColor: #1e2027d5;
+  --darkText: #30343fd5;
+  --bgTopbar: #ececf1ee;
+  --hamburgerColor: #b1afbb;
+  --hamburgerColorDark: #64626b;
+  --colorLight: #474747;
+  --colorMidLight: #8d8d8dee;
+  --colorBrightest: #fff;
+  --colorRed: #a71021;
+  --colorRedDark: #910b1b99;
+  --colorGrey: #626269dd;
+  --bgGrey: #d9d9ddc4;
+  --bgSides: #cbcdd8aa;
+  --bgTask: #e5e7eebb;
+  --bgTaskEdit: #afafb4dd;
+  --bgTaskDone: #ececf1ee;
+  --bgGreyButton: #84848add;
+  // --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
+  --bgImage: url(img/bg_light3.jpg) no-repeat center center fixed;
+  --bgMainTaskEmpty: none;
+}
+
+ul {
+  list-style: none;
+  margin: none;
+  padding: none;
+}
+
+a {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
