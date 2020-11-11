@@ -22,7 +22,7 @@ code {
   --catAtransp: rgba(0, 128, 128, 0.9);
   --catB: rgb(101, 126, 35);
   --catBtransp: rgba(128, 128, 0, 0.9);
-  --catC: rgb(202, 103, 57);
+  --catC: rgb(216, 93, 56);
   --catCtransp: rgba(250, 128, 114, 0.9);
   --catD: rgb(151, 146, 93);
   --catDtransp: rgba(238, 232, 170, 0.9);
@@ -37,7 +37,7 @@ $lightNth: nth($lightList, $imgKey);
 
 :root .dark {
   --textColor: #fff;
-  --darkText: #272b38d5;
+  --darkText: #30343fd5;
   --bgTopbar: #e8e8e9ee;
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
@@ -45,11 +45,11 @@ $lightNth: nth($lightList, $imgKey);
   --colorMidLight: #8d8d8dee;
   --colorRed: #a71021;
   --colorRedDark: #910b1b99;
-  --colorGrey: #191c24;
+  --colorGrey: #22242b;
   --bgGrey: #686977;
   --bgSides: #20253144;
   --bgTask: rgba(46, 47, 59, 0.533);
-  --bgTaskEdit: #2e303dea;
+  --bgTaskEdit: #30323bea;
   --bgTaskDone: #262835ea;
   --bgGreyButton: #7c7c8b44;
   --bgMainTaskEmpty: none;

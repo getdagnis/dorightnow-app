@@ -24,7 +24,7 @@
   transition: all 0.5s ease-in-out;
 }
 
-.top-left:hover > .logo {
+.logo-link:hover > .logo {
   opacity: 1;
   filter: none;
 }
@@ -32,6 +32,7 @@
 .top-left {
   flex-basis: content;
   display: flex;
+  align-items: center;
   padding: 0 1vh;
   margin: 0;
 }
@@ -61,20 +62,30 @@
   padding: 0 10px;
 }
 
-.dark-light {
+.dark-btn,
+.light-btn {
   display: block;
   height: 30px;
   width: 60px;
-  background: url(./dark-light.svg) center center no-repeat;
   outline: none;
   border: none;
   margin-right: 10px;
   opacity: 0.4;
   transform: scale(0.8);
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 
-.dark-light:hover {
+.dark-btn {
+  background: url(./dark.svg) center center no-repeat;
+}
+
+.light-btn {
+  background: url(./light.svg) center center no-repeat;
+}
+
+.dark-btn:hover,
+.light-btn:hover {
   transform: scale(0.9);
   opacity: 8;
 }
@@ -120,6 +131,6 @@
     height: 45px;
   }
   .logo {
-    max-width: 150px;
+    max-width: 140px;
   }
 }

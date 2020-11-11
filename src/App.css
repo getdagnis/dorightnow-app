@@ -4,7 +4,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--bgImage);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -56,6 +55,70 @@ body {
     font-size: 1.4rem;
   }
 }
+
+/***********************************************/
+/************** RANDOM BACKGROUNDS *************/
+/***********************************************/
+
+.dark-bg1 {
+  background: url(img/bg_dark1.jpg) no-repeat center center fixed;
+}
+.dark-bg2 {
+  background: url(img/bg_dark2.jpg) no-repeat center center fixed;
+}
+.dark-bg3 {
+  background: url(img/bg_dark3.jpg) no-repeat center center fixed;
+}
+.dark-bg4 {
+  background: url(img/bg_dark4.jpg) no-repeat center center fixed;
+}
+.dark-bg5 {
+  background: url(img/bg_dark5.jpg) no-repeat center center fixed;
+}
+.dark-bg6 {
+  background: url(img/bg_dark6.jpg) no-repeat center center fixed;
+}
+.dark-bg7 {
+  background: url(img/bg_dark7.jpg) no-repeat center center fixed;
+}
+.dark-bg8 {
+  background: url(img/bg_dark8.jpg) no-repeat center center fixed;
+}
+.dark-bg9 {
+  background: url(img/bg_dark9.jpg) no-repeat center center fixed;
+}
+
+.light-bg1 {
+  background: url(img/bg_light1.jpg) no-repeat center center fixed;
+}
+.light-bg2 {
+  background: url(img/bg_light2.jpg) no-repeat center center fixed;
+}
+.light-bg3 {
+  background: url(img/bg_light3.jpg) no-repeat center center fixed;
+}
+.light-bg4 {
+  background: url(img/bg_light4.jpg) no-repeat center center fixed;
+}
+.light-bg5 {
+  background: url(img/bg_light5.jpg) no-repeat center center fixed;
+}
+.light-bg6 {
+  background: url(img/bg_light6.jpg) no-repeat center center fixed;
+}
+.light-bg7 {
+  background: url(img/bg_light7.jpg) no-repeat center center fixed;
+}
+.light-bg8 {
+  background: url(img/bg_light8.jpg) no-repeat center center fixed;
+}
+.light-bg9 {
+  background: url(img/bg_light9.jpg) no-repeat center center fixed;
+}
+
+/*************************************************/
+/***************** MEDIA QUERIES *****************/
+/*************************************************/
 
 @media (max-width: 1080px) {
   .empty-h1 {

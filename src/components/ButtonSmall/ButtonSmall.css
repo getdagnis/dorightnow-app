@@ -52,3 +52,11 @@
 .btn-grey:hover {
   background: var(--colorGrey);
 }
+
+.btn-small:active,
+.btn-grey:active,
+.btn-red:active {
+  background: rgb(165, 165, 165);
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}

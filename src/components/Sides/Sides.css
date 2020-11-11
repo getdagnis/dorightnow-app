@@ -111,3 +111,9 @@
     border-top: #999 7px solid;
   }
 }
+
+@media (max-height: 700px) {
+  .side {
+    top: 45px;
+  }
+}
