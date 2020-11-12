@@ -2,9 +2,9 @@
 .btn-grey {
   background: var(--bgGreyButton);
   height: 18px;
-  padding: 3px 16px 1px;
+  padding: 4px 12px 2px;
   margin-left: 4px;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   text-align: center;
@@ -16,7 +16,7 @@
 .btn-small:hover,
 .btn-grey:hover {
   opacity: 1;
-  padding: 3px 32px 1px;
+  padding: 4px 32px 2px;
   transition: all 0.3s ease;
   cursor: pointer;
 }

@@ -84,8 +84,9 @@ ul {
   padding: none;
 }
 
-a {
-  color: var(--textColor);
+a,
+a:hover {
+  color: var(--textDark);
   text-decoration: none;
 }
 

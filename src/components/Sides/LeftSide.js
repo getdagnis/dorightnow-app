@@ -23,14 +23,15 @@ const LeftSide = (props) => {
         </div>
       </div>
       <TaskList tasks={tasks} />
-
-      <div className="safari-flex-height-fix">
-        <div className="side-top">
-          <h3 className="side-top-h3">Coming soon...</h3>
-          <ButtonSmall title="add new" color="grey" />
-        </div>
-      </div>
-      <TaskList tasks={tasks} />
+      {
+        // <div className="safari-flex-height-fix">
+        //   <div className="side-top">
+        //     <h3 className="side-top-h3">Coming soon...</h3>
+        //     <ButtonSmall title="add new" color="grey" />
+        //   </div>
+        // </div>
+        // <TaskList tasks={tasks} />
+      }
     </div>
   );
 };

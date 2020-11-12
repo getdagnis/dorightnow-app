@@ -5,7 +5,7 @@ import Menu from "../Menu/Menu";
 import "./Topbar.css";
 import logo from "./logo.svg";
 
-export const Topbar = () => {
+const Topbar = () => {
   let localDark =
     localStorage.getItem("isAppDark") === "true" || "false"
       ? JSON.parse(localStorage.getItem("isAppDark"))
@@ -53,3 +53,5 @@ export const Topbar = () => {
     </nav>
   );
 };
+
+export default Topbar;

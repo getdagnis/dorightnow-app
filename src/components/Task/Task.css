@@ -132,7 +132,7 @@
 .task-btn-hide:hover {
   opacity: 0.8;
   filter: brightness(1.5);
-  background-color: var(--darkText);
+  background-color: var(--bgTaskEdit);
   cursor: pointer;
 }
 
