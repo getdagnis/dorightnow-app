@@ -9,6 +9,6 @@
   font-weight: 600;
   letter-spacing: -0.5px;
   margin: 20px auto 100px;
-  color: var(--bgTaskEdit);
-  text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.3);
+  color: var(--mainColor);
+  text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.2);
 }

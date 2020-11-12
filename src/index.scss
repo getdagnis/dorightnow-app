@@ -28,24 +28,23 @@ code {
   --catDtransp: rgba(238, 232, 170, 0.9);
 }
 
-$imgKey: random(9);
-$darkList: dark1, dark2, dark3, dark4, dark5, dark6, dark7, dark8, dark9;
-$lightList: light1, light2, light3, light4, light5, light6, light7, light8,
-  light9;
+$imgKey: random(8);
+$darkList: dark1, dark2, dark3, dark4, dark5, dark6, dark7, dark8;
+$lightList: light1, light2, light3, light4, light5, light6, light7, light8;
 $darkNth: nth($darkList, $imgKey);
 $lightNth: nth($lightList, $imgKey);
 
 :root .dark {
+  --mainColor: #1f222bc4;
   --textColor: #fff;
-  --darkText: #30343fd5;
+  --darkText: #1f222bc4;
   --bgTopbar: #e8e8e9ee;
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
-  --colorLight: #e8e8e9ee;
   --colorMidLight: #8d8d8dee;
   --colorRed: #a71021;
   --colorRedDark: #910b1b99;
-  --colorGrey: #22242b;
+  --colorGrey: #242730d5;
   --bgGrey: #686977;
   --bgSides: #20253144;
   --bgTask: rgba(46, 47, 59, 0.533);
@@ -58,23 +57,23 @@ $lightNth: nth($lightList, $imgKey);
 }
 
 :root .light {
+  --mainColor: #6a6f7cc4;
   --textColor: #1e2027d5;
   --darkText: #30343fd5;
   --bgTopbar: #ececf1ee;
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
-  --colorLight: #474747;
   --colorMidLight: #8d8d8dee;
   --colorBrightest: #fff;
   --colorRed: #a71021;
   --colorRedDark: #910b1b99;
-  --colorGrey: #626269dd;
+  --colorGrey: #30343fd5;
   --bgGrey: #d9d9ddc4;
   --bgSides: #cbcdd8aa;
   --bgTask: #e5e7eebb;
-  --bgTaskEdit: #afafb4dd;
+  --bgTaskEdit: #545461dd;
   --bgTaskDone: #ececf1ee;
-  --bgGreyButton: #84848add;
+  --bgGreyButton: #9e9ea5dd;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }

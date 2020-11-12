@@ -61,7 +61,7 @@
   border-left: transparent 7px solid;
   border-right: transparent 7px solid;
   border-bottom: transparent 7px solid;
-  border-top: var(--colorMidLight) 7px solid;
+  border-top: var(--textColor) 7px solid;
   transform: scaleX(0.8);
   transition: all 0.3s ease-in-out;
   /* border-left: salmon 10px solid;
@@ -71,7 +71,7 @@
 }
 
 .title-drop:hover::after {
-  border-top: var(--colorLight) 7px solid;
+  border-top: var(--textColor) 7px solid;
 }
 
 .side:hover {
