@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 
 function Menu(props) {
-  let { isOpen } = props;
+  let { isOpen, handleClick } = props;
   return (
     <div className={isOpen ? "menu slideIn" : "menu slideOut"}>
-      <ul>
+      <ul onClick={handleClick}>
         <Link to="settings">
           <li className="menu-list">Settings</li>
         </Link>

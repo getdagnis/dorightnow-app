@@ -14,23 +14,22 @@ const Topbar = () => {
   let [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Picks a random background from an array based on a random number.
+    // Picks a random background from an array based on a random number
+    // Best backgrounds shown more often
     const randomNumber = Math.floor(Math.random() * 15);
-    //  Best backgrounds (1, 1, 1, 1, 2, 2, 2, 3, 4) shown more often.
     const randomArray = [1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8];
     const randomBackground = randomArray[randomNumber];
     const combinedBodyClass = isDark
       ? "dark dark-bg" + randomBackground
       : "light light-bg" + randomBackground;
-    console.log(randomNumber, combinedBodyClass);
     document.body.classList = combinedBodyClass;
     localDark = isDark;
     JSON.stringify(localStorage.setItem("isAppDark", isDark));
   }, [isDark]);
 
   useEffect(() => {
-    console.log(menuOpen ? "menu open" : "menu closed");
-  });
+    console.log("menu open", menuOpen);
+  }, [menuOpen]);
 
   return (
     <nav className="topbar">
@@ -48,7 +47,10 @@ const Topbar = () => {
         <div onClick={() => setMenuOpen(!menuOpen)} className="burger-wrapper">
           <div className="hamburger"></div>
         </div>
-        <Menu isOpen={menuOpen} />
+        <Menu
+          handleClick={() => setMenuOpen(!menuOpen)}
+          isOpen={menuOpen}
+        ></Menu>
       </div>
     </nav>
   );
