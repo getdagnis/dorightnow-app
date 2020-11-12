@@ -100,11 +100,8 @@ body {
   background-color: var(--bgGrey);
   background-size: cover;
 }
-.dark-bg9 {
-  background: url(img/bg_dark9.jpg) no-repeat center center fixed;
-  background-color: var(--bgGrey);
-  background-size: cover;
-}
+
+/**************** LIGHT BACKGROUNDS ***************/
 
 .light-bg1 {
   background: url(img/bg_light1.jpg) no-repeat center center fixed;
@@ -143,11 +140,6 @@ body {
 }
 .light-bg8 {
   background: url(img/bg_light8.jpg) no-repeat center center fixed;
-  background-color: var(--bgGrey);
-  background-size: cover;
-}
-.light-bg9 {
-  background: url(img/bg_light9.jpg) no-repeat center center fixed;
   background-color: var(--bgGrey);
   background-size: cover;
 }

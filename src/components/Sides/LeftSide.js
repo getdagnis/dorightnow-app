@@ -4,7 +4,7 @@ import TaskList from "../TaskList/TaskList";
 
 const LeftSide = (props) => {
   const { tasks } = props;
-  let [isNewTask, setIsNewTask] = useState(true);
+  let [isNewTask, setIsNewTask] = useState(false);
 
   useEffect(() => {
     console.log(isNewTask ? isNewTask + " new task to be created!" : "nothing");
