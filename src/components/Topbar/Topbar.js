@@ -5,16 +5,25 @@ import "./Topbar.css";
 import logo from "./logo.svg";
 
 export const Topbar = () => {
-  let [isDark, setIsDark] = useState(true);
+  let localDark =
+    localStorage.getItem("isAppDark") === true || false
+      ? JSON.parse(localStorage.getItem("isAppDark"))
+      : true;
+  let [isDark, setIsDark] = useState(localDark);
 
   useEffect(() => {
-    const randomNumber = Math.ceil(Math.random() * 9);
-
+    // Picks a random background from an array. Best backgrounds (1, 2, 3, 4) shown more often.
+    const randomNumber = Math.floor(Math.random() * 15);
+    const randomArrary = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 1, 1];
+    const randomBackground = randomArrary[randomNumber];
     const combinedBodyClass = isDark
-      ? "dark dark-bg" + randomNumber
-      : "light light-bg" + randomNumber;
+      ? "dark dark-bg" + randomBackground
+      : "light light-bg" + randomBackground;
+    console.log(randomNumber, combinedBodyClass);
 
     document.body.classList = combinedBodyClass;
+    localDark = isDark;
+    JSON.stringify(localStorage.setItem("isAppDark", isDark));
   });
 
   return (

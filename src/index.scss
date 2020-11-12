@@ -53,7 +53,6 @@ $lightNth: nth($lightList, $imgKey);
   --bgTaskDone: #262835ea;
   --bgGreyButton: #7c7c8b44;
   --bgMainTaskEmpty: none;
-  // --bgImage: url(img/bg_dark7.jpg) no-repeat center center fixed;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }
@@ -77,7 +76,6 @@ $lightNth: nth($lightList, $imgKey);
   --bgTaskDone: #ececf1ee;
   --bgGreyButton: #84848add;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  // --bgImage: url(img/bg_light3.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }
 
