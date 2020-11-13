@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import "./Task.css";
+import { TasksContext } from "../../context/context";
 
 const Task = (props) => {
   const { task, type, cat, delay, id } = props;
   const categoryClass = "cat cat-" + cat;
   const catColor = cat ? cat : "red";
   let classList = "task " + type;
+
+  const { dispatch } = useContext(TasksContext);
 
   // Creates a bounce animation delay for each task seperately based on position in array
   classList = delay ? classList.concat(" delay-" + delay) : classList;
@@ -30,7 +33,10 @@ const Task = (props) => {
             </Link>
             <ButtonSmall title="do now" color={catColor} />
           </div>
-          <div className="task-btn-delete"></div>
+          <div
+            onClick={() => dispatch({ type: "DELETE_TASK", payload: id })}
+            className="task-btn-delete"
+          ></div>
         </div>
       ) : (
         <div className="task-btn-hide"></div>

@@ -10,6 +10,7 @@ function TaskAdd(props) {
   // Github: https://github.com/rivera1294/react-notes-app/tree/master/src/components
   const { state, dispatch } = useContext(TasksContext);
   const [value, setValue] = useState("");
+
   let ref = useRef();
 
   useEffect(() => {
@@ -27,6 +28,7 @@ function TaskAdd(props) {
     } else {
       dispatch({ type: "ADD_TASK", payload: value });
       setValue("");
+      clickHandle();
     }
   };
 

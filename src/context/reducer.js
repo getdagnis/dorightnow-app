@@ -6,6 +6,8 @@ export default function reducer(state, action) {
       const newTask = {
         id: uuid.v4(),
         task: action.payload,
+        type: "todo",
+        cat: 0,
       };
 
       const addedTasks = [...state.tasks, newTask];
