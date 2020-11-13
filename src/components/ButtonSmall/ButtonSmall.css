@@ -10,7 +10,7 @@
   text-align: center;
   color: white;
   text-transform: uppercase;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-small:hover,
@@ -59,4 +59,13 @@
   background: rgb(165, 165, 165);
   transform: scale(0.9);
   transition: all 0.2s ease;
+}
+
+.btn-size-medium {
+  transform: scale(1.2);
+}
+
+.btn-size-large {
+  transform: scale(1.4);
+  margin-left: 50px;
 }

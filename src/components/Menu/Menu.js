@@ -7,16 +7,19 @@ function Menu(props) {
   return (
     <div className={isOpen ? "menu slideIn" : "menu slideOut"}>
       <ul onClick={handleClick}>
-        <Link to="settings">
+        <Link to="/">
+          <li className="menu-list">Tasks</li>
+        </Link>
+        <Link to="/settings">
           <li className="menu-list">Settings</li>
         </Link>
-        <Link to="account">
+        <Link to="/account">
           <li className="menu-list">Account</li>
         </Link>
-        <Link to="about">
+        <Link to="/about">
           <li className="menu-list">About</li>
         </Link>
-        <Link to="contacts">
+        <Link to="/contacts">
           <li className="menu-list">Contacts</li>
         </Link>
       </ul>

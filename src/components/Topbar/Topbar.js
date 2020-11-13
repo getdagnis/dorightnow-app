@@ -5,7 +5,7 @@ import Menu from "../Menu/Menu";
 import "./Topbar.css";
 import logo from "./logo.svg";
 
-const Topbar = () => {
+function Topbar() {
   let localDark =
     localStorage.getItem("isAppDark") === "true" || "false"
       ? JSON.parse(localStorage.getItem("isAppDark"))
@@ -54,6 +54,6 @@ const Topbar = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Topbar;

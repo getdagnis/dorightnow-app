@@ -2,10 +2,12 @@ import React from "react";
 import "./ButtonSmall.css";
 
 const ButtonSmall = (props) => {
-  const classList = "btn-small btn-" + props.color;
+  const { title, color, size, onClick } = props;
+  let classList = "btn-small btn-" + color;
+  classList = size ? classList.concat(" " + size) : classList;
   return (
-    <div onClick={props.onClick} className={classList}>
-      {props.title}
+    <div onClick={onClick} className={classList}>
+      {title}
     </div>
   );
 };

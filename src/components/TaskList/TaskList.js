@@ -4,11 +4,22 @@ import Task from "../Task/Task";
 
 const TaskList = (props) => {
   const { tasks, listType } = props;
+  console.log(tasks);
   return (
     <div className="task-list">
       {tasks && tasks.length > 0 ? (
         tasks.map((t) => {
-          return <Task key={t.id} type={t.type} task={t.task} cat={t.cat} />;
+          let delay = tasks.indexOf(t) + 2;
+          return (
+            <Task
+              key={t.id}
+              id={t.id}
+              type={t.type}
+              delay={delay}
+              task={t.task}
+              cat={t.cat}
+            />
+          );
         })
       ) : listType === "done" ? (
         <h3 className="no-tasks">Nothing done today</h3>

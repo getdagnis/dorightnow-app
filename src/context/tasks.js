@@ -1,16 +1,16 @@
-export const tasks =
+export const fetchedTasks =
   localStorage.getItem("dorightnowTasks") &&
   typeof JSON.parse(localStorage.getItem("dorightnowTasks")) === "object" &&
   JSON.parse(localStorage.getItem("dorightnowTasks")).length > 1
     ? JSON.parse(localStorage.getItem("dorightnowTasks"))
     : [];
 
-export const done =
-  localStorage.getItem("dorightnowDoneTasks") &&
-  typeof JSON.parse(localStorage.getItem("dorightnowDoneTasks")) === "object" &&
-  JSON.parse(localStorage.getItem("dorightnowDoneTasks")).length > 1
-    ? JSON.parse(localStorage.getItem("dorightnowDoneTasks"))
-    : [];
+// export const done =
+//   localStorage.getItem("dorightnowDoneTasks") &&
+//   typeof JSON.parse(localStorage.getItem("dorightnowDoneTasks")) === "object" &&
+//   JSON.parse(localStorage.getItem("dorightnowDoneTasks")).length > 1
+//     ? JSON.parse(localStorage.getItem("dorightnowDoneTasks"))
+//     : [];
 
 // export const tasks = [
 //   { id: 1, task: "Jāuztaisa Reinim tās Open Minded skices", cat: "a", type: "todo" },

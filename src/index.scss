@@ -26,8 +26,12 @@ code {
   --catCtransp: rgba(250, 128, 114, 0.9);
   --catD: rgb(151, 146, 93);
   --catDtransp: rgba(238, 232, 170, 0.9);
+  --catE: rgb(110, 60, 139);
+  --catEtransp: rgba(238, 232, 170, 0.9);
 }
 
+// This chunk of code is not used anymore.
+// Random backgrounds handled by the dark/light button in the Topbar component
 $imgKey: random(8);
 $darkList: dark1, dark2, dark3, dark4, dark5, dark6, dark7, dark8;
 $lightList: light1, light2, light3, light4, light5, light6, light7, light8;
@@ -42,7 +46,7 @@ $lightNth: nth($lightList, $imgKey);
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
   --colorMidLight: #8d8d8dee;
-  --colorRed: #a71021;
+  --colorRed: #990a2e;
   --colorRedDark: #910b1b99;
   --colorGrey: #242730d5;
   --bgGrey: #686977;
@@ -52,6 +56,8 @@ $lightNth: nth($lightList, $imgKey);
   --bgTaskDone: #262835ea;
   --bgGreyButton: #7c7c8b44;
   --bgMainTaskEmpty: none;
+  --bgNewTask: #6f707edf;
+  --bgNewTaskCover: #22232cbb;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }
@@ -65,7 +71,7 @@ $lightNth: nth($lightList, $imgKey);
   --hamburgerColorDark: #64626b;
   --colorMidLight: #8d8d8dee;
   --colorBrightest: #fff;
-  --colorRed: #a71021;
+  --colorRed: #990a2e;
   --colorRedDark: #910b1b99;
   --colorGrey: #30343fd5;
   --bgGrey: #d9d9ddc4;
@@ -74,6 +80,8 @@ $lightNth: nth($lightList, $imgKey);
   --bgTaskEdit: #545461dd;
   --bgTaskDone: #ececf1ee;
   --bgGreyButton: #9e9ea5dd;
+  --bgNewTask: #dfdfe7cc;
+  --bgNewTaskCover: #caccd6aa;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }

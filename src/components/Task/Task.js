@@ -1,12 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import "./Task.css";
 
 const Task = (props) => {
-  const { task, type, cat } = props;
-  const classList = "task " + type;
+  const { task, type, cat, delay, id } = props;
   const categoryClass = "cat cat-" + cat;
   const catColor = cat ? cat : "red";
+  let classList = "task " + type;
+
+  // Creates a bounce animation delay for each task seperately based on position in array
+  classList = delay ? classList.concat(" delay-" + delay) : classList;
 
   return (
     <div className={classList}>
@@ -15,7 +20,14 @@ const Task = (props) => {
       {type === "todo" ? (
         <div className="task-edit">
           <div className="task-btns">
-            <ButtonSmall title="edit" color="grey" />
+            <Link
+              to={{
+                pathname: "/task/" + id,
+                state: { task: task, type: type, cat: cat, id: id },
+              }}
+            >
+              <ButtonSmall title="edit" color="grey" />
+            </Link>
             <ButtonSmall title="do now" color={catColor} />
           </div>
           <div className="task-btn-delete"></div>
