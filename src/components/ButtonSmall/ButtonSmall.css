@@ -1,24 +1,74 @@
 .btn-small,
 .btn-grey {
+  display: flex;
+  align-items: center;
   background: var(--bgGreyButton);
   height: 18px;
-  padding: 4px 12px 2px;
+  padding: 4px 12px;
   margin-left: 4px;
   border-radius: 4px;
+  height: fit-content;
+  width: fit-content;
   font-size: 0.75rem;
   font-weight: 600;
   text-align: center;
-  color: white;
   text-transform: uppercase;
+  color: white;
   transition: all 0.3s ease;
+  outline: none;
+  border: none;
+  white-space: nowrap;
 }
 
 .btn-small:hover,
 .btn-grey:hover {
   opacity: 1;
-  padding: 4px 32px 2px;
+  padding: 4px 26px;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.btn-small:active,
+.btn-grey:active,
+.btn-red:active {
+  background: rgb(165, 165, 165);
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+
+.btn-size-mobile {
+  font-size: 0.85rem;
+  padding: 14px 10px;
+  margin-right: 2px;
+}
+
+.btn-size-mobile:hover {
+  padding: 14px 10px;
+}
+
+.btn-size-large {
+  padding: 10px 12px;
+  margin-right: 6px;
+  font-size: 0.85rem;
+}
+.btn-size-large:hover {
+  padding: 10px 24px;
+}
+
+.btn-icon {
+  display: inline-block;
+  height: 12px;
+  margin: -6px 4px -6px 0;
+}
+
+.btn-size-large .btn-icon {
+  margin-right: 6px;
+  height: 26px;
+}
+
+.btn-size-mobile .btn-icon {
+  margin-right: 6px;
+  height: 20px;
 }
 
 .btn-red {
@@ -27,6 +77,14 @@
 
 .btn-red:hover {
   background: var(--colorRed);
+}
+
+.btn-grey {
+  background: var(--bgGreyButton);
+}
+
+.btn-grey:hover {
+  background: var(--colorGrey);
 }
 
 .btn-a {
@@ -43,29 +101,4 @@
 
 .btn-d {
   background: var(--catD);
-}
-
-.btn-grey {
-  background: var(--bgGreyButton);
-}
-
-.btn-grey:hover {
-  background: var(--colorGrey);
-}
-
-.btn-small:active,
-.btn-grey:active,
-.btn-red:active {
-  background: rgb(165, 165, 165);
-  transform: scale(0.9);
-  transition: all 0.2s ease;
-}
-
-.btn-size-medium {
-  transform: scale(1.2);
-}
-
-.btn-size-large {
-  transform: scale(1.4);
-  margin-left: 50px;
 }

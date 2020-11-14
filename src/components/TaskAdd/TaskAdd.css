@@ -1,11 +1,12 @@
 .new-task-cover {
   display: block;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   background: var(--bgNewTaskCover);
+  animation: coverFadeIn 0.5s ease;
   z-index: 3;
 }
 
@@ -14,28 +15,85 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  width: 50vw;
-  height: 50vh;
+  width: 100vw;
+  max-width: 670px;
   padding: 20px;
   background: var(--bgNewTask);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transform: translate(-50%, -70%);
+  transform: translateX(-50%);
+  box-sizing: border-box;
   z-index: 4;
+  animation: taskIn 0.3s ease-in-out;
 }
 
 .no-tasks-bigger {
-  margin: 0;
+  margin: 0 0 12px 0;
   padding: 0;
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.task-input {
+  width: 100%;
+  height: auto;
+  margin: 0 auto 5px;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  color: var(--textColorTwo);
+  background: #00000011;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.05) inset;
+  outline: none;
+  resize: none;
+  caret-color: var(--colorRed);
+}
+
+.task-input:focus {
+  color: var(--textColor);
+  background: var(--bgTextarea);
+}
+
+.cat-select {
+  margin: 10px 0;
+}
+
+.task-input::placeholder {
+  color: var(--textColor);
+  opacity: 0.4;
 }
 
 .add-task-btns {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 60%;
+  margin-top: 20px;
+}
+
+@keyframes taskIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes coverFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

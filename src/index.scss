@@ -40,7 +40,8 @@ $lightNth: nth($lightList, $imgKey);
 
 :root .dark {
   --mainColor: #1f222bc4;
-  --textColor: #fff;
+  --textColor: #ffffffee;
+  --textColorTwo: #ffffffaa;
   --darkText: #1f222bc4;
   --bgTopbar: #e8e8e9ee;
   --hamburgerColor: #b1afbb;
@@ -54,17 +55,19 @@ $lightNth: nth($lightList, $imgKey);
   --bgTask: rgba(46, 47, 59, 0.533);
   --bgTaskEdit: #30323bea;
   --bgTaskDone: #262835ea;
-  --bgGreyButton: #7c7c8b44;
+  --bgGreyButton: #62627099;
   --bgMainTaskEmpty: none;
-  --bgNewTask: #6f707edf;
+  --bgNewTask: #7d7f9177;
   --bgNewTaskCover: #22232cbb;
+  --bgTextarea: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }
 
 :root .light {
   --mainColor: #6a6f7cc4;
-  --textColor: #1e2027d5;
+  --textColor: #1c1d1fd5;
+  --textColorTwo: #1e2027aa;
   --darkText: #30343fd5;
   --bgTopbar: #ececf1ee;
   --hamburgerColor: #b1afbb;
@@ -72,16 +75,17 @@ $lightNth: nth($lightList, $imgKey);
   --colorMidLight: #8d8d8dee;
   --colorBrightest: #fff;
   --colorRed: #990a2e;
-  --colorRedDark: #910b1b99;
-  --colorGrey: #30343fd5;
+  --colorRedDark: #910b1bcc;
+  --colorGrey: #242833d5;
   --bgGrey: #d9d9ddc4;
   --bgSides: #cbcdd8aa;
-  --bgTask: #e5e7eebb;
-  --bgTaskEdit: #545461dd;
+  --bgTask: #ebedf3bb;
+  --bgTaskEdit: #e2e2ecdd;
   --bgTaskDone: #ececf1ee;
-  --bgGreyButton: #9e9ea5dd;
+  --bgGreyButton: #8f8f9edd;
   --bgNewTask: #dfdfe7cc;
   --bgNewTaskCover: #caccd6aa;
+  --bgTextarea: #eaecf1dd;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTaskEmpty: none;
 }
@@ -100,4 +104,28 @@ a:hover {
 
 p {
   margin: 0;
+}
+
+button {
+  text-rendering: auto;
+  color: white;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: var(--bgGreyButton);
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: "Montserrat", "Lato", "Open Sans", Helvetica, Arial, Helvetica,
+    sans-serif;
+  padding: 1px 6px;
+  border: none;
+  outline: none;
 }

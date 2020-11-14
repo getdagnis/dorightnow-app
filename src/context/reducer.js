@@ -5,12 +5,16 @@ export default function reducer(state, action) {
     case "ADD_TASK":
       const newTask = {
         id: uuid.v4(),
-        task: action.payload,
+        task: action.payload.task,
         type: "todo",
-        cat: 0,
+        category: action.payload.category,
+        motivation: action.payload.motivation,
+        color: action.payload.color,
       };
 
       const addedTasks = [...state.tasks, newTask];
+
+      localStorage.setItem("dorightnowTasks", JSON.stringify(addedTasks));
 
       return {
         ...state,

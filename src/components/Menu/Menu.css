@@ -79,7 +79,7 @@ li:hover {
   }
 } */
 
-@media only screen and (max-width: 768px) and (min-width: 380px) {
+@media only screen and (max-width: 768px) and (min-width: 360px) {
   .slideIn {
     transform: translateX(0) scale(1.4);
     transform-origin: top right;
@@ -87,5 +87,11 @@ li:hover {
   .slideOut {
     transform: translateX(160%) scale(1.4);
     transform-origin: top right;
+  }
+}
+
+@media (max-height: 900px) {
+  .menu {
+    top: 45px;
   }
 }

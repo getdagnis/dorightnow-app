@@ -17,7 +17,6 @@ function App() {
   const initialState = useContext(TasksContext);
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const { tasks } = state;
-  localStorage.setItem("dorightnowTasks", JSON.stringify(tasks));
 
   console.log(
     "local storage tasks",

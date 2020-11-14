@@ -6,11 +6,11 @@ import "./Topbar.css";
 import logo from "./logo.svg";
 
 function Topbar() {
-  let localDark =
+  let [isDark, setIsDark] = useState(
     localStorage.getItem("isAppDark") === "true" || "false"
       ? JSON.parse(localStorage.getItem("isAppDark"))
-      : true;
-  let [isDark, setIsDark] = useState(localDark);
+      : true
+  );
   let [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,6 @@ function Topbar() {
       ? "dark dark-bg" + randomBackground
       : "light light-bg" + randomBackground;
     document.body.classList = combinedBodyClass;
-    localDark = isDark;
     JSON.stringify(localStorage.setItem("isAppDark", isDark));
   }, [isDark]);
 
