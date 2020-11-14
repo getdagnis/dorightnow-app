@@ -57,7 +57,7 @@ function TaskAdd(props) {
             name="task"
             rows="3"
             ref={(e) => {
-              register(e, { required: true, max: 140, min: 1, maxLength: 140 });
+              register(e, { required: true, max: 140, min: 1, maxLength: 300 });
               ref.current = e;
             }}
           />
@@ -65,11 +65,11 @@ function TaskAdd(props) {
             className="task-input"
             autoComplete="off"
             type="text"
-            placeholder="Motivation, e.g., €300, trip to Italy, avoid a punch in the face"
+            placeholder="Motivation – €300, trip to Italy, avoid a punch in the face"
             name="motivation"
             ref={register({ max: 3, min: 1, maxLength: 140 })}
           />
-          Select category (optional):
+          Select category (or create a new one):
           <select
             className="task-input cat-select"
             name="category"
@@ -87,7 +87,7 @@ function TaskAdd(props) {
             type="radio"
             value="none"
             ref={register}
-            checked
+            defaultChecked
           />
           <input name="color" type="radio" value="salmon" ref={register} />
           <input name="color" type="radio" value="olive" ref={register} />

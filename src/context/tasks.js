@@ -1,7 +1,7 @@
 export const fetchedTasks =
   localStorage.getItem("dorightnowTasks") &&
   typeof JSON.parse(localStorage.getItem("dorightnowTasks")) === "object" &&
-  JSON.parse(localStorage.getItem("dorightnowTasks")).length > 1
+  JSON.parse(localStorage.getItem("dorightnowTasks")).length > 0
     ? JSON.parse(localStorage.getItem("dorightnowTasks"))
     : [];
 

@@ -22,6 +22,8 @@ export default function reducer(state, action) {
       };
     case "DELETE_TASK":
       const deletedTasks = state.tasks.filter((t) => t.id !== action.payload);
+      console.log("deletedTasks", deletedTasks);
+      localStorage.setItem("dorightnowTasks", JSON.stringify(deletedTasks));
 
       return {
         ...state,
@@ -30,7 +32,7 @@ export default function reducer(state, action) {
     case "SET_CURRENT_TASK":
       return {
         ...state,
-        currentTask: action.payload,
+        currentTask: action.payload.id,
       };
     case "UPDATE_TASK":
       const updatedTask = {

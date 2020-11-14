@@ -49,7 +49,7 @@
   text-align: left;
   color: var(--textColorTwo);
   background: #00000011;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.06) inset;
   outline: none;
   resize: none;
   caret-color: var(--colorRed);
