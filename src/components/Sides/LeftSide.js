@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import TaskList from "../TaskList/TaskList";
 import TaskAdd from "../TaskAdd/TaskAdd";
@@ -10,7 +10,15 @@ import { TasksContext } from "../../context/context";
 const LeftSide = () => {
   const { state, dispatch } = useContext(TasksContext);
   const [addTask, setAddTask] = useState(false);
-  const tasks = state.tasks;
+  const { tasks, justDeleted } = state;
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      dispatch({ type: "REMOVE_JUSTDELETED" });
+    }, 5000);
+
+    return () => clearTimeout(timeout);
+  }, [justDeleted]);
 
   return (
     <React.Fragment>
@@ -36,16 +44,18 @@ const LeftSide = () => {
             />
           </div>
         </div>
+
         <TaskList tasks={tasks} />
-        {
-          // <div className="safari-flex-height-fix">
-          //   <div className="side-top">
-          //     <h3 className="side-top-h3">Coming soon...</h3>
-          //     <ButtonSmall title="add new" color="grey" />
-          //   </div>
-          // </div>
-          // <TaskList tasks={tasks} />
-        }
+
+        {justDeleted ? (
+          <div className="undo-btn">
+            <ButtonSmall
+              onClick={() => dispatch({ type: "UNDELETE_TASK" })}
+              title="Undo last deleted"
+              color="grey"
+            />
+          </div>
+        ) : null}
       </div>
     </React.Fragment>
   );

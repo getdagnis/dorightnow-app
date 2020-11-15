@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { useForm } from "react-hook-form";
 
@@ -12,8 +12,7 @@ function TaskAdd(props) {
   let { clickHandle } = props;
   // Tutorial: https://www.youtube.com/watch?v=HERhqPlPyuY&list=PL_kAgwZgMfWx4JwTmreX_riVEor7jgnso
   // Github: https://github.com/rivera1294/react-notes-app/tree/master/src/components
-  const { state, dispatch } = useContext(TasksContext);
-  const [value, setValue] = useState("");
+  const { dispatch } = useContext(TasksContext);
 
   let ref = useRef();
 
@@ -21,28 +20,13 @@ function TaskAdd(props) {
     ref.current.focus();
   });
 
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (value.trim() === "") {
-  //     alert("Cannot add a blank task");
-  //   } else {
-  //     dispatch({ type: "ADD_TASK", payload: value });
-  //     setValue("");
-  //     clickHandle();
-  //   }
-  // };
   // FORM HANDLING BY REACT-HOOK-FORM
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     dispatch({ type: "ADD_TASK", payload: data });
-    setValue("");
     clickHandle();
   };
-  console.log(errors);
+  console.log("task adding errors", errors);
 
   return (
     <React.Fragment>

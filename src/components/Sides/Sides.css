@@ -80,6 +80,23 @@
   border-top: var(--textColor) 7px solid;
 }
 
+.undo-btn {
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px 0 24px;
+  left: 0;
+  bottom: 0;
+  width: 28vw;
+  min-width: 320px;
+  max-width: 440px;
+  box-sizing: border-box;
+  height: fit-content;
+  z-index: 3;
+  animation: btnFadeIn 5s ease;
+}
+
 .side:hover {
   overflow-y: overlay;
 }
@@ -121,5 +138,20 @@
 @media (max-height: 900px) {
   .side {
     top: 45px;
+  }
+}
+
+@keyframes btnFadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

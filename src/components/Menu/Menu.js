@@ -10,6 +10,9 @@ function Menu(props) {
         <Link to="/">
           <li className="menu-list">Tasks</li>
         </Link>
+        <Link to="/following">
+          <li className="menu-list">Following</li>
+        </Link>
         <Link to="/settings">
           <li className="menu-list">Settings</li>
         </Link>

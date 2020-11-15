@@ -1,10 +1,10 @@
 import React from "react";
+
 import "./TaskList.css";
 import Task from "../Task/Task";
 
 const TaskList = (props) => {
   const { tasks, listType } = props;
-  console.log(tasks);
   return (
     <div className="task-list">
       {tasks && tasks.length > 0 ? (

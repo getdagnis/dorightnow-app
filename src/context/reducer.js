@@ -20,20 +20,47 @@ export default function reducer(state, action) {
         ...state,
         tasks: addedTasks,
       };
+
     case "DELETE_TASK":
-      const deletedTasks = state.tasks.filter((t) => t.id !== action.payload);
-      console.log("deletedTasks", deletedTasks);
-      localStorage.setItem("dorightnowTasks", JSON.stringify(deletedTasks));
+      const nondeletedTasks = state.tasks.filter(
+        (t) => t.id !== action.payload
+      );
+      const deletedTask = state.tasks.filter((t) => t.id === action.payload)[0];
+      localStorage.setItem("dorightnowTasks", JSON.stringify(nondeletedTasks));
+      localStorage.setItem("deletedTask", JSON.stringify(deletedTask));
+      console.log(deletedTask);
 
       return {
         ...state,
-        tasks: deletedTasks,
+        tasks: nondeletedTasks,
+        deletedTask: deletedTask,
+        justDeleted: true,
       };
+
+    case "UNDELETE_TASK":
+      const lastDeletedTask = state.deletedTask;
+      const restoredTasks = [...state.tasks, lastDeletedTask];
+
+      return {
+        ...state,
+        tasks: restoredTasks,
+        justDeleted: false,
+      };
+
+    case "REMOVE_JUSTDELETED":
+      console.log(state.justDeleted);
+
+      return {
+        ...state,
+        justDeleted: false,
+      };
+
     case "SET_CURRENT_TASK":
       return {
         ...state,
         currentTask: action.payload.id,
       };
+
     case "UPDATE_TASK":
       const updatedTask = {
         ...state.currentTask,
@@ -53,6 +80,15 @@ export default function reducer(state, action) {
       return {
         currentTask: null,
         tasks: updatedTasks,
+      };
+
+    case "CLEANUP_TASKS":
+      const cleanedTasks = state.tasks.filter((t) => t.id && t.id.length > 1);
+      localStorage.setItem("dorightnowTasks", JSON.stringify(cleanedTasks));
+
+      return {
+        ...state,
+        tasks: cleanedTasks,
       };
     default:
       return state;

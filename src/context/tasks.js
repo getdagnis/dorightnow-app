@@ -5,6 +5,13 @@ export const fetchedTasks =
     ? JSON.parse(localStorage.getItem("dorightnowTasks"))
     : [];
 
+export const deletedTask =
+  localStorage.getItem("deletedTask") &&
+  typeof JSON.parse(localStorage.getItem("deletedTask")) === "object" &&
+  JSON.parse(localStorage.getItem("deletedTask")).length > 0
+    ? JSON.parse(localStorage.getItem("deletedTask"))
+    : [];
+
 // export const done =
 //   localStorage.getItem("dorightnowDoneTasks") &&
 //   typeof JSON.parse(localStorage.getItem("dorightnowDoneTasks")) === "object" &&
