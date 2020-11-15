@@ -20,6 +20,15 @@ const LeftSide = () => {
     return () => clearTimeout(timeout);
   }, [justDeleted]);
 
+  useEffect(() => {
+    function onKeyup(e) {
+      if (e.key === "n" || e.key === "N") setAddTask(true);
+      if (e.key === "Escape") setAddTask(false);
+    }
+    window.addEventListener("keyup", onKeyup);
+    return () => window.removeEventListener("keyup", onKeyup);
+  }, []);
+
   return (
     <React.Fragment>
       {addTask ? (
@@ -53,6 +62,7 @@ const LeftSide = () => {
               onClick={() => dispatch({ type: "UNDELETE_TASK" })}
               title="Undo last deleted"
               color="grey"
+              size="large"
             />
           </div>
         ) : null}

@@ -94,7 +94,7 @@
   box-sizing: border-box;
   height: fit-content;
   z-index: 3;
-  animation: btnFadeIn 5s ease;
+  animation: btnFadeIn 5.2s ease;
 }
 
 .side:hover {

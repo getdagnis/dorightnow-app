@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { isMobile } from "react-device-detect";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 
 import "./TaskAdd.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
@@ -10,8 +10,6 @@ import quickIcon from "./quick.svg";
 
 function TaskAdd(props) {
   let { clickHandle } = props;
-  // Tutorial: https://www.youtube.com/watch?v=HERhqPlPyuY&list=PL_kAgwZgMfWx4JwTmreX_riVEor7jgnso
-  // Github: https://github.com/rivera1294/react-notes-app/tree/master/src/components
   const { dispatch } = useContext(TasksContext);
 
   let ref = useRef();
@@ -21,12 +19,30 @@ function TaskAdd(props) {
   });
 
   // FORM HANDLING BY REACT-HOOK-FORM
-  const { register, handleSubmit, errors } = useForm();
+  const { register, control, handleSubmit, errors } = useForm();
+
+  const { append } = useFieldArray({
+    control,
+    name: "test",
+  });
+
   const onSubmit = (data) => {
+    console.log("submit data", data);
     dispatch({ type: "ADD_TASK", payload: data });
     clickHandle();
   };
   console.log("task adding errors", errors);
+
+  const handleUserKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSubmit(onSubmit)();
+    }
+  };
+
+  function doLaterAction(e) {
+    console.log("do later event", e);
+    // handleSubmit(onSubmit)();
+  }
 
   return (
     <React.Fragment>
@@ -40,8 +56,9 @@ function TaskAdd(props) {
             placeholder="Add a new task..."
             name="task"
             rows="3"
+            onKeyPress={handleUserKeyPress}
             ref={(e) => {
-              register(e, { required: true, max: 140, min: 1, maxLength: 300 });
+              register(e, { required: true, max: 140, min: 1, maxLength: 600 });
               ref.current = e;
             }}
           />
@@ -51,7 +68,7 @@ function TaskAdd(props) {
             type="text"
             placeholder="Motivation – €300, trip to Italy, avoid a punch in the face"
             name="motivation"
-            ref={register({ max: 3, min: 1, maxLength: 140 })}
+            ref={register({ maxLength: 420 })}
           />
           Select category (or create a new one):
           <select
@@ -59,12 +76,12 @@ function TaskAdd(props) {
             name="category"
             ref={register}
           >
-            Select color (optional):
-            <option value="None">None</option>
-            <option value="Home">Home</option>
-            <option value="Work">Work</option>
-            <option value="Andis">Andis</option>
-            <option value="Mārcis">Mārcis</option>
+            Select category (optional):
+            <option value="none">None</option>
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="andis">Andis</option>
+            <option value="marcis">Mārcis</option>
           </select>
           <input
             name="color"
@@ -83,20 +100,24 @@ function TaskAdd(props) {
               onClick={clickHandle}
               title="Cancel"
               color="grey"
-              size={isMobile ? "btn-size-mobile" : "btn-size-large"}
+              size={isMobile ? "mobile" : "large"}
             />
             <ButtonSmall
-              type="submit"
+              onClick={() => {
+                append({ list: "later" });
+                doLaterAction();
+              }}
               title="Do later"
               color="grey"
-              size={isMobile ? "btn-size-mobile" : "btn-size-large"}
+              size={isMobile ? "mobile" : "large"}
               icon={turtleIcon}
             />
             <ButtonSmall
+              // onClick={handleSubmit(onSubmit())}
               type="submit"
               title="Do today"
               color="red"
-              size={isMobile ? "btn-size-mobile" : "btn-size-large"}
+              size={isMobile ? "mobile" : "large"}
               icon={quickIcon}
             />
           </div>

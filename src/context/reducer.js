@@ -10,6 +10,7 @@ export default function reducer(state, action) {
         category: action.payload.category,
         motivation: action.payload.motivation,
         color: action.payload.color,
+        list: action.payload.list || "today",
       };
 
       const addedTasks = [...state.tasks, newTask];
@@ -40,6 +41,7 @@ export default function reducer(state, action) {
     case "UNDELETE_TASK":
       const lastDeletedTask = state.deletedTask;
       const restoredTasks = [...state.tasks, lastDeletedTask];
+      localStorage.setItem("dorightnowTasks", JSON.stringify(restoredTasks));
 
       return {
         ...state,

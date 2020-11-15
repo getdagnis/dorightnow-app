@@ -18,7 +18,7 @@ function App() {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const { tasks } = state;
 
-  // DELETES ANY TASKS THAT DON'T HAVE AN ID
+  // DELETES ANY TASKS THAT DON'T HAVE AN ID (DEV MODE USAGE)
   // useEffect(() => {
   //   dispatch({ type: "CLEANUP_TASKS" });
   // });
@@ -40,9 +40,7 @@ function App() {
             <Route path="/about" component={AboutPage} />
             <Route path="/account" component={AccountPage} />
             <Route path="/settings" component={SettingsPage} />
-            <Route exact path="/">
-              <HomePage tasks={tasks} />
-            </Route>
+            <Route exact path="/" component={HomePage}></Route>
           </Switch>
         </div>
       </Router>

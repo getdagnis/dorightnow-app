@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   width: auto;
-  padding: 20px 12px;
-  margin: 2px 0 8px;
+  padding: 16px 6px 16px 12px;
+  margin: 2px 0 6px;
   border-radius: 8px;
   text-align: left;
   color: var(--textColor);

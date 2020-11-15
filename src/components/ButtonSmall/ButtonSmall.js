@@ -4,7 +4,7 @@ import "./ButtonSmall.css";
 const ButtonSmall = (props) => {
   const { title, color, size, onClick, icon, type } = props;
   let classList = "btn-small btn-" + color;
-  classList = size ? classList.concat(" " + size) : classList;
+  classList = size ? classList.concat(" btn-size-" + size) : classList;
   return (
     <button type={type} onClick={onClick} className={classList}>
       {icon ? (

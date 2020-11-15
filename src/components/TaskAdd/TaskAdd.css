@@ -54,6 +54,7 @@
   resize: none;
   caret-color: var(--colorRed);
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .task-input:focus {
