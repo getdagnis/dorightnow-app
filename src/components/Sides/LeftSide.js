@@ -12,6 +12,7 @@ const LeftSide = () => {
   const [addTask, setAddTask] = useState(false);
   const { tasks, justDeleted } = state;
 
+  // REMOVES THE "UNDO LAST DELETED" BUTTON AFTER TIMEOUT
   useEffect(() => {
     const timeout = setTimeout(() => {
       dispatch({ type: "REMOVE_JUSTDELETED" });

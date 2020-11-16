@@ -16,7 +16,6 @@ import tasksReducer from "./context/reducer";
 function App() {
   const initialState = useContext(TasksContext);
   const [state, dispatch] = useReducer(tasksReducer, initialState);
-  const { tasks } = state;
 
   // DELETES ANY TASKS THAT DON'T HAVE AN ID (DEV MODE USAGE)
   // useEffect(() => {
@@ -27,7 +26,6 @@ function App() {
     "local storage tasks",
     JSON.parse(localStorage.getItem("dorightnowTasks"))
   );
-  console.log("last deleted task:", state.deletedTask.task);
 
   return (
     <TasksContext.Provider value={{ state, dispatch }}>

@@ -6,7 +6,6 @@ function Menu(props) {
   let { isOpen, handleClick } = props;
 
   const location = useLocation().pathname;
-  console.log(location);
 
   return (
     <div className={isOpen ? "menu slideIn" : "menu slideOut"}>

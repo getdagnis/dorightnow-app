@@ -26,10 +26,6 @@ function Topbar() {
     JSON.stringify(localStorage.setItem("isAppDark", isDark));
   }, [isDark]);
 
-  useEffect(() => {
-    console.log("menu open", menuOpen);
-  }, [menuOpen]);
-
   return (
     <nav className="topbar">
       <div className="top-left">

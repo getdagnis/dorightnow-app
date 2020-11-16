@@ -29,7 +29,6 @@ export default function reducer(state, action) {
       const deletedTask = state.tasks.filter((t) => t.id === action.payload)[0];
       localStorage.setItem("dorightnowTasks", JSON.stringify(nondeletedTasks));
       localStorage.setItem("deletedTask", JSON.stringify(deletedTask));
-      console.log(deletedTask);
 
       return {
         ...state,
@@ -50,8 +49,6 @@ export default function reducer(state, action) {
       };
 
     case "REMOVE_JUSTDELETED":
-      console.log(state.justDeleted);
-
       return {
         ...state,
         justDeleted: false,
