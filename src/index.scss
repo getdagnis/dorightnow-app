@@ -18,16 +18,18 @@ code {
 :root {
   font-size: 1rem;
 
+  --cat0: #667;
+  --cat0transp: #66667799;
   --catA: rgb(0, 110, 124);
-  --catAtransp: rgba(0, 128, 128, 0.9);
+  --catAtransp: rgba(0, 110, 124, 0.6);
   --catB: rgb(101, 126, 35);
-  --catBtransp: rgba(128, 128, 0, 0.9);
+  --catBtransp: rgba(101, 126, 35, 0.6);
   --catC: rgb(216, 93, 56);
-  --catCtransp: rgba(250, 128, 114, 0.9);
+  --catCtransp: rgba(216, 93, 56, 0.6);
   --catD: rgb(151, 146, 93);
-  --catDtransp: rgba(238, 232, 170, 0.9);
-  --catE: rgb(110, 60, 139);
-  --catEtransp: rgba(238, 232, 170, 0.9);
+  --catDtransp: rgba(151, 146, 93, 0.6);
+  --catE: rgb(77, 45, 102);
+  --catEtransp: rgba(77, 45, 102, 0.6);
 }
 
 // This chunk of code is not used anymore.
@@ -56,8 +58,7 @@ $lightNth: nth($lightList, $imgKey);
   --bgTaskEdit: #30323bea;
   --bgTaskDone: #262835ea;
   --bgGreyButton: #62627099;
-  --bgMainTaskEmpty: none;
-  --bgNewTask: #7d7f9177;
+  --bgNewTask: #595b6ecc;
   --bgNewTaskCover: #22232cbb;
   --bgTextarea: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;

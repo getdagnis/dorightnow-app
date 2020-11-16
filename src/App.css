@@ -31,7 +31,7 @@ body {
   text-align: center;
   background: var(--bgMainTaskEmpty);
   padding: 18px 42px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .empty-h1 {

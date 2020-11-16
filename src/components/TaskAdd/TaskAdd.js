@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 
@@ -11,6 +11,7 @@ import quickIcon from "./quick.svg";
 function TaskAdd(props) {
   let { clickHandle } = props;
   const { dispatch } = useContext(TasksContext);
+  const [showOptions, setShowOptions] = useState(false);
 
   let ref = useRef();
 
@@ -49,9 +50,9 @@ function TaskAdd(props) {
       <div className="new-task">
         <h2 className="no-tasks no-tasks-bigger">Add something to do...</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="new-task-form" onSubmit={handleSubmit(onSubmit)}>
           <textarea
-            className="task-input"
+            className="textarea task-input"
             type="text"
             placeholder="Add a new task..."
             name="task"
@@ -62,64 +63,99 @@ function TaskAdd(props) {
               ref.current = e;
             }}
           />
-          <input
-            className="task-input"
-            autoComplete="off"
-            type="text"
-            placeholder="Motivation – €300, trip to Italy, avoid a punch in the face"
-            name="motivation"
-            ref={register({ maxLength: 420 })}
-          />
-          Select category (or create a new one):
-          <select
-            className="task-input cat-select"
-            name="category"
-            ref={register}
-          >
-            Select category (optional):
-            <option value="none">None</option>
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="andis">Andis</option>
-            <option value="marcis">Mārcis</option>
-          </select>
-          <input
-            name="color"
-            type="radio"
-            value="none"
-            ref={register}
-            defaultChecked
-          />
-          <input name="color" type="radio" value="salmon" ref={register} />
-          <input name="color" type="radio" value="olive" ref={register} />
-          <input name="color" type="radio" value="blue" ref={register} />
-          <input name="color" type="radio" value="gold" ref={register} />
-          <input name="color" type="radio" value="purple" ref={register} />
-          <div className="add-task-btns">
-            <ButtonSmall
-              onClick={clickHandle}
-              title="Cancel"
-              color="grey"
-              size={isMobile ? "mobile" : "large"}
-            />
-            <ButtonSmall
+          {showOptions ? (
+            <div>
+              <h3 className="form-h3">Motivation to finish:</h3>
+              <input
+                className="task-input"
+                autoComplete="off"
+                type="text"
+                placeholder="€300, trip to Italy, avoid a punch in the face..."
+                name="motivation"
+                ref={register({ maxLength: 420 })}
+              />
+              <h3 className="form-h3">Select a category:</h3>
+              <div className="form-category">
+                <select
+                  className="task-input cat-select"
+                  name="category"
+                  ref={register}
+                >
+                  <option value="none">None</option>
+                  <option value="home">Home</option>
+                  <option value="work">Work</option>
+                  <option value="andis">Andis</option>
+                  <option value="marcis">Mārcis</option>
+                </select>
+                <div className="new-cat">Create New</div>
+              </div>
+              <h3 className="form-h3">Select color:</h3>
+              <div className="form-radio-btns">
+                <span className="form-radio cat-0">
+                  <input
+                    name="color"
+                    type="radio"
+                    value="0"
+                    ref={register}
+                    defaultChecked
+                  />
+                </span>
+                <span className="form-radio cat-a">
+                  <input name="color" type="radio" value="a" ref={register} />
+                </span>
+                <span className="form-radio cat-b">
+                  <input name="color" type="radio" value="b" ref={register} />
+                </span>
+                <span className="form-radio cat-c">
+                  <input name="color" type="radio" value="c" ref={register} />
+                </span>
+                <span className="form-radio cat-d">
+                  <input name="color" type="radio" value="d" ref={register} />
+                </span>
+                <span className="form-radio cat-e">
+                  <input name="color" type="radio" value="e" ref={register} />
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div
+              className="show-options"
               onClick={() => {
-                append({ list: "later" });
-                doLaterAction();
+                setShowOptions(!showOptions);
               }}
-              title="Do later"
-              color="grey"
-              size={isMobile ? "mobile" : "large"}
-              icon={turtleIcon}
-            />
-            <ButtonSmall
-              // onClick={handleSubmit(onSubmit())}
-              type="submit"
-              title="Do today"
-              color="red"
-              size={isMobile ? "mobile" : "large"}
-              icon={quickIcon}
-            />
+            >
+              + Show optional details
+            </div>
+          )}
+          <div className="add-task-btns">
+            <div className="task-btns-left">
+              <ButtonSmall
+                onClick={clickHandle}
+                title="Cancel"
+                color="grey"
+                size={isMobile ? "mobile" : "large"}
+              />
+            </div>
+            <div className="task-btns-right">
+              <ButtonSmall
+                onClick={() => {
+                  append({ list: "later" });
+                  doLaterAction();
+                }}
+                title="Do later"
+                color="grey"
+                size={isMobile ? "mobile" : "large"}
+                icon={turtleIcon}
+              />
+              <ButtonSmall
+                // onClick={handleSubmit(onSubmit())}
+                type="submit"
+                title="Do today"
+                color="red"
+                size={isMobile ? "mobile" : "large"}
+                icon={quickIcon}
+              />
+            </div>
           </div>
         </form>
       </div>

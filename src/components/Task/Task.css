@@ -6,7 +6,7 @@
   width: auto;
   padding: 16px 6px 16px 12px;
   margin: 2px 0 6px;
-  border-radius: 8px;
+  border-radius: 4px;
   text-align: left;
   color: var(--textColor);
   box-sizing: border-box;
@@ -54,7 +54,7 @@
   background: var(--bgTaskEdit);
   top: 0;
   left: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   opacity: 0;
   transition: all 0.2s ease;
 }
@@ -94,32 +94,44 @@
   right: 7px;
   width: 10px;
   height: 10px;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
-.cat-a {
-  background: var(--catA);
+.cat-0 {
+  background: var(--cat0transp);
 }
-.cat-a:hover {
+.cat-0:hover {
+  background: var(--cat0);
+}
+.cat-a {
   background: var(--catAtransp);
 }
-.cat-b {
-  background: var(--catB);
+.cat-a:hover {
+  background: var(--catA);
 }
-.cat-b:hover {
+.cat-b {
   background: var(--catBtransp);
 }
-.cat-c {
-  background: var(--catC);
+.cat-b:hover {
+  background: var(--catB);
 }
-.cat-c:hover {
+.cat-c {
   background: var(--catCtransp);
 }
+.cat-c:hover {
+  background: var(--catC);
+}
 .cat-d {
+  background: var(--catDtransp);
+}
+.cat-d:hover {
   background: var(--catD);
 }
-.cat-c:hover {
-  background: var(--catDtransp);
+.cat-e {
+  background: var(--catEtransp);
+}
+.cat-e:hover {
+  background: var(--catE);
 }
 
 .green-task {
