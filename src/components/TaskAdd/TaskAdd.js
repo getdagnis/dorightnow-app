@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { isMobile } from "react-device-detect";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 
 import "./TaskAdd.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
@@ -45,7 +45,7 @@ function TaskAdd(props) {
   }
 
   return (
-    <React.Fragment>
+    <FormProvider>
       <div className="new-task">
         <h2 className="no-tasks no-tasks-bigger">Add something to do...</h2>
 
@@ -124,7 +124,7 @@ function TaskAdd(props) {
         </form>
       </div>
       <div className="new-task-cover"></div>
-    </React.Fragment>
+    </FormProvider>
   );
 }
 

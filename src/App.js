@@ -38,7 +38,7 @@ function App() {
             <Route path="/about" component={AboutPage} />
             <Route path="/account" component={AccountPage} />
             <Route path="/settings" component={SettingsPage} />
-            <Route exact path="/" component={HomePage}></Route>
+            <Route path="/" component={HomePage}></Route>
           </Switch>
         </div>
       </Router>

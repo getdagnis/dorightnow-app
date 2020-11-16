@@ -173,8 +173,14 @@ body {
   }
 
   .wrapper {
-    width: unset;
-    height: unset;
+    width: 100vw;
+    height: auto;
+    overflow: visible;
+  }
+
+  .undo-btn {
+    position: relative;
+    transform: translateX(8%);
   }
 
   .main-task {
