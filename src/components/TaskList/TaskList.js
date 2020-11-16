@@ -24,7 +24,7 @@ const TaskList = (props) => {
       ) : listType === "done" ? (
         <h3 className="no-tasks">Nothing done today</h3>
       ) : (
-        <h3 className="no-tasks">no tasks added</h3>
+        <h3 className="no-tasks">No tasks added</h3>
       )}
     </div>
   );
