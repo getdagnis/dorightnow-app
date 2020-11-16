@@ -10,16 +10,7 @@ const TaskList = (props) => {
       {tasks && tasks.length > 0 ? (
         tasks.map((t) => {
           let delay = tasks.indexOf(t) + 2;
-          return (
-            <Task
-              key={t.id}
-              id={t.id}
-              type={t.type}
-              delay={delay}
-              task={t.task}
-              cat={t.cat}
-            />
-          );
+          return <Task key={t.id} delay={delay} task={t} />;
         })
       ) : listType === "done" ? (
         <h3 className="no-tasks">Nothing done today</h3>

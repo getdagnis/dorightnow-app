@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
 import { MobileView, isMobile } from "react-device-detect";
 
+import { TasksContext } from "../../context/context";
+
 import "./Task.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
-import { TasksContext } from "../../context/context";
+import TaskAdd from "../TaskAdd/TaskAdd";
 
 const Task = (props) => {
   const { dispatch } = useContext(TasksContext);
-
+  const [editTask, setEditTask] = useState(false);
   const [mobileTaskEditOpen, setMobileTaskEditOpen] = useState(false);
 
-  const { task, type, cat, delay, id } = props;
+  const { task, type, cat, id } = props.task;
+  const { delay } = props;
   const categoryClasses = "cat cat-" + cat;
   const catColor = cat ? cat : "red";
   let taskClasses = "task " + type;
@@ -46,7 +49,13 @@ const Task = (props) => {
       {!isMobile && type === "todo" ? (
         <div className="task-edit">
           <div className="task-btns">
-            <ButtonSmall title="edit" color="grey" />
+            <ButtonSmall
+              onClick={() => {
+                setEditTask(true);
+              }}
+              title="edit"
+              color="grey"
+            />
             <ButtonSmall title="do later" color="grey" />
             <ButtonSmall title="do now" color={catColor} />
           </div>
@@ -57,6 +66,15 @@ const Task = (props) => {
             className="task-btn-delete"
           ></div>
         </div>
+      ) : null}
+      {editTask ? (
+        <TaskAdd
+          taskEdit="true"
+          thisTask={props.task}
+          clickHandle={() => {
+            setEditTask(false);
+          }}
+        />
       ) : null}
     </div>
   );

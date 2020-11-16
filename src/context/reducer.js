@@ -61,23 +61,28 @@ export default function reducer(state, action) {
       };
 
     case "UPDATE_TASK":
-      const updatedTask = {
-        ...state.currentTask,
-        text: action.payload,
-      };
-
       const updatedTasksIndex = state.tasks.findIndex(
-        (note) => note.id === state.currentTask.id
+        (t) => t.id === action.payload.taskId
       );
+      const currentTask = state.tasks[updatedTasksIndex];
+      currentTask.task =
+        action.payload.data.task.length > 0
+          ? action.payload.data.task
+          : currentTask.task;
+      currentTask.motivation =
+        action.payload.data.motivation.length > 0
+          ? action.payload.data.motivation
+          : currentTask.motivation;
 
       const updatedTasks = [
         ...state.tasks.slice(0, updatedTasksIndex),
-        updatedTask,
+        currentTask,
         ...state.tasks.slice(updatedTasksIndex + 1),
       ];
 
+      localStorage.setItem("dorightnowTasks", JSON.stringify(updatedTasks));
+
       return {
-        currentTask: null,
         tasks: updatedTasks,
       };
 

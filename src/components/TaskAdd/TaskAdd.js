@@ -2,22 +2,26 @@ import React, { useContext, useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 
-import "./TaskAdd.css";
-import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import { TasksContext } from "../../context/context";
+import "./TaskAdd.css";
 import turtleIcon from "./turtle.svg";
 import quickIcon from "./quick.svg";
 
+import ButtonSmall from "../ButtonSmall/ButtonSmall";
+
 function TaskAdd(props) {
-  let { clickHandle } = props;
+  let { clickHandle, taskEdit, thisTask, showTip } = props;
   const { dispatch } = useContext(TasksContext);
   const [showOptions, setShowOptions] = useState(false);
+
+  const showKeyboardTip =
+    localStorage.getItem("showKeyboardTip") === "off" ? false : false; // TURNED OFF!!! FOR NOW...
 
   let ref = useRef();
 
   useEffect(() => {
     ref.current.focus();
-  });
+  }, []);
 
   // FORM HANDLING BY REACT-HOOK-FORM
   const { register, control, handleSubmit, errors } = useForm();
@@ -32,11 +36,21 @@ function TaskAdd(props) {
     dispatch({ type: "ADD_TASK", payload: data });
     clickHandle();
   };
-  console.log("task adding errors", errors);
+
+  const onEdit = (data) => {
+    console.log("submit data", data);
+    dispatch({
+      type: "UPDATE_TASK",
+      payload: { data, taskId: thisTask.id },
+    });
+    clickHandle();
+  };
 
   const handleUserKeyPress = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (!taskEdit && e.key === "Enter" && !e.shiftKey) {
       handleSubmit(onSubmit)();
+    } else if (taskEdit && e.key === "Enter" && !e.shiftKey) {
+      handleSubmit(onEdit)();
     }
   };
 
@@ -48,33 +62,41 @@ function TaskAdd(props) {
   return (
     <FormProvider>
       <div className="new-task">
-        <h2 className="no-tasks no-tasks-bigger">Add something to do...</h2>
+        <h2 className="no-tasks no-tasks-bigger">
+          {taskEdit ? "Edit this task..." : "Add something to do..."}
+        </h2>
 
-        <form className="new-task-form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="new-task-form"
+          onSubmit={taskEdit ? handleSubmit(onEdit) : handleSubmit(onSubmit)}
+        >
           <textarea
             className="textarea task-input"
             type="text"
             placeholder="Add a new task..."
             name="task"
             rows="3"
+            defaultValue={taskEdit ? thisTask.task : undefined}
             onKeyPress={handleUserKeyPress}
             ref={(e) => {
               register(e, { required: true, max: 140, min: 1, maxLength: 600 });
               ref.current = e;
             }}
           />
-          {showOptions ? (
+          {showOptions || taskEdit ? (
             <div>
-              <h3 className="form-h3">Motivation to finish:</h3>
+              <h3 className="form-h3">Motivation to finish (optional):</h3>
               <input
                 className="task-input"
                 autoComplete="off"
                 type="text"
-                placeholder="€300, trip to Italy, avoid a punch in the face..."
+                defaultValue={taskEdit ? thisTask.motivation : ""}
+                onKeyPress={handleUserKeyPress}
+                placeholder="Motivation – €300, trip to Italy, avoid a punch in the face..."
                 name="motivation"
                 ref={register({ maxLength: 420 })}
               />
-              <h3 className="form-h3">Select a category:</h3>
+              <h3 className="form-h3">Select a category (optional):</h3>
               <div className="form-category">
                 <select
                   className="task-input cat-select"
@@ -84,12 +106,11 @@ function TaskAdd(props) {
                   <option value="none">None</option>
                   <option value="home">Home</option>
                   <option value="work">Work</option>
-                  <option value="andis">Andis</option>
-                  <option value="marcis">Mārcis</option>
+                  <option value="andis">Friends & Family</option>
                 </select>
                 <div className="new-cat">Create New</div>
               </div>
-              <h3 className="form-h3">Select color:</h3>
+              <h3 className="form-h3">Select a color (optional):</h3>
               <div className="form-radio-btns">
                 <span className="form-radio cat-0">
                   <input
@@ -137,98 +158,49 @@ function TaskAdd(props) {
               />
             </div>
             <div className="task-btns-right">
-              <ButtonSmall
-                onClick={() => {
-                  append({ list: "later" });
-                  doLaterAction();
-                }}
-                title="Do later"
-                color="grey"
-                size={isMobile ? "mobile" : "large"}
-                icon={turtleIcon}
-              />
-              <ButtonSmall
-                // onClick={handleSubmit(onSubmit())}
-                type="submit"
-                title="Do today"
-                color="red"
-                size={isMobile ? "mobile" : "large"}
-                icon={quickIcon}
-              />
+              {taskEdit ? (
+                <ButtonSmall
+                  onClick={() => {
+                    handleSubmit(onEdit)();
+                  }}
+                  title="Save edited"
+                  color="red"
+                  size={isMobile ? "mobile" : "large"}
+                />
+              ) : (
+                <React.Fragment>
+                  <ButtonSmall
+                    onClick={() => {
+                      doLaterAction();
+                    }}
+                    title="Do later"
+                    color="grey"
+                    size={isMobile ? "mobile" : "large"}
+                    icon={turtleIcon}
+                  />
+                  <ButtonSmall
+                    // onClick={handleSubmit(onSubmit())}
+                    type="submit"
+                    title="Do today"
+                    color="red"
+                    size={isMobile ? "mobile" : "large"}
+                    icon={quickIcon}
+                  />
+                </React.Fragment>
+              )}
             </div>
           </div>
         </form>
       </div>
-      <div className="new-task-cover"></div>
+      <div className="new-task-cover">
+        {showKeyboardTip && showTip && !taskEdit ? (
+          <p className="form-tip">
+            Tip: Press "N" or "Shift+N" to open this form with your keyboard.
+          </p>
+        ) : null}
+      </div>
     </FormProvider>
   );
 }
 
 export default TaskAdd;
-
-// <div className="new-task-form">
-// <form onSubmit={handleSubmit} action="">
-//   <input
-//     type="text"
-//     ref={ref}
-//     onChange={handleChange}
-//     value={value}
-//   />
-//   <button>Add task</button>
-// </form>
-// </div>
-
-// <textarea
-// name="task-text"
-// id="task-text"
-// placeholder="What do you want to do?"
-// ></textarea>
-// <table className="task-table">
-// <tbody>
-//   <tr>
-//     <td className="name-cell">motivation:</td>
-//     <td>
-//       <div className="tags-main" data-name="tags-input">
-//         <input className="tags-input" type="text" />
-//       </div>
-//     </td>
-//   </tr>
-//   <tr>
-//     <td className="name-cell">cathegory:</td>
-//     <td>
-//       <select>
-//         <option value="15 minutes" selected>
-//           No cathegories added
-//         </option>
-//       </select>
-//     </td>
-//   </tr>
-//   <tr>
-//     <td className="name-cell">color:</td>
-//     <td>
-//       <div className="color-cell">
-//         <span
-//           id="grey-color"
-//           className="pick-color grey-task active-color"
-//           onclick="javascript:color();"
-//         ></span>
-//         <span
-//           id="blue-color"
-//           className="pick-color cath-a"
-//           onclick="javascript:color();"
-//         ></span>
-//         <span
-//           id="green-color"
-//           className="pick-color cath-b"
-//           onclick="javascript:color();"
-//         ></span>
-//         <span
-//           id="pink-color"
-//           className="pick-color cath-c"
-//           onclick="javascript:color();"
-//         ></span>
-//       </div>
-//     </td>
-//   </tr>
-// </tbody>
-// </table>

@@ -11,6 +11,7 @@ const LeftSide = () => {
   const { state, dispatch } = useContext(TasksContext);
   const [addTask, setAddTask] = useState(false);
   const { tasks, justDeleted } = state;
+  let showTip = true;
 
   // REMOVES THE "UNDO LAST DELETED" BUTTON AFTER TIMEOUT
   useEffect(() => {
@@ -21,14 +22,18 @@ const LeftSide = () => {
     return () => clearTimeout(timeout);
   }, [justDeleted]);
 
-  useEffect(() => {
-    function onKeyup(e) {
-      if (e.key === "n" || e.key === "N") setAddTask(true);
-      if (e.key === "Escape") setAddTask(false);
-    }
-    window.addEventListener("keyup", onKeyup);
-    return () => window.removeEventListener("keyup", onKeyup);
-  }, []);
+  // useEffect(() => {
+  //   function onKeyup(e) {
+  //     if (e.key === "n" || e.key === "N") {
+  //       showTip = false;
+  //       localStorage.setItem("showKeyboardTip", "off");
+  //       setAddTask(true);
+  //     }
+  //     if (e.key === "Escape") setAddTask(false);
+  //   }
+  //   window.addEventListener("keyup", onKeyup);
+  //   return () => window.removeEventListener("keyup", onKeyup);
+  // }, []);
 
   return (
     <React.Fragment>
@@ -37,6 +42,7 @@ const LeftSide = () => {
           clickHandle={() => {
             setAddTask(!addTask);
           }}
+          showTip={showTip}
         />
       ) : null}
       <div className="side left-side">

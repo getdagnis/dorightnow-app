@@ -7,5 +7,4 @@ export const TasksContext = React.createContext({
   justDeleted: false,
   user: "guest",
   currentTask: null,
-  addTask: false,
 });
