@@ -15,11 +15,13 @@ function Menu(props) {
             <li className="menu-list">Tasks Home</li>
           </Link>
         ) : null}
-        {location !== "/following" ? (
-          <Link to="/following">
-            <li className="menu-list">Following</li>
-          </Link>
-        ) : null}
+        {
+          //   location !== "/following" ? (
+          //   <Link to="/following">
+          //     <li className="menu-list">Following</li>
+          //   </Link>
+          // ) : null
+        }
         {location !== "/settings" ? (
           <Link to="/settings">
             <li className="menu-list">Settings</li>
