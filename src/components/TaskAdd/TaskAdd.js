@@ -92,7 +92,7 @@ function TaskAdd(props) {
                 type="text"
                 defaultValue={taskEdit ? thisTask.motivation : ""}
                 onKeyPress={handleUserKeyPress}
-                placeholder="Motivation – €300, trip to Italy, avoid a punch in the face..."
+                placeholder="Motivation – €300, a trip to Italy, avoid a punch in the face..."
                 name="motivation"
                 ref={register({ maxLength: 420 })}
               />
@@ -112,7 +112,7 @@ function TaskAdd(props) {
               </div>
               <h3 className="form-h3">Select a color (optional):</h3>
               <div className="form-radio-btns">
-                <span className="form-radio cat-0">
+                <span data-color="default" className="form-radio cat-0">
                   <input
                     name="color"
                     type="radio"
@@ -121,19 +121,19 @@ function TaskAdd(props) {
                     defaultChecked
                   />
                 </span>
-                <span className="form-radio cat-a">
+                <span data-color="teal" className="form-radio cat-a">
                   <input name="color" type="radio" value="a" ref={register} />
                 </span>
-                <span className="form-radio cat-b">
+                <span data-color="olive" className="form-radio cat-b">
                   <input name="color" type="radio" value="b" ref={register} />
                 </span>
-                <span className="form-radio cat-c">
+                <span data-color="apricot" className="form-radio cat-c">
                   <input name="color" type="radio" value="c" ref={register} />
                 </span>
-                <span className="form-radio cat-d">
+                <span data-color="gold" className="form-radio cat-d">
                   <input name="color" type="radio" value="d" ref={register} />
                 </span>
-                <span className="form-radio cat-e">
+                <span data-color="purple" className="form-radio cat-e">
                   <input name="color" type="radio" value="e" ref={register} />
                 </span>
               </div>

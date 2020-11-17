@@ -2,7 +2,7 @@
   display: block;
   position: absolute;
   font-size: 1rem;
-  font-family: "Lato", "Montserrat", "Open Sans", "Helvetica", "Arial", serif;
+  font-family: "Open Sans", "Montserrat", "Helvetica", "Arial", serif;
   background: var(--bgTopbar);
   text-align: end;
   top: 50px;

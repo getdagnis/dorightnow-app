@@ -117,6 +117,27 @@
   background: var(--bgTask);
 }
 
+@keyframes btnFadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1680px) {
+  .left-side {
+    width: 26vw;
+  }
+}
+
 @media (max-width: 768px) {
   .side {
     position: relative;
@@ -138,20 +159,5 @@
 @media (max-height: 900px) {
   .side {
     top: 45px;
-  }
-}
-
-@keyframes btnFadeIn {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

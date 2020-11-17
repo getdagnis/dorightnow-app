@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
 
 body {
   margin: 0;
@@ -17,6 +17,10 @@ code {
 
 :root {
   font-size: 1rem;
+
+  --colorRed: #a5072f;
+  --colorRedDarkOpaque: #6e0025ee;
+  --colorRedDark: #6e001bbb;
 
   --cat0: #667;
   --cat0transp: #66667799;
@@ -49,8 +53,6 @@ $lightNth: nth($lightList, $imgKey);
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
   --colorMidLight: #8d8d8dee;
-  --colorRed: #a5072f;
-  --colorRedDark: #910b1b99;
   --colorGrey: #242730d5;
   --bgGrey: #686977;
   --bgSides: #20253144;
@@ -62,7 +64,7 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskCover: #22232cbb;
   --bgTextarea: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
-  --bgMainTaskEmpty: none;
+  --bgMainTask: #22242c88;
 }
 
 :root .light {
@@ -74,9 +76,7 @@ $lightNth: nth($lightList, $imgKey);
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
   --colorMidLight: #8d8d8dee;
-  --colorBrightest: #fff;
-  --colorRed: #a5072f;
-  --colorRedDark: #910b1bcc;
+  --colorRedDark: #6e0025ee;
   --colorGrey: #242833d5;
   --bgGrey: #d9d9ddc4;
   --bgSides: #cbcdd8aa;
@@ -88,7 +88,7 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskCover: #caccd6aa;
   --bgTextarea: #eaecf1dd;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  --bgMainTaskEmpty: none;
+  --bgMainTask: #e2e2ecdd;
 }
 
 ul {
@@ -124,7 +124,7 @@ button {
   margin: 0;
   font-size: 0.75rem;
   font-weight: 500;
-  font-family: "Montserrat", "Lato", "Open Sans", Helvetica, Arial, Helvetica,
+  font-family: "Montserrat", "Open Sans", Helvetica, Arial, Helvetica,
     sans-serif;
   padding: 1px 6px;
   border: none;

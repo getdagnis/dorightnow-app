@@ -22,7 +22,7 @@
 
 .task p {
   font-size: 1.02rem;
-  font-family: "Lato", "Open Sans", "Montserrat", sans-serif;
+  font-family: "Open Sans", "Montserrat", sans-serif;
   font-weight: 400;
   width: 90%;
 }
@@ -61,22 +61,6 @@
 .task-edit-mobile {
   opacity: 1;
   transition: all 0.5s ease;
-}
-
-@media (max-width: 768px) {
-  .task-edit {
-    display: none;
-  }
-  .task-edit-mobile-visible > .task-edit {
-    display: block !important;
-    opacity: 1 !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .task:hover > .task-edit {
-    opacity: 1;
-  }
 }
 
 .task-btns {
@@ -248,6 +232,28 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media (max-width: 1680px) {
+  .task p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-edit {
+    display: none;
+  }
+  .task-edit-mobile-visible > .task-edit {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .task:hover > .task-edit {
+    opacity: 1;
   }
 }
 

@@ -131,13 +131,12 @@
   margin-left: 10px;
   font-size: 0.8rem;
   font-weight: 600;
-  font-family: "Montserrat", "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", "Open Sans", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   box-sizing: border-box;
   display: grid;
   place-content: center;
-  background: var(--darkText);
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1) inset;
   cursor: pointer;
   opacity: 0.7;
 }
@@ -158,6 +157,7 @@ input[type="radio"] {
 
 .form-radio {
   display: block;
+  position: relative;
   width: calc(100% / 6 - 4px);
   height: 40px;
   border-radius: 4px;
@@ -168,6 +168,21 @@ input[type="radio"] {
 
 .form-radio:hover {
   transition: all 0.2s ease;
+}
+
+.form-radio::after {
+  content: attr(data-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--textColorTwo);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.form-radio:hover::after {
+  opacity: 1;
 }
 
 .task-input::placeholder {

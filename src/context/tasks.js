@@ -12,6 +12,12 @@ export const deletedTask =
     ? JSON.parse(localStorage.getItem("deletedTask"))
     : [];
 
+export const mainTask =
+  localStorage.getItem("mainTask") &&
+  typeof JSON.parse(localStorage.getItem("mainTask")) === "object"
+    ? JSON.parse(localStorage.getItem("mainTask"))
+    : null;
+
 // export const done =
 //   localStorage.getItem("dorightnowDoneTasks") &&
 //   typeof JSON.parse(localStorage.getItem("dorightnowDoneTasks")) === "object" &&

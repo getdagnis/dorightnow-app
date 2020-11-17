@@ -54,10 +54,18 @@ export default function reducer(state, action) {
         justDeleted: false,
       };
 
-    case "SET_CURRENT_TASK":
+    case "SET_MAIN_TASK":
+      const currentTaskIndex = state.tasks.findIndex(
+        (t) => t.id === action.payload
+      );
+      const mainTask = state.tasks[currentTaskIndex];
+
+      console.log(mainTask);
+      localStorage.setItem("mainTask", JSON.stringify(mainTask));
+
       return {
         ...state,
-        currentTask: action.payload.id,
+        currentTask: mainTask,
       };
 
     case "UPDATE_TASK":

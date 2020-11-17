@@ -57,7 +57,13 @@ const Task = (props) => {
               color="grey"
             />
             <ButtonSmall title="do later" color="grey" />
-            <ButtonSmall title="do now" color={catColor} />
+            <ButtonSmall
+              onClick={() => {
+                dispatch({ type: "SET_MAIN_TASK", payload: id });
+              }}
+              title="do now"
+              color={catColor}
+            />
           </div>
           <div
             onClick={() => {

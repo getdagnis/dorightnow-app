@@ -12,7 +12,7 @@ function Menu(props) {
       <ul onClick={handleClick}>
         {location !== "/" ? (
           <Link to="/">
-            <li className="menu-list">Tasks Home</li>
+            <li className="menu-list">My Tasks</li>
           </Link>
         ) : null}
         {
@@ -34,7 +34,7 @@ function Menu(props) {
         ) : null}
         {location !== "/about" ? (
           <Link to="/about">
-            <li className="menu-list">About</li>
+            <li className="menu-list">F.A.Q.</li>
           </Link>
         ) : null}
         {location !== "/contacts" ? (
