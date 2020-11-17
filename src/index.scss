@@ -65,9 +65,14 @@ $lightNth: nth($lightList, $imgKey);
   --bgTextarea: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
   --bgMainTask: #22242c88;
+  --bgMainTaskBtns: #30323bea;
 }
 
 :root .light {
+  --colorRed: #00789c;
+  --colorRedDarkOpaque: #0a6a91ee;
+  --colorRedDark: #0b6c92bb;
+
   --mainColor: #6a6f7cc4;
   --textColor: #1c1d1fd5;
   --textColorTwo: #1e2027aa;
@@ -76,12 +81,11 @@ $lightNth: nth($lightList, $imgKey);
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
   --colorMidLight: #8d8d8dee;
-  --colorRedDark: #6e0025ee;
   --colorGrey: #242833d5;
   --bgGrey: #d9d9ddc4;
   --bgSides: #cbcdd8aa;
   --bgTask: #ebedf3bb;
-  --bgTaskEdit: #e2e2ecdd;
+  --bgTaskEdit: #cddde6dd;
   --bgTaskDone: #ececf1ee;
   --bgGreyButton: #8f8f9edd;
   --bgNewTask: #dfdfe7cc;
@@ -89,6 +93,7 @@ $lightNth: nth($lightList, $imgKey);
   --bgTextarea: #eaecf1dd;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTask: #e2e2ecdd;
+  --bgMainTaskBtns: #30323bea;
 }
 
 ul {

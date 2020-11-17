@@ -70,7 +70,7 @@ const LeftSide = () => {
             <ButtonSmall
               onClick={() => dispatch({ type: "UNDELETE_TASK" })}
               title="Undo last deleted"
-              color="grey"
+              color="red"
               size="large"
             />
           </div>
