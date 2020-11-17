@@ -74,13 +74,15 @@
 .btn-size-extra-large {
   font-size: 0.95rem;
   margin-left: 10px;
-  opacity: 0.3;
+  opacity: 0.4;
   background: var(--bgSides);
   padding: 6px 30px;
 }
 
 .btn-size-extra-large:hover {
   padding: 6px 50px;
+  background: var(--bgTaskEdit);
+  transition: all 0.3s ease;
 }
 
 .btn-xxl-red:hover {

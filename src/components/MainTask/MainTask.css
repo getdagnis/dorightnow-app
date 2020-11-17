@@ -81,17 +81,19 @@
   margin-top: 50px;
 }
 
-.giveup:hover::before {
-  content: "really ";
+.btn-xxl-grey:hover::before {
+  content: "really";
+  margin-right: 5px;
 }
-.giveup:hover::after {
+.btn-xxl-grey:hover::after {
   content: "?";
 }
-.done:hover::before {
+.btn-xxl-red:hover::before {
   content: "it's ";
+  margin-right: 5px;
 }
-.done:hover::after {
-  content: "!!";
+.btn-xxl-red:hover::after {
+  content: "!!!";
 }
 
 .btn-big:active {

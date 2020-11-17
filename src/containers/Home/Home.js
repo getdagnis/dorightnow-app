@@ -9,19 +9,22 @@ function HomePage(props) {
   const { state } = useContext(TasksContext);
   const { tasks, currentTask, mainTaskMovement } = state;
 
-  const i = state.tasks.findIndex((t) => t.id === currentTask);
-  const mainTask = tasks[i];
+  const i = currentTask
+    ? state.tasks.findIndex((t) => t.id === currentTask)
+    : null;
+  const mainTask = i ? tasks[i] : null;
   const taskSize =
     mainTask && mainTask.task && mainTask.task.length > 300
       ? "long-task"
-      : mainTask && mainTask.task && mainTask.task.length < 100
+      : mainTask && mainTask.task && mainTask.task.length < 80
       ? "short-task"
       : "normal-task";
 
   let chooseOrCreate =
-    tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
-  console.log("main task", mainTask);
-  console.log("length", taskSize);
+    tasks && tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
+
+  console.log("state", state);
+  console.log("tasks", tasks);
 
   return (
     <div className="wrapper">

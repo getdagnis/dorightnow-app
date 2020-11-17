@@ -22,7 +22,6 @@ function MainTask(props) {
       break;
     default:
       return null;
-      break;
   }
 
   return (
@@ -52,7 +51,7 @@ function MainTask(props) {
               }}
               size="extra-large"
               color="xxl-red"
-              title="it's done"
+              title="done"
             />
           </div>
         </div>

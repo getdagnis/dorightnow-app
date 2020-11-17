@@ -65,10 +65,31 @@ export default function reducer(state, action) {
       };
 
     case "MAIN_TASK_DONE":
-      let newType = action.payload.action === "done" ? "done" : "todo";
+      let newTasks = [];
+
+      if (action.payload.action === "done") {
+        const newType = "done";
+        const thisTaskIndex = state.tasks.findIndex(
+          (t) => t.id === action.payload.taskId
+        );
+
+        let mainTaskDone = state.tasks[thisTaskIndex];
+        mainTaskDone.type = newType;
+
+        localStorage.setItem("dorightnowTasks", JSON.stringify(state.tasks));
+
+        newTasks = [
+          ...state.tasks.slice(0, thisTaskIndex),
+          mainTaskDone,
+          ...state.tasks.slice(thisTaskIndex + 1),
+        ];
+      }
+
+      localStorage.setItem("mainTask", JSON.stringify(null));
 
       return {
         ...state,
+        tasks: newTasks.length > 0 ? newTasks : state.tasks,
         mainTaskMovement: "done",
         currentTask: null,
       };

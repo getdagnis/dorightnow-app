@@ -5,11 +5,11 @@ import RightSide from "./RightSide";
 import "./Sides.css";
 
 const Sides = (props) => {
-  const { tasks, done } = props;
+  const { tasks } = props;
   return (
     <React.Fragment>
       <LeftSide tasks={tasks} />
-      <RightSide done={done} />
+      <RightSide tasks={tasks} />
     </React.Fragment>
   );
 };

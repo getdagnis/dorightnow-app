@@ -2,7 +2,9 @@ import React from "react";
 import TaskList from "../TaskList/TaskList";
 
 const RightSide = (props) => {
-  const { done } = props;
+  const { tasks } = props;
+  const filteredTasks = tasks.filter((t) => t.type === "done");
+
   return (
     <div className="side right-side">
       <div className="safari-flex-height-fix">
@@ -10,7 +12,7 @@ const RightSide = (props) => {
           <h3 className="side-top-h3 title-drop">Done today</h3>
         </div>
       </div>
-      <TaskList tasks={done} listType="done" />
+      <TaskList tasks={filteredTasks} listType="done" />
     </div>
   );
 };

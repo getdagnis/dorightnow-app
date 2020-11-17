@@ -11,6 +11,8 @@ const LeftSide = () => {
   const { state, dispatch } = useContext(TasksContext);
   const [addTask, setAddTask] = useState(false);
   const { tasks, justDeleted } = state;
+  const filteredTasks = tasks.filter((t) => t.type === "todo");
+
   let showTip = true;
 
   // REMOVES THE "UNDO LAST DELETED" BUTTON AFTER TIMEOUT
@@ -61,7 +63,7 @@ const LeftSide = () => {
           </div>
         </div>
 
-        <TaskList tasks={tasks} />
+        <TaskList tasks={filteredTasks} />
 
         {justDeleted ? (
           <div className="undo-btn">
