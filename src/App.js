@@ -21,6 +21,8 @@ function App() {
   // useEffect(() => {
   //   dispatch({ type: "CLEANUP_TASKS" });
   // });
+  // CLEAN LOCAL STORAGE
+  // localStorage.setItem("dorightnowTasks", JSON.stringify([]));
 
   console.log(
     "local storage tasks",

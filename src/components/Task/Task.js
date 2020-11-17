@@ -73,6 +73,14 @@ const Task = (props) => {
           ></div>
         </div>
       ) : null}
+      {type === "done" ? (
+        <div
+          onClick={() => {
+            dispatch({ type: "DELETE_TASK", payload: id });
+          }}
+          className="task-btn-hide"
+        ></div>
+      ) : null}
       {editTask ? (
         <TaskAdd
           taskEdit="true"

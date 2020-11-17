@@ -9,10 +9,8 @@ function HomePage(props) {
   const { state } = useContext(TasksContext);
   const { tasks, currentTask, mainTaskMovement } = state;
 
-  const i = currentTask
-    ? state.tasks.findIndex((t) => t.id === currentTask)
-    : null;
-  const mainTask = i ? tasks[i] : null;
+  const i = state.tasks.findIndex((t) => t.id === currentTask);
+  const mainTask = tasks[i];
   const taskSize =
     mainTask && mainTask.task && mainTask.task.length > 300
       ? "long-task"
@@ -25,6 +23,7 @@ function HomePage(props) {
 
   console.log("state", state);
   console.log("tasks", tasks);
+  console.log("mainTask", mainTask);
 
   return (
     <div className="wrapper">

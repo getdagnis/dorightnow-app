@@ -9,6 +9,8 @@ function MainTask(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
 
+  console.log(mainTask);
+
   let classList = "main-task " + taskSize;
   switch (mainTaskMovement) {
     case "in":
