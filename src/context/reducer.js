@@ -55,17 +55,22 @@ export default function reducer(state, action) {
       };
 
     case "SET_MAIN_TASK":
-      const currentTaskIndex = state.tasks.findIndex(
-        (t) => t.id === action.payload
-      );
-      const mainTask = state.tasks[currentTaskIndex];
-
-      console.log(mainTask);
-      localStorage.setItem("mainTask", JSON.stringify(mainTask));
+      const currentTaskId = action.payload;
+      localStorage.setItem("mainTask", JSON.stringify(currentTaskId));
 
       return {
         ...state,
-        currentTask: mainTask,
+        mainTaskMovement: "in",
+        currentTask: currentTaskId,
+      };
+
+    case "MAIN_TASK_DONE":
+      let newType = action.payload.action === "done" ? "done" : "todo";
+
+      return {
+        ...state,
+        mainTaskMovement: "done",
+        currentTask: null,
       };
 
     case "UPDATE_TASK":

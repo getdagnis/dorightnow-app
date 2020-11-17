@@ -14,7 +14,7 @@ export const deletedTask =
 
 export const mainTask =
   localStorage.getItem("mainTask") &&
-  typeof JSON.parse(localStorage.getItem("mainTask")) === "object"
+  typeof JSON.parse(localStorage.getItem("mainTask")) === "string"
     ? JSON.parse(localStorage.getItem("mainTask"))
     : null;
 
