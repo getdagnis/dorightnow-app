@@ -64,6 +64,9 @@ export default function reducer(state, action) {
         currentTask: currentTaskId,
       };
 
+    case "CLEAR_MAIN_TASK":
+      return {};
+
     case "MAIN_TASK_DONE":
       let newTasks = [];
 
