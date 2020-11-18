@@ -25,6 +25,7 @@
   font-family: "Open Sans", "Montserrat", sans-serif;
   font-weight: 400;
   width: 90%;
+  filter: grayscale(70%);
 }
 
 .todo {

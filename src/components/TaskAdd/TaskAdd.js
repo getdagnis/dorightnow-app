@@ -1,12 +1,12 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { useForm, FormProvider, useFieldArray } from "react-hook-form";
+import firebaseAnalytics from "../../App.js";
 
 import { TasksContext } from "../../context/context";
 import "./TaskAdd.css";
 import turtleIcon from "./turtle.svg";
 import quickIcon from "./quick.svg";
-
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 function TaskAdd(props) {
@@ -16,6 +16,10 @@ function TaskAdd(props) {
 
   const showKeyboardTip =
     localStorage.getItem("showKeyboardTip") === "off" ? false : false; // TURNED OFF!!! FOR NOW...
+
+  useEffect(() => {
+    firebaseAnalytics.logEvent({ eventName: "create_task_opened" });
+  });
 
   let ref = useRef();
 

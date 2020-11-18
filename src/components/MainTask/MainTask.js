@@ -31,7 +31,9 @@ function MainTask(props) {
       <div className="main-task-top">
         <h1 className="main-task-h1">do right now</h1>
         <div className="main-task-with-btns">
-          <div className={classList}>{mainTask.task}</div>
+          <div className={classList}>
+            <p>{mainTask.task}</p>
+          </div>
           <div className="main-task-btns">
             <ButtonSmall
               onClick={() => {

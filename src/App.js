@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
@@ -13,6 +13,12 @@ import FollowingPage from "./containers/Following/Following";
 import { TasksContext } from "./context/context";
 import tasksReducer from "./context/reducer";
 
+import firebase from "firebase";
+import { firebaseConfig } from "./firebaseConfig";
+
+firebase.initializeApp(firebaseConfig);
+export const firebaseAnalytics = firebase.analytics();
+
 function App() {
   const initialState = useContext(TasksContext);
   const [state, dispatch] = useReducer(tasksReducer, initialState);
@@ -23,6 +29,10 @@ function App() {
   // });
   // CLEAN LOCAL STORAGE
   // localStorage.setItem("dorightnowTasks", JSON.stringify([]));
+
+  useEffect(() => {
+    firebaseAnalytics.logEvent({ eventName: "first_page_visited" });
+  });
 
   console.log(
     "local storage tasks",
