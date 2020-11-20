@@ -117,6 +117,7 @@ function MainTask(props) {
           className="countdown"
           date={Date.now() + 900000}
           renderer={countdownRenderer}
+          controlled={false}
         />
       </div>
     </div>

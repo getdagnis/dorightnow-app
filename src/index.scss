@@ -19,13 +19,7 @@ code {
   font-size: 1rem;
 
   --colorRed: #a5072f;
-  --colorRedDarkOpaque: linear-gradient(
-    176deg,
-    rgba(190, 0, 41, 0.8) 0%,
-    rgba(151, 4, 36, 0.8) 40%,
-    rgba(110, 3, 30, 0.8) 100%
-  );
-  // --colorRedDarkOpaque: #6e0025ee;
+  --colorRedDarkOpaque: #6e0025ee;
   --colorRedDark: #6e001bbb;
 
   --cat0: #667;
@@ -71,7 +65,13 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskCover: #22232cbb;
   --bgNewTaskInputFocus: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
-  --bgMainTask: #22242c88;
+  --bgMainTask: linear-gradient(
+    176deg,
+    rgba(190, 0, 41, 0.8) 0%,
+    rgba(151, 4, 36, 0.8) 40%,
+    rgba(110, 3, 30, 0.8) 100%
+  );
+  --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
   --mainTaskShadows: inset -1px -1px 3px #00000022,
     inset -2px -2px 6px #00000022, inset 0 0 30px #00000011,
@@ -103,7 +103,13 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskInputFocus: #d5d8e2dd;
   --bgNewTaskCover: #caccd6aa;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  --bgMainTask: #e2e2ecdd;
+  --bgMainTask: linear-gradient(
+    176deg,
+    #00759966 0%,
+    #0085ad77 50%,
+    rgba(0, 115, 150, 0.467) 100%
+  );
+  --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
 }
 
