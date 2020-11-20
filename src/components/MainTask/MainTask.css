@@ -19,10 +19,15 @@
 
 .main-task-bottom {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   width: 50%;
   flex-grow: 1;
+  font-size: 1.2rem;
+  color: var(--darkText);
+  letter-spacing: -0.2px;
+  font-weight: 600;
 }
 
 .main-task-h1 {
@@ -103,8 +108,32 @@
   animation: none;
 }
 
-.main-bottom {
-  margin: 50px auto 90px;
+.countdown {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: var(--bgMainTaskBtns);
+  text-transform: full-width;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.countdown:hover {
+  opacity: 1;
+}
+
+.countdown-units {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: var(--bgTask);
+  color: var(--textColor);
+  margin-right: 6px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  min-width: 60px;
 }
 
 @keyframes mainTaskIn {

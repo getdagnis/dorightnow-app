@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { TasksContext } from "../../context/context";
+import Countdown from "react-countdown";
 
 import "./MainTask.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
@@ -25,6 +26,24 @@ function MainTask(props) {
     default:
       return null;
   }
+
+  const Completionist = () => <span>You missed the deadline!</span>;
+
+  const countdownRenderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // Render a completed state
+      return <Completionist />;
+    } else {
+      // Render a countdown
+      return (
+        <div className="countdown">
+          <span className="countdown-units">{hours}h</span>
+          <span className="countdown-units">{minutes}m</span>
+          <span className="countdown-units">{seconds}s</span>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="main-task-wrapper">
@@ -74,6 +93,16 @@ function MainTask(props) {
                   type: "MAIN_TASK_DONE",
                   payload: { taskId: mainTask.id, action: "done" },
                 });
+                setTimeout(() => {
+                  dispatch({
+                    type: "HIDE_LEFT_SIDE",
+                    payload: "show",
+                  });
+                  dispatch({
+                    type: "HIDE_RIGHT_SIDE",
+                    payload: "show",
+                  });
+                }, 500);
               }}
               size="extra-large"
               color="xxl-red"
@@ -82,7 +111,14 @@ function MainTask(props) {
           </div>
         </div>
       </div>
-      <div className="main-task-bottom">Motivation comes here...</div>
+      <div className="main-task-bottom">
+        Time's running out!
+        <Countdown
+          className="countdown"
+          date={Date.now() + 900000}
+          renderer={countdownRenderer}
+        />
+      </div>
     </div>
   );
 }
