@@ -31,7 +31,19 @@ function MainTask(props) {
       <div className="main-task-top">
         <h1 className="main-task-h1">do right now</h1>
         <div className="main-task-with-btns">
-          <div className={classList}>
+          <div
+            className={classList}
+            onClick={() => {
+              dispatch({
+                type: "HIDE_LEFT_SIDE",
+                payload: "toggle",
+              });
+              dispatch({
+                type: "HIDE_RIGHT_SIDE",
+                payload: "toggle",
+              });
+            }}
+          >
             <p>{mainTask.task}</p>
           </div>
           <div className="main-task-btns">
@@ -41,6 +53,16 @@ function MainTask(props) {
                   type: "MAIN_TASK_DONE",
                   payload: { action: "giveup" },
                 });
+                setTimeout(() => {
+                  dispatch({
+                    type: "HIDE_LEFT_SIDE",
+                    payload: "show",
+                  });
+                  dispatch({
+                    type: "HIDE_RIGHT_SIDE",
+                    payload: "show",
+                  });
+                }, 500);
               }}
               size="extra-large"
               color="xxl-grey"

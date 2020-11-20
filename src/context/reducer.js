@@ -65,7 +65,11 @@ export default function reducer(state, action) {
       };
 
     case "CLEAR_MAIN_TASK":
-      return {};
+      console.log("CLEAR MAIN TASK");
+      console.log(state.mainTaskMovement);
+      console.log(state.currentTask);
+
+      return { ...state, currentTask: null, mainTaskMovement: "out" };
 
     case "MAIN_TASK_DONE":
       let newTasks = [];
@@ -133,5 +137,47 @@ export default function reducer(state, action) {
       };
     default:
       return state;
+
+    case "HIDE_LEFT_SIDE":
+      let newLeftHideSate = "";
+      switch (action.payload) {
+        case "hide":
+          newLeftHideSate = true;
+          break;
+        case "show":
+          newLeftHideSate = false;
+          break;
+        case "toggle":
+          newLeftHideSate = !state.hideLeftSide;
+          break;
+        default:
+          newLeftHideSate = false;
+      }
+
+      return {
+        ...state,
+        hideLeftSide: newLeftHideSate,
+      };
+
+    case "HIDE_RIGHT_SIDE":
+      let newRightHideSate = "";
+      switch (action.payload) {
+        case "hide":
+          newRightHideSate = true;
+          break;
+        case "show":
+          newRightHideSate = false;
+          break;
+        case "toggle":
+          newRightHideSate = !state.hideRightSide;
+          break;
+        default:
+          newRightHideSate = false;
+      }
+
+      return {
+        ...state,
+        hideRightSide: newRightHideSate,
+      };
   }
 }

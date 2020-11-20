@@ -19,7 +19,13 @@ code {
   font-size: 1rem;
 
   --colorRed: #a5072f;
-  --colorRedDarkOpaque: #6e0025ee;
+  --colorRedDarkOpaque: linear-gradient(
+    176deg,
+    rgba(190, 0, 41, 0.8) 0%,
+    rgba(151, 4, 36, 0.8) 40%,
+    rgba(110, 3, 30, 0.8) 100%
+  );
+  // --colorRedDarkOpaque: #6e0025ee;
   --colorRedDark: #6e001bbb;
 
   --cat0: #667;
@@ -59,13 +65,17 @@ $lightNth: nth($lightList, $imgKey);
   --bgTask: rgba(46, 47, 59, 0.533);
   --bgTaskEdit: #30323bea;
   --bgTaskDone: #262835ea;
-  --bgGreyButton: #62627099;
-  --bgNewTask: #616375cc;
+  --bgGreyButton: #7d7d9299;
+  --bgNewTask: #616375dd;
+  --bgNewTaskInput: #393b4988;
   --bgNewTaskCover: #22232cbb;
-  --bgTextarea: #20233177;
+  --bgNewTaskInputFocus: #20233177;
   --bgImage: url(img/bg_#{$darkNth}.jpg) no-repeat center center fixed;
   --bgMainTask: #22242c88;
   --bgMainTaskBtns: #30323bea;
+  --mainTaskShadows: inset -1px -1px 3px #00000022,
+    inset -2px -2px 6px #00000022, inset 0 0 30px #00000011,
+    2px 2px 8px #00000055, 0 0 50px #00000022;
 }
 
 :root .light {
@@ -76,7 +86,7 @@ $lightNth: nth($lightList, $imgKey);
   --mainColor: #6a6f7cc4;
   --textColor: #1c1d1fd5;
   --textColorTwo: #1e2027aa;
-  --darkText: #30343fd5;
+  --darkText: #6a6e7ed5;
   --bgTopbar: #ececf1ee;
   --hamburgerColor: #b1afbb;
   --hamburgerColorDark: #64626b;
@@ -85,12 +95,13 @@ $lightNth: nth($lightList, $imgKey);
   --bgGrey: #d9d9ddc4;
   --bgSides: #cbcdd8aa;
   --bgTask: #ebedf3bb;
-  --bgTaskEdit: #cddde6dd;
+  --bgTaskEdit: #9aa6afdd;
   --bgTaskDone: #ececf1ee;
   --bgGreyButton: #8f8f9edd;
   --bgNewTask: #dfdfe7cc;
+  --bgNewTaskInput: #c6cbd8aa;
+  --bgNewTaskInputFocus: #d5d8e2dd;
   --bgNewTaskCover: #caccd6aa;
-  --bgTextarea: #eaecf1dd;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTask: #e2e2ecdd;
   --bgMainTaskBtns: #30323bea;

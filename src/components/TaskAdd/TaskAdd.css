@@ -80,7 +80,7 @@
   font-family: "Open Sans", sans-serif;
   text-align: left;
   color: var(--textColorTwo);
-  background: #00001122;
+  background: var(--bgNewTaskInput);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.07) inset;
   outline: none;
   resize: none;
@@ -96,7 +96,7 @@
 
 .task-input:focus {
   color: var(--textColor);
-  background: var(--bgTextarea);
+  background: var(--bgNewTaskInputFocus);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) inset;
 }
 
@@ -110,7 +110,7 @@
   color: var(--textColorTwo);
   padding: 16px 8px;
   border-radius: 4px;
-  background: #00002222;
+  background: var(--bgNewTaskInput);
   transition: all 0.3s ease;
   cursor: pointer;
   opacity: 0.7;
@@ -118,7 +118,7 @@
 
 .show-options:hover {
   opacity: 1;
-  background: var(--bgTextarea);
+  background: var(--bgNewTaskInputFocus);
   /* height: 275px; */
 }
 

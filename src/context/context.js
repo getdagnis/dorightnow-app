@@ -1,11 +1,13 @@
 import React from "react";
-import { fetchedTasks, deletedTask, mainTask } from "./tasks";
+import { fetchedTasks, deletedTask } from "./tasks";
 
 export const TasksContext = React.createContext({
   tasks: fetchedTasks,
   deletedTask: deletedTask,
   justDeleted: false,
   user: "guest",
-  currentTask: mainTask,
+  currentTask: null,
   mainTaskMovement: "in",
+  hideLeftSide: false,
+  hideRightSide: false,
 });

@@ -29,8 +29,10 @@
   letter-spacing: -1px;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: -15px;
+  color: var(--darkText);
+  margin-bottom: -20px;
   opacity: 0.8;
+  animation: mainTaskFadeIn 1s ease;
 }
 
 .main-task {
@@ -49,9 +51,9 @@
   background: var(--colorRedDarkOpaque);
   border-radius: 12px;
   box-sizing: border-box;
-  box-shadow: inset -1px -1px 3px #00000022, inset -2px -2px 6px #00000022,
-    inset 0 0 30px #00000011, 2px 2px 8px #00000055, 0 0 50px #00000022;
-  cursor: default;
+  box-shadow: var(--mainTaskShadows);
+  overflow-wrap: break-word;
+  cursor: col-resize;
   transform: translateY(0);
 }
 
@@ -77,7 +79,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
+  animation: mainTaskFadeIn 1s ease;
 }
 
 .btn-xxl-grey:hover::before {
@@ -116,9 +119,12 @@
     animation-timing-function: ease-in;
   }
 
+  50% {
+    opacity: 1;
+  }
+
   60% {
     transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
   }
 
   80% {
@@ -133,7 +139,18 @@
 .mainTaskIn {
   backface-visibility: visible !important;
   animation: mainTaskIn 0.7s;
+  animation-delay: 0.2s;
   animation-fill-mode: backwards;
+}
+
+@keyframes mainTaskFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
 }
 
 @keyframes mainTaskDone {

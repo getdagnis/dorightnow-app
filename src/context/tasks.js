@@ -12,11 +12,11 @@ export const deletedTask =
     ? JSON.parse(localStorage.getItem("deletedTask"))
     : [];
 
-export const mainTask =
-  localStorage.getItem("mainTask") &&
-  typeof JSON.parse(localStorage.getItem("mainTask")) === "string"
-    ? JSON.parse(localStorage.getItem("mainTask"))
-    : null;
+// export const mainTask =
+//   localStorage.getItem("mainTask") &&
+//   typeof JSON.parse(localStorage.getItem("mainTask")) === "string"
+//     ? JSON.parse(localStorage.getItem("mainTask"))
+//     : null;
 
 // export const done =
 //   localStorage.getItem("dorightnowDoneTasks") &&
