@@ -48,14 +48,33 @@ function Feedback() {
 
 const FeedbackOpen = (props) => {
   const { clickHandle, clickHandleSent } = props;
+  const [formState, setFormState] = useState({
+    feedbackText: "sample feedback text",
+  });
   let ref = useRef();
 
   useEffect(() => {
     ref.current.focus();
   }, []);
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
   const handleSubmit = (e) => {
-    clickHandleSent();
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "feedback", ...formState }),
+    })
+      .then(() => clickHandleSent())
+      .catch((error) => alert(error));
+    console.log("state", formState);
   };
 
   return (
@@ -73,7 +92,7 @@ const FeedbackOpen = (props) => {
         <input type="hidden" name="form-name" value="feedback" />
         <textarea
           className="task-input form-input"
-          name="feedback-text"
+          name="feedbackText"
           id="feedback-text"
           cols="30"
           rows="3"
