@@ -1,7 +1,10 @@
 import React from "react";
-import { fetchedTasks, deletedTask } from "./tasks";
+import { fetchedTasks, fetchedCategories, deletedTask } from "./tasks";
+
+console.log("fetchedCategories", fetchedCategories);
 
 export const TasksContext = React.createContext({
+  categories: fetchedCategories,
   tasks: fetchedTasks,
   deletedTask: deletedTask,
   justDeleted: false,

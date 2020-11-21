@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
-import { useForm, FormProvider, useFieldArray } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 
 import { TasksContext } from "../../context/context";
 import "./TaskAdd.css";
@@ -10,8 +10,18 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 function TaskAdd(props) {
   let { clickHandle, taskEdit, thisTask, showTip } = props;
-  const { dispatch } = useContext(TasksContext);
+  const { state, dispatch } = useContext(TasksContext);
   const [showOptions, setShowOptions] = useState(false);
+
+  const fetchedCategories = state.categories;
+  const colors = [
+    // { name: "default", className: "form-radio cat-0", value: "0" },
+    { name: "teal", class: "form-label cat-a", value: "a" },
+    { name: "olive", class: "form-label cat-b", value: "b" },
+    { name: "apricot", class: "form-label cat-c", value: "c" },
+    { name: "gold", class: "form-label cat-d", value: "d" },
+    { name: "purple", class: "form-label cat-e", value: "e" },
+  ];
 
   const showKeyboardTip =
     localStorage.getItem("showKeyboardTip") === "off" ? false : false; // TURNED OFF!!! FOR NOW...
@@ -23,15 +33,11 @@ function TaskAdd(props) {
   }, []);
 
   // FORM HANDLING BY REACT-HOOK-FORM
-  const { register, control, handleSubmit, errors } = useForm();
-
-  const { append } = useFieldArray({
-    control,
-    name: "test",
-  });
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     console.log("submit data", data);
+    console.warn("errors", errors);
     dispatch({ type: "ADD_TASK", payload: data });
     clickHandle();
   };
@@ -50,6 +56,12 @@ function TaskAdd(props) {
       handleSubmit(onSubmit)();
     } else if (taskEdit && e.key === "Enter" && !e.shiftKey) {
       handleSubmit(onEdit)();
+    }
+  };
+
+  const handleSelectCategory = (e) => {
+    if (e.target.value === "add-new-cat") {
+      alert("Doesn't work yet...");
     }
   };
 
@@ -81,60 +93,63 @@ function TaskAdd(props) {
               register(e, { required: true, max: 140, min: 1, maxLength: 600 });
               ref.current = e;
             }}
+            required
           />
-          {showOptions || taskEdit ? (
+          <h3 className="form-h3">Color:</h3>
+          <div className="form-radio-btns">
+            <span data-color="default" className="form-radio">
+              <input
+                name="color"
+                type="radio"
+                value="0"
+                ref={register}
+                defaultChecked
+              />
+              <span data-color="default" className="form-label cat-0"></span>
+            </span>
+            {colors.map((c) => {
+              return (
+                <span key={c.name} className="form-radio">
+                  <input
+                    name="color"
+                    type="radio"
+                    value={c.value}
+                    ref={register}
+                  />
+                  <span className={c.class} data-color={c.name}></span>
+                </span>
+              );
+            })}
+          </div>
+          {!showOptions || taskEdit ? (
             <div>
-              <h3 className="form-h3">Motivation to finish (optional):</h3>
+              <h3 className="form-h3">Motivation (optional):</h3>
               <input
                 className="task-input"
                 autoComplete="off"
                 type="text"
                 defaultValue={taskEdit ? thisTask.motivation : ""}
                 onKeyPress={handleUserKeyPress}
-                placeholder="Motivation – €300, a trip to Italy, avoid a punch in the face..."
+                placeholder="Motivation €300, a trip to Italy, avoid a punch in the face..."
                 name="motivation"
                 ref={register({ maxLength: 420 })}
               />
-              <h3 className="form-h3">Select a category (optional):</h3>
+
+              <h3 className="form-h3">Category (optional):</h3>
               <div className="form-category">
                 <select
                   className="task-input cat-select"
                   name="category"
                   ref={register}
+                  onChange={handleSelectCategory}
                 >
-                  <option value="none">None</option>
-                  <option value="home">Home</option>
-                  <option value="work">Work</option>
-                  <option value="andis">Friends & Family</option>
+                  {fetchedCategories.map((c) => (
+                    <option key={c.name} value={c.name}>
+                      {c.name}
+                    </option>
+                  ))}
+                  <option value="add-new-cat">+ Add a new category</option>
                 </select>
-                <div className="new-cat">Create New</div>
-              </div>
-              <h3 className="form-h3">Select a color (optional):</h3>
-              <div className="form-radio-btns">
-                <span data-color="default" className="form-radio cat-0">
-                  <input
-                    name="color"
-                    type="radio"
-                    value="0"
-                    ref={register}
-                    defaultChecked
-                  />
-                </span>
-                <span data-color="teal" className="form-radio cat-a">
-                  <input name="color" type="radio" value="a" ref={register} />
-                </span>
-                <span data-color="olive" className="form-radio cat-b">
-                  <input name="color" type="radio" value="b" ref={register} />
-                </span>
-                <span data-color="apricot" className="form-radio cat-c">
-                  <input name="color" type="radio" value="c" ref={register} />
-                </span>
-                <span data-color="gold" className="form-radio cat-d">
-                  <input name="color" type="radio" value="d" ref={register} />
-                </span>
-                <span data-color="purple" className="form-radio cat-e">
-                  <input name="color" type="radio" value="e" ref={register} />
-                </span>
               </div>
             </div>
           ) : (
@@ -153,7 +168,7 @@ function TaskAdd(props) {
                 onClick={clickHandle}
                 title="Cancel"
                 color="grey"
-                size={isMobile ? "mobile" : "large"}
+                size={isMobile ? "mobile" : "large-icon"}
               />
             </div>
             <div className="task-btns-right">
@@ -164,7 +179,7 @@ function TaskAdd(props) {
                   }}
                   title="Save edited"
                   color="red"
-                  size={isMobile ? "mobile" : "large"}
+                  size={isMobile ? "mobile" : "large-icon"}
                 />
               ) : (
                 <React.Fragment>
@@ -174,7 +189,7 @@ function TaskAdd(props) {
                     }}
                     title="Do later"
                     color="grey"
-                    size={isMobile ? "mobile" : "large"}
+                    size={isMobile ? "mobile" : "large-icon"}
                     icon={turtleIcon}
                   />
                   <ButtonSmall
@@ -182,7 +197,7 @@ function TaskAdd(props) {
                     type="submit"
                     title="Do today"
                     color="red"
-                    size={isMobile ? "mobile" : "large"}
+                    size={isMobile ? "mobile" : "large-icon"}
                     icon={quickIcon}
                   />
                 </React.Fragment>

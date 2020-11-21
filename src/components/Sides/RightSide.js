@@ -12,11 +12,11 @@ const RightSide = () => {
 
   const filteredTasks = tasks.filter((t) => t.type === "done");
 
-  const sideClassList = state.hideRightSide
+  const sideClassList = hideRightSide
     ? "side right-side right-side-out"
     : "side right-side";
 
-  const arrowClassList = state.hideRightSide ? "arr-left" : "arr-left rot-180";
+  const arrowClassList = hideRightSide ? "arr-left" : "arr-left rot-180";
 
   return (
     <div className={sideClassList}>

@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { TasksContext } from "../../context/context";
 import Countdown from "react-countdown";
+import ReactStopwatch from "react-stopwatch";
 
 import "./MainTask.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
@@ -9,8 +10,6 @@ function MainTask(props) {
   const { mainTask, taskSize } = props;
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
-
-  const [animClass, setAnimClass] = useState(null);
 
   console.log(mainTask);
 
@@ -114,6 +113,7 @@ function MainTask(props) {
       </div>
       <div className="main-task-bottom">
         Time's running out!
+        <ReactStopwatch />
         <Countdown
           className="countdown"
           date={Date.now() + 900000}

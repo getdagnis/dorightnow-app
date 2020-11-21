@@ -8,7 +8,7 @@ import MainTask from "../../components/MainTask/MainTask";
 
 function HomePage(props) {
   const { state } = useContext(TasksContext);
-  const { tasks, currentTask, mainTaskMovement } = state;
+  const { tasks, currentTask } = state;
 
   console.log("HOME state", state);
   console.log("HOME tasks", tasks);

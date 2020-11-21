@@ -56,13 +56,23 @@
   padding: 6px 32px;
 }
 
+.btn-size-large-icon {
+  padding: 10px 16px;
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.btn-size-large-icon:hover {
+  padding: 10px 32px;
+}
+
 .btn-icon {
   display: inline-block;
   height: 12px;
   margin: -6px 4px -6px 0;
 }
 
-.btn-size-large .btn-icon {
+.btn-size-large-icon .btn-icon {
   margin-right: 6px;
   height: 26px;
 }
@@ -87,7 +97,7 @@
 }
 
 .btn-xxl-red:hover {
-  background: var(--colorRedDark);
+  background: var(--colorRed);
 }
 
 .btn-red {

@@ -84,40 +84,40 @@
 }
 
 .cat-0 {
-  background: var(--cat0transp);
-}
-.cat-0:hover {
   background: var(--cat0);
 }
-.cat-a {
-  background: var(--catAtransp);
+.cat-0:hover {
+  background: var(--cat0transp);
 }
-.cat-a:hover {
+.cat-a {
   background: var(--catA);
 }
-.cat-b {
-  background: var(--catBtransp);
+.cat-a:hover {
+  background: var(--catAtransp);
 }
-.cat-b:hover {
+.cat-b {
   background: var(--catB);
 }
-.cat-c {
-  background: var(--catCtransp);
+.cat-b:hover {
+  background: var(--catBtransp);
 }
-.cat-c:hover {
+.cat-c {
   background: var(--catC);
 }
-.cat-d {
-  background: var(--catDtransp);
+.cat-c:hover {
+  background: var(--catCtransp);
 }
-.cat-d:hover {
+.cat-d {
   background: var(--catD);
 }
+.cat-d:hover {
+  background: var(--catDtransp);
+}
 .cat-e {
-  background: var(--catEtransp);
+  background: var(--catE);
 }
 .cat-e:hover {
-  background: var(--catE);
+  background: var(--catEtransp);
 }
 
 .green-task {

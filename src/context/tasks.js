@@ -12,6 +12,19 @@ export const deletedTask =
     ? JSON.parse(localStorage.getItem("deletedTask"))
     : [];
 
+export const fetchedCategories =
+  localStorage.getItem("dorightnowCategories") &&
+  typeof JSON.parse(localStorage.getItem("dorightnowCategories")) ===
+    "object" &&
+  JSON.parse(localStorage.getItem("dorightnowCategories")).length > 0
+    ? JSON.parse(localStorage.getItem("dorightnowCategories"))
+    : [
+        { name: "None" },
+        { name: "Home" },
+        { name: "Work" },
+        { name: "Friends & family" },
+      ];
+
 // export const mainTask =
 //   localStorage.getItem("mainTask") &&
 //   typeof JSON.parse(localStorage.getItem("mainTask")) === "string"

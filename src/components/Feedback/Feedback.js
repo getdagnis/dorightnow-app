@@ -39,7 +39,7 @@ function Feedback() {
           />
           {feedbackSent
             ? "Thanks! Feedback sent."
-            : "Tried this? Give feedback!"}
+            : "Played around? Give FEEDBACK!"}
         </div>
       )}
     </div>
@@ -65,6 +65,16 @@ const FeedbackOpen = (props) => {
       .join("&");
   };
 
+  const handleChange = (e) => {
+    setFormState({ [e.target.name]: e.target.value });
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSubmit(e);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("/", {
@@ -76,8 +86,6 @@ const FeedbackOpen = (props) => {
       .catch((error) => alert("Error! Sorry, form not sent...", error));
     console.log("state", formState);
   };
-
-  const handleChange = (e) => setFormState({ [e.target.name]: e.target.value });
 
   return (
     <div className="feedback-open">
@@ -97,6 +105,7 @@ const FeedbackOpen = (props) => {
           name="feedbackText"
           value={formState.feedbackText}
           onChange={handleChange}
+          onKeyPress={handleKeyPress}
           id="feedback-text"
           cols="30"
           rows="3"
