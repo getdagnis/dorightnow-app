@@ -42,11 +42,31 @@ const FeedbackOpen = (props) => {
     ref.current.focus();
   }, []);
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "feedback", ...this.state }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+
+    e.preventDefault();
+  };
+
   return (
     <div className="feedback-open">
       <h3 className="feedback-h3">Hi! I'm still building this app.</h3>
       Please leave your feedback to help it get better:
-      <form className="feedback-form" action="POST" netlify>
+      <form onSubmit={handleSubmit}>
         <textarea
           className="task-input form-input"
           name="feedback-text"
