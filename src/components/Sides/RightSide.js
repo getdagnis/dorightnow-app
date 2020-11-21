@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import TaskList from "../TaskList/TaskList";
-import { TasksContext } from "../../context/context";
+import isMobile from "react-device-detect";
 
+import { TasksContext } from "../../context/context";
 import leftArrow from "./img/arr-left.png";
+import Feedback from "../Feedback/Feedback";
+import TaskList from "../TaskList/TaskList";
 
 const RightSide = () => {
   const { state, dispatch } = useContext(TasksContext);
@@ -37,6 +39,7 @@ const RightSide = () => {
           </div>
         </div>
         <TaskList tasks={filteredTasks} listType="done" />
+        {!isMobile ? <Feedback /> : null}
       </div>
     </div>
   );

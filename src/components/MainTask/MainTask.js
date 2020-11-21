@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { TasksContext } from "../../context/context";
 import Countdown from "react-countdown";
 
@@ -9,6 +9,8 @@ function MainTask(props) {
   const { mainTask, taskSize } = props;
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
+
+  const [animClass, setAnimClass] = useState(null);
 
   console.log(mainTask);
 
@@ -69,8 +71,7 @@ function MainTask(props) {
             <ButtonSmall
               onClick={() => {
                 dispatch({
-                  type: "MAIN_TASK_DONE",
-                  payload: { action: "giveup" },
+                  type: "CLEAR_MAIN_TASK",
                 });
                 setTimeout(() => {
                   dispatch({

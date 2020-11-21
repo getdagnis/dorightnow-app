@@ -65,11 +65,16 @@ export default function reducer(state, action) {
       };
 
     case "CLEAR_MAIN_TASK":
-      console.log("CLEAR MAIN TASK");
-      console.log(state.mainTaskMovement);
-      console.log(state.currentTask);
+      let currentTaskTemporary =
+        action.payload === "keep" ? state.currentTask : null;
 
-      return { ...state, currentTask: null, mainTaskMovement: "out" };
+      console.log("currentTaskTemporary", currentTaskTemporary);
+
+      return {
+        ...state,
+        currentTask: currentTaskTemporary,
+        mainTaskMovement: "out",
+      };
 
     case "MAIN_TASK_DONE":
       let newTasks = [];

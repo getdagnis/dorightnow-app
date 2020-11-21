@@ -1,0 +1,56 @@
+.feedback {
+  display: block;
+  position: absolute;
+  right: 20px;
+  bottom: 70px;
+  color: var(--textColor);
+  font-size: 0.85rem;
+  background: var(--bgTask);
+  border-radius: 4px;
+  z-index: 4;
+  transition: all 0.3s ease;
+}
+
+.feedback-open {
+  padding: 15px;
+}
+
+.feedback-closed {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--textColorTwo);
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.feedback-icon {
+  height: 16px;
+  margin: 0 6px -2px;
+}
+
+.feedback-closed:hover {
+  color: var(--textColor);
+  background: var(--bgTaskEdit);
+  padding: 10px 40px;
+}
+
+.feedback-h3 {
+  margin: 2px 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 30vw;
+  min-width: 400px;
+}
+
+.form-input {
+  height: 120px;
+  font-size: 1rem;
+}

@@ -73,13 +73,6 @@
   font-size: 1.6rem;
 }
 
-/* .main-task:hover {
-  background: var(--colorRedDarkOpaque);
-  box-shadow: inset -1px -1px 3px #00000033, inset -2px -2px 6px #00000033,
-    inset 0 0 30px #00000022, 2px 8px 8px #00000033, 0 10px 50px #00000077;
-  transform: translateY(-5px);
-} */
-
 .main-task-btns {
   display: flex;
   align-items: center;
@@ -131,7 +124,7 @@
   letter-spacing: 0.2px;
   background: var(--bgTask);
   color: var(--textColor);
-  margin-right: 6px;
+  margin: 12px 6px 0 0;
   padding: 5px 10px;
   border-radius: 4px;
   min-width: 60px;
@@ -173,14 +166,35 @@
   animation-fill-mode: backwards;
 }
 
-@keyframes mainTaskFadeIn {
-  from {
-    opacity: 0;
+@keyframes mainTaskOut {
+  0% {
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%,
+  60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  40%,
+  80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
   }
 
   to {
-    opacity: 0.8;
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
   }
+}
+
+.mainTaskOut {
+  animation: hinge 1.5s;
 }
 
 @keyframes mainTaskDone {
@@ -214,5 +228,15 @@
 
   .short-task {
     font-size: 1.5rem;
+  }
+}
+
+@keyframes mainTaskFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
   }
 }

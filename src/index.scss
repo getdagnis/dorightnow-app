@@ -103,12 +103,7 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskInputFocus: #d5d8e2dd;
   --bgNewTaskCover: #caccd6aa;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  --bgMainTask: linear-gradient(
-    176deg,
-    #00759966 0%,
-    #0085ad77 50%,
-    rgba(0, 115, 150, 0.467) 100%
-  );
+  --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
 }
