@@ -42,31 +42,18 @@ const FeedbackOpen = (props) => {
     ref.current.focus();
   }, []);
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
-
-  const handleSubmit = (e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "feedback", ...this.state }),
-    })
-      .then(() => alert("Success!"))
-      .catch((error) => alert(error));
-
-    e.preventDefault();
-  };
-
   return (
     <div className="feedback-open">
       <h3 className="feedback-h3">Hi! I'm still building this app.</h3>
       Please leave your feedback to help it get better:
-      <form onSubmit={handleSubmit}>
+      <form
+        className="feedback-form"
+        name="feedback"
+        action="/feedback"
+        method="post"
+        data-netlify="true"
+      >
+        <input type="hidden" name="form-name" value="feedback" />
         <textarea
           className="task-input form-input"
           name="feedback-text"
@@ -77,6 +64,7 @@ const FeedbackOpen = (props) => {
             ref.current = e;
           }}
           placeholder="Things I like... things I don't like... features I miss..."
+          required
         ></textarea>
         <ButtonSmall
           onClick={(e) => {
