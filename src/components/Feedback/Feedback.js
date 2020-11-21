@@ -6,15 +6,25 @@ import feedbackIcon from "./feedback.svg";
 
 function Feedback() {
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackSent, setFeedbackSent] = useState(false);
 
   function clickHandle() {
     setFeedbackOpen(false);
   }
 
+  function clickHandleSent() {
+    setFeedbackOpen(false);
+    setFeedbackSent(true);
+  }
+
   return (
     <div className="feedback">
       {feedbackOpen ? (
-        <FeedbackOpen feedbackOpen={feedbackOpen} clickHandle={clickHandle} />
+        <FeedbackOpen
+          feedbackOpen={feedbackOpen}
+          clickHandleSent={clickHandleSent}
+          clickHandle={clickHandle}
+        />
       ) : (
         <div
           className="feedback-closed"
@@ -27,7 +37,9 @@ function Feedback() {
             src={feedbackIcon}
             alt="Give feedback!"
           />
-          Tried this? Give feedback!
+          {feedbackSent
+            ? "Thanks! Feedback sent."
+            : "Tried this? Give feedback!"}
         </div>
       )}
     </div>
@@ -35,12 +47,17 @@ function Feedback() {
 }
 
 const FeedbackOpen = (props) => {
-  const { clickHandle } = props;
+  const { clickHandle, clickHandleSent } = props;
   let ref = useRef();
 
   useEffect(() => {
     ref.current.focus();
   }, []);
+
+  const handleSubmit = (e) => {
+    clickHandleSent();
+    e.preventDefault();
+  };
 
   return (
     <div className="feedback-open">
@@ -67,9 +84,7 @@ const FeedbackOpen = (props) => {
           required
         ></textarea>
         <ButtonSmall
-          onClick={(e) => {
-            e.preventdefault();
-          }}
+          onClick={handleSubmit}
           title="submit"
           size="large"
           type="submit"
