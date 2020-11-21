@@ -56,7 +56,6 @@ const FeedbackOpen = (props) => {
 
   const handleSubmit = (e) => {
     clickHandleSent();
-    e.preventDefault();
   };
 
   return (
@@ -64,6 +63,7 @@ const FeedbackOpen = (props) => {
       <h3 className="feedback-h3">Hi! I'm still building this app.</h3>
       Please leave your feedback to help it get better:
       <form
+        onSubmit={handleSubmit}
         className="feedback-form"
         name="feedback"
         action="/feedback"
@@ -83,13 +83,7 @@ const FeedbackOpen = (props) => {
           placeholder="Things I like... things I don't like... features I miss..."
           required
         ></textarea>
-        <ButtonSmall
-          onClick={handleSubmit}
-          title="submit"
-          size="large"
-          type="submit"
-          color="red"
-        />
+        <ButtonSmall title="submit" size="large" type="submit" color="red" />
       </form>
       <div
         className="task-btn-hide"
