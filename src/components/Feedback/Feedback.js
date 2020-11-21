@@ -49,7 +49,7 @@ function Feedback() {
 const FeedbackOpen = (props) => {
   const { clickHandle, clickHandleSent } = props;
   const [formState, setFormState] = useState({
-    feedbackText: "sample feedback text",
+    feedbackText: "",
   });
   let ref = useRef();
 
@@ -73,9 +73,11 @@ const FeedbackOpen = (props) => {
       body: encode({ "form-name": "feedback", ...formState }),
     })
       .then(() => clickHandleSent())
-      .catch((error) => alert(error));
+      .catch((error) => alert("Error! Sorry, form not sent...", error));
     console.log("state", formState);
   };
+
+  const handleChange = (e) => setFormState({ [e.target.name]: e.target.value });
 
   return (
     <div className="feedback-open">
@@ -93,6 +95,8 @@ const FeedbackOpen = (props) => {
         <textarea
           className="task-input form-input"
           name="feedbackText"
+          value={formState.feedbackText}
+          onChange={handleChange}
           id="feedback-text"
           cols="30"
           rows="3"
