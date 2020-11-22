@@ -77,15 +77,15 @@ function MainTask(props) {
               <div
                 className={classList}
                 onClick={() => {
-                  setNotesVisible(!notesVisible);
-                  // dispatch({
-                  //   type: "HIDE_LEFT_SIDE",
-                  //   payload: "toggle",
-                  // });
-                  // dispatch({
-                  //   type: "HIDE_RIGHT_SIDE",
-                  //   payload: "toggle",
-                  // });
+                  // setNotesVisible(!notesVisible);
+                  dispatch({
+                    type: "HIDE_LEFT_SIDE",
+                    payload: "toggle",
+                  });
+                  dispatch({
+                    type: "HIDE_RIGHT_SIDE",
+                    payload: "toggle",
+                  });
                 }}
               >
                 <p>{mainTask.task}</p>
@@ -97,7 +97,11 @@ function MainTask(props) {
                     : "main-task-notes"
                 }
               >
-                <h4 className="subtask-h4">Add a new subtask...</h4>
+                <div className="notes-contents">
+                  <h4 className="subtask-h4">
+                    + Add a new subtask... (doesn't work yet)
+                  </h4>
+                </div>
               </div>
             </div>
           </Animated>
