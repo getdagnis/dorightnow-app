@@ -76,11 +76,12 @@
 
 .cat {
   position: absolute;
-  bottom: 7px;
-  right: 7px;
+  bottom: 0;
+  right: 0;
   width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  opacity: 0.6;
 }
 
 .cat-0 {
