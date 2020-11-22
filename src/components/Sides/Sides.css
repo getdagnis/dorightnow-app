@@ -189,26 +189,26 @@
 @media (max-width: 1680px) {
   .left-side,
   .right-side {
-    width: 380px;
+    width: 375px;
   }
   .left-side-out {
-    transform: translateX(-370px);
+    transform: translateX(-365px);
   }
   .right-side-out {
-    transform: translateX(370px);
+    transform: translateX(365px);
   }
 }
 
 @media (max-width: 1440px) {
   .left-side,
   .right-side {
-    width: 350px;
+    width: 340px;
   }
   .left-side-out {
-    transform: translateX(-340px);
+    transform: translateX(-330px);
   }
   .right-side-out {
-    transform: translateX(340px);
+    transform: translateX(330px);
   }
 }
 
@@ -229,12 +229,13 @@
   .left-side,
   .right-side {
     width: 300px;
+    min-width: 300px;
   }
   .left-side-out {
-    transform: translateX(-315px);
+    transform: translateX(-295px);
   }
   .right-side-out {
-    transform: translateX(315px);
+    transform: translateX(295px);
   }
   .overflow-bug-fix {
     padding: 12px 6px 36px;

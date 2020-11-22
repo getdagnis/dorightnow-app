@@ -12,10 +12,10 @@ const Task = (props) => {
   const [editTask, setEditTask] = useState(false);
   const [mobileTaskEditOpen, setMobileTaskEditOpen] = useState(false);
 
-  const { task, type, cat, id } = props.task;
+  const { task, type, color, id } = props.task;
   const { delay } = props;
-  const categoryClasses = "cat cat-" + cat;
-  const catColor = cat ? cat : "red";
+  const categoryClasses = "cat cat-" + color;
+  const catColor = color ? color : "red";
   let taskClasses = "task " + type;
 
   // Creates a bounce animation delay for each task seperately based on position in array

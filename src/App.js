@@ -13,7 +13,8 @@ import FollowingPage from "./containers/Following/Following";
 import { TasksContext } from "./context/context";
 import tasksReducer from "./context/reducer";
 
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/analytics";
 import { firebaseConfig } from "./firebaseConfig";
 
 firebase.initializeApp(firebaseConfig);
@@ -25,7 +26,7 @@ function App() {
 
   // DELETES ANY TASKS THAT DON'T HAVE AN ID (DEV MODE USAGE)
   // useEffect(() => {
-  //   dispatch({ type: "CLEANUP_TASKS" });
+  //   dispatch({ type: "CLEAN_CORRUPT_TASKS" });
   // });
   // CLEAN LOCAL STORAGE
   // localStorage.setItem("dorightnowTasks", JSON.stringify([]));

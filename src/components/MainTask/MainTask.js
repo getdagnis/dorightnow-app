@@ -11,9 +11,16 @@ function MainTask(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
 
-  console.log(mainTask);
+  console.log("main task", mainTask);
 
   let classList = "main-task " + taskSize;
+  classList =
+    mainTask.color !== "0"
+      ? classList.concat(" main-task-color-" + mainTask.color)
+      : classList;
+
+  const mainBtnColor = "xxl-done btn-" + mainTask.color;
+
   switch (mainTaskMovement) {
     case "in":
       classList = classList.concat(" mainTaskIn");
@@ -86,6 +93,7 @@ function MainTask(props) {
               size="extra-large"
               color="xxl-grey"
               title="give up"
+              mainColor={mainTask.color}
             />
             <ButtonSmall
               onClick={() => {
@@ -105,7 +113,7 @@ function MainTask(props) {
                 }, 500);
               }}
               size="extra-large"
-              color="xxl-red"
+              color={mainBtnColor}
               title="done"
             />
           </div>
@@ -113,7 +121,6 @@ function MainTask(props) {
       </div>
       <div className="main-task-bottom">
         Time's running out!
-        <ReactStopwatch />
         <Countdown
           className="countdown"
           date={Date.now() + 900000}

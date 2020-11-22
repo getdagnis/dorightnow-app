@@ -96,10 +96,6 @@
   transition: all 0.3s ease;
 }
 
-.btn-xxl-red:hover {
-  background: var(--colorRed);
-}
-
 .btn-red {
   background: var(--colorRedDark);
 }
@@ -116,18 +112,26 @@
   background: var(--colorGrey);
 }
 
-.btn-a {
+.btn-0:hover {
+  background: var(--colorRed);
+}
+
+.btn-a:hover {
   background: var(--catA);
 }
 
-.btn-b {
+.btn-b:hover {
   background: var(--catB);
 }
 
-.btn-c {
+.btn-c:hover {
   background: var(--catC);
 }
 
-.btn-d {
+.btn-d:hover {
   background: var(--catD);
+}
+
+.btn-e:hover {
+  background: var(--catE);
 }

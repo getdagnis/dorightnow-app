@@ -84,13 +84,14 @@ const FeedbackOpen = (props) => {
     })
       .then(() => clickHandleSent())
       .catch((error) => alert("Error! Sorry, form not sent...", error));
-    console.log("state", formState);
   };
 
   return (
     <div className="feedback-open">
-      <h3 className="feedback-h3">Hi! I'm still building this app.</h3>
-      Please leave your feedback to help it get better:
+      <h3 className="feedback-h3">
+        Help me build this app into one you'll love!
+      </h3>
+      Please leave your feedback and be part of the process:
       <form
         onSubmit={handleSubmit}
         className="feedback-form"

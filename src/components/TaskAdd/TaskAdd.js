@@ -13,15 +13,7 @@ function TaskAdd(props) {
   const { state, dispatch } = useContext(TasksContext);
   const [showOptions, setShowOptions] = useState(false);
 
-  const fetchedCategories = state.categories;
-  const colors = [
-    // { name: "default", className: "form-radio cat-0", value: "0" },
-    { name: "teal", class: "form-label cat-a", value: "a" },
-    { name: "olive", class: "form-label cat-b", value: "b" },
-    { name: "apricot", class: "form-label cat-c", value: "c" },
-    { name: "gold", class: "form-label cat-d", value: "d" },
-    { name: "purple", class: "form-label cat-e", value: "e" },
-  ];
+  const { categories, colors, lastColor, lastCategory } = state;
 
   const showKeyboardTip =
     localStorage.getItem("showKeyboardTip") === "off" ? false : false; // TURNED OFF!!! FOR NOW...
@@ -39,6 +31,8 @@ function TaskAdd(props) {
     console.log("submit data", data);
     console.warn("errors", errors);
     dispatch({ type: "ADD_TASK", payload: data });
+    dispatch({ type: "SET_LAST_COLOR", payload: data.color });
+    dispatch({ type: "SET_LAST_CATEGORY", payload: data.category });
     clickHandle();
   };
 
@@ -61,12 +55,11 @@ function TaskAdd(props) {
 
   const handleSelectCategory = (e) => {
     if (e.target.value === "add-new-cat") {
-      alert("Doesn't work yet...");
+      alert("Sorry, doesn't work yet...");
     }
   };
 
   function doLaterAction(e) {
-    console.log("do later event", e);
     // handleSubmit(onSubmit)();
   }
 
@@ -97,16 +90,6 @@ function TaskAdd(props) {
           />
           <h3 className="form-h3">Color:</h3>
           <div className="form-radio-btns">
-            <span data-color="default" className="form-radio">
-              <input
-                name="color"
-                type="radio"
-                value="0"
-                ref={register}
-                defaultChecked
-              />
-              <span data-color="default" className="form-label cat-0"></span>
-            </span>
             {colors.map((c) => {
               return (
                 <span key={c.name} className="form-radio">
@@ -115,6 +98,13 @@ function TaskAdd(props) {
                     type="radio"
                     value={c.value}
                     ref={register}
+                    defaultChecked={
+                      taskEdit
+                        ? c.value === thisTask.color
+                        : lastColor
+                        ? c.value === lastColor
+                        : c.value === "0"
+                    }
                   />
                   <span className={c.class} data-color={c.name}></span>
                 </span>
@@ -143,8 +133,16 @@ function TaskAdd(props) {
                   ref={register}
                   onChange={handleSelectCategory}
                 >
-                  {fetchedCategories.map((c) => (
-                    <option key={c.name} value={c.name}>
+                  {categories.map((c) => (
+                    <option
+                      key={c.name}
+                      value={c.name}
+                      selected={
+                        lastCategory
+                          ? c.name === lastCategory
+                          : c.name === "None"
+                      }
+                    >
                       {c.name}
                     </option>
                   ))}

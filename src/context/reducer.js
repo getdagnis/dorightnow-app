@@ -68,8 +68,6 @@ export default function reducer(state, action) {
       let currentTaskTemporary =
         action.payload === "keep" ? state.currentTask : null;
 
-      console.log("currentTaskTemporary", currentTaskTemporary);
-
       return {
         ...state,
         currentTask: currentTaskTemporary,
@@ -132,17 +130,6 @@ export default function reducer(state, action) {
         tasks: updatedTasks,
       };
 
-    case "CLEANUP_TASKS":
-      const cleanedTasks = state.tasks.filter((t) => t.id && t.id.length > 1);
-      localStorage.setItem("dorightnowTasks", JSON.stringify(cleanedTasks));
-
-      return {
-        ...state,
-        tasks: cleanedTasks,
-      };
-    default:
-      return state;
-
     case "HIDE_LEFT_SIDE":
       let newLeftHideSate = "";
       switch (action.payload) {
@@ -184,5 +171,23 @@ export default function reducer(state, action) {
         ...state,
         hideRightSide: newRightHideSate,
       };
+
+    case "SET_LAST_COLOR":
+      return { ...state, lastColor: action.payload };
+
+    case "SET_LAST_CATEGORY":
+      return { ...state, lastCategory: action.payload };
+
+    // DEV USE ONLY
+    case "CLEAN_CORRUPT_TASKS":
+      const cleanedTasks = state.tasks.filter((t) => t.id && t.id.length > 1);
+      localStorage.setItem("dorightnowTasks", JSON.stringify(cleanedTasks));
+
+      return {
+        ...state,
+        tasks: cleanedTasks,
+      };
+    default:
+      return state;
   }
 }

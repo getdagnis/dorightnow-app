@@ -25,8 +25,6 @@ const LeftSide = () => {
     return () => clearTimeout(timeout);
   }, [justDeleted]);
 
-  console.log("side left side hid", hideLeftSide);
-
   const sideClassList = state.hideLeftSide
     ? "side left-side left-side-out"
     : "side left-side";

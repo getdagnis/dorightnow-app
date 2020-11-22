@@ -4,7 +4,6 @@
 import "./TaskEdit.css";
 
 function TaskEdit(props) {
-  console.log("task edit is open");
   // const context = useContext(TasksContext);
   // const id = props.match.params.id;
   // const tasks = context.state.tasks;

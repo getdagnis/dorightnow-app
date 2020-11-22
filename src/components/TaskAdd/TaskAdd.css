@@ -189,7 +189,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ .form-label {
   transition: all 0.2s ease;
-  border: solid 1px #22222277;
+  border: solid 1px #22222266;
   box-shadow: 0 0 6px #00000033 inset;
   opacity: 1;
 }

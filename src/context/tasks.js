@@ -25,6 +25,28 @@ export const fetchedCategories =
         { name: "Friends & family" },
       ];
 
+export const fetchedColors =
+  localStorage.getItem("dorightnowColors") &&
+  typeof JSON.parse(localStorage.getItem("dorightnowColors")) === "object" &&
+  JSON.parse(localStorage.getItem("dorightnowColors")).length > 0
+    ? JSON.parse(localStorage.getItem("dorightnowColors"))
+    : [
+        {
+          name: "default",
+          class: "form-label cat-0",
+          value: "0",
+        },
+        { name: "teal", class: "form-label cat-a", value: "a" },
+        { name: "olive", class: "form-label cat-b", value: "b" },
+        {
+          name: "apricot",
+          class: "form-label cat-c",
+          value: "c",
+        },
+        { name: "gold", class: "form-label cat-d", value: "d" },
+        { name: "purple", class: "form-label cat-e", value: "e" },
+      ];
+
 // export const mainTask =
 //   localStorage.getItem("mainTask") &&
 //   typeof JSON.parse(localStorage.getItem("mainTask")) === "string"
