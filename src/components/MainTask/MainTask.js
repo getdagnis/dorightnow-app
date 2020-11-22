@@ -14,7 +14,10 @@ function MainTask(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
   const [isMainTaskVisible, setIsMainTaskVisible] = useState(true);
-  const [mainTaskAnim, setMainTaskAnim] = useState("mainTaskDoneSimple");
+  const [mainTaskAnim, setMainTaskAnim] = useState({
+    anim: "mainTaskDoneSimple",
+    duration: 1200,
+  });
 
   console.log("main task", mainTask);
 
@@ -64,9 +67,9 @@ function MainTask(props) {
         <h1 className="main-task-h1">do right now</h1>
         <div className="main-task-with-btns">
           <Animated
-            animationOut={mainTaskAnim}
+            animationOut={mainTaskAnim.anim}
+            animationOutDuration={mainTaskAnim.duration}
             isVisible={isMainTaskVisible}
-            animationOutDuration={1500}
           >
             <div
               className={classList}
@@ -87,7 +90,10 @@ function MainTask(props) {
           <div className="main-task-btns">
             <ButtonSmall
               onClick={() => {
-                setMainTaskAnim("mainTaskOut");
+                setMainTaskAnim({
+                  anim: "mainTaskOut",
+                  duration: 1500,
+                });
                 setIsMainTaskVisible(false);
                 setTimeout(() => {
                   dispatch({
@@ -112,14 +118,17 @@ function MainTask(props) {
             />
             <ButtonSmall
               onClick={() => {
-                setMainTaskAnim("mainTaskDoneSimple");
+                setMainTaskAnim({
+                  anim: "mainTaskDoneSimple",
+                  duration: 1400,
+                });
                 setIsMainTaskVisible(false);
                 setTimeout(() => {
                   dispatch({
                     type: "MAIN_TASK_DONE",
                     payload: { taskId: mainTask.id, action: "done" },
                   });
-                }, 1300);
+                }, 1100);
                 setTimeout(() => {
                   dispatch({
                     type: "HIDE_LEFT_SIDE",
@@ -129,7 +138,7 @@ function MainTask(props) {
                     type: "HIDE_RIGHT_SIDE",
                     payload: "show",
                   });
-                }, 1300);
+                }, 1100);
               }}
               size="extra-large"
               color={mainBtnColor}
