@@ -4,8 +4,8 @@ import { useForm, FormProvider } from "react-hook-form";
 
 import { TasksContext } from "../../context/context";
 import "./TaskAdd.css";
-import turtleIcon from "./turtle.svg";
-import quickIcon from "./quick.svg";
+import turtleIcon from "./assets/turtle.svg";
+import quickIcon from "./assets/quick.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 function TaskAdd(props) {

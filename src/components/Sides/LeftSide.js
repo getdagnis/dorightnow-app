@@ -3,7 +3,7 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import TaskList from "../TaskList/TaskList";
 import TaskAdd from "../TaskAdd/TaskAdd";
 import addIcon from "./img/add_new.svg";
-import doTodayIcon from "../TaskAdd/quick.svg";
+import doTodayIcon from "../TaskAdd/assets/quick.svg";
 import leftArrow from "./img/arr-left.png";
 
 import { TasksContext } from "../../context/context";
