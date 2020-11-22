@@ -1,0 +1,121 @@
+@keyframes mainTaskIn {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
+}
+
+.mainTaskIn {
+  backface-visibility: visible !important;
+  animation: mainTaskIn 0.7s;
+  animation-delay: 0.7s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes mainTaskOut {
+  0% {
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  20%,
+  60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    filter: grayscale(100%);
+    opacity: 0.7;
+  }
+
+  40%,
+  80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    filter: grayscale(100%);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    filter: grayscale(100%);
+    opacity: 0;
+  }
+}
+
+.mainTaskOut {
+  animation: mainTaskOut 1.5s;
+}
+
+@keyframes mainTaskDone {
+  0%,
+  15%,
+  30%,
+  60% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  25%,
+  40% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  45% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 10px);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(100%, 0) rotate3d(0, 0, 1, 120deg);
+  }
+}
+
+.mainTaskDone {
+  animation: mainTaskDone 3s;
+}
+
+@keyframes mainTaskDoneSimple {
+  0% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(100%, 0) rotate3d(0, 0, 1, 160deg);
+  }
+}
+
+.mainTaskDoneSimple {
+  animation: mainTaskDoneSimple 1.5s;
+}

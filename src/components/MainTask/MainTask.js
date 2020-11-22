@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
-import { TasksContext } from "../../context/context";
+import React, { useContext, useState } from "react";
+import { Animated } from "react-animated-css";
 import Countdown from "react-countdown";
 import ReactStopwatch from "react-stopwatch";
 
+import { TasksContext } from "../../context/context";
+
 import "./MainTask.css";
+import "./MainTask.anim.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 function MainTask(props) {
   const { mainTask, taskSize } = props;
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
+  const [isMainTaskVisible, setIsMainTaskVisible] = useState(true);
+  const [mainTaskAnim, setMainTaskAnim] = useState("mainTaskDoneSimple");
 
   console.log("main task", mainTask);
 
@@ -58,27 +63,37 @@ function MainTask(props) {
       <div className="main-task-top">
         <h1 className="main-task-h1">do right now</h1>
         <div className="main-task-with-btns">
-          <div
-            className={classList}
-            onClick={() => {
-              dispatch({
-                type: "HIDE_LEFT_SIDE",
-                payload: "toggle",
-              });
-              dispatch({
-                type: "HIDE_RIGHT_SIDE",
-                payload: "toggle",
-              });
-            }}
+          <Animated
+            animationOut={mainTaskAnim}
+            isVisible={isMainTaskVisible}
+            animationOutDuration={1500}
           >
-            <p>{mainTask.task}</p>
-          </div>
+            <div
+              className={classList}
+              onClick={() => {
+                dispatch({
+                  type: "HIDE_LEFT_SIDE",
+                  payload: "toggle",
+                });
+                dispatch({
+                  type: "HIDE_RIGHT_SIDE",
+                  payload: "toggle",
+                });
+              }}
+            >
+              <p>{mainTask.task}</p>
+            </div>
+          </Animated>
           <div className="main-task-btns">
             <ButtonSmall
               onClick={() => {
-                dispatch({
-                  type: "CLEAR_MAIN_TASK",
-                });
+                setMainTaskAnim("mainTaskOut");
+                setIsMainTaskVisible(false);
+                setTimeout(() => {
+                  dispatch({
+                    type: "CLEAR_MAIN_TASK",
+                  });
+                }, 1450);
                 setTimeout(() => {
                   dispatch({
                     type: "HIDE_LEFT_SIDE",
@@ -88,7 +103,7 @@ function MainTask(props) {
                     type: "HIDE_RIGHT_SIDE",
                     payload: "show",
                   });
-                }, 500);
+                }, 1500);
               }}
               size="extra-large"
               color="xxl-grey"
@@ -97,10 +112,14 @@ function MainTask(props) {
             />
             <ButtonSmall
               onClick={() => {
-                dispatch({
-                  type: "MAIN_TASK_DONE",
-                  payload: { taskId: mainTask.id, action: "done" },
-                });
+                setMainTaskAnim("mainTaskDoneSimple");
+                setIsMainTaskVisible(false);
+                setTimeout(() => {
+                  dispatch({
+                    type: "MAIN_TASK_DONE",
+                    payload: { taskId: mainTask.id, action: "done" },
+                  });
+                }, 1450);
                 setTimeout(() => {
                   dispatch({
                     type: "HIDE_LEFT_SIDE",
@@ -110,7 +129,7 @@ function MainTask(props) {
                     type: "HIDE_RIGHT_SIDE",
                     payload: "show",
                   });
-                }, 500);
+                }, 1500);
               }}
               size="extra-large"
               color={mainBtnColor}

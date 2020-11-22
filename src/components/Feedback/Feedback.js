@@ -91,7 +91,7 @@ const FeedbackOpen = (props) => {
       <h3 className="feedback-h3">
         Help me build this app into one you'll love!
       </h3>
-      Please leave your feedback and be part of the process:
+      Please leave your feedback and be part of the building process:
       <form
         onSubmit={handleSubmit}
         className="feedback-form"
