@@ -58,6 +58,10 @@ const Task = (props) => {
           </div>
         ) : null}
       </MobileView>
+
+      {
+        // DESKTOP BROWSER VIEW STARTS HERE
+      }
       {!isMobile && type === "todo" ? (
         <div className="task-edit">
           <div className="task-btns">

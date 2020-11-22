@@ -11,7 +11,7 @@ import ButtonSmall from "../ButtonSmall/ButtonSmall";
 function TaskAdd(props) {
   let { clickHandle, taskEdit, thisTask, showTip } = props;
   const { state, dispatch } = useContext(TasksContext);
-  const [showOptions, setShowOptions] = useState(false);
+  const [showOptions, setShowOptions] = useState(true);
 
   const { categories, colors, lastColor, lastCategory } = state;
 
@@ -30,6 +30,17 @@ function TaskAdd(props) {
   const onSubmit = (data) => {
     console.log("submit data", data);
     console.warn("errors", errors);
+    data.task =
+      data.task === "lipsum" || data.task === "lorem"
+        ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare ipsum sit amet."
+        : data.task === "lorem ipsum"
+        ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare ipsum sit amet interdum finibus. Donec sollicitudin aliquam venenatis."
+        : data.task === "lorem ipsum dolor"
+        ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare ipsum sit amet interdum finibus. Donec sollicitudin aliquam venenatis. Praesent rutrum nunc ut mauris scelerisque, nec tincidunt odio aliquet."
+        : data.task === "lorem ipsum dolor sit"
+        ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare ipsum sit amet interdum finibus. Donec sollicitudin aliquam venenatis. Praesent rutrum nunc ut mauris scelerisque, nec tincidunt odio aliquet. Morbi dolor felis, lacinia id dignissim a, dignissim ac mauris donec ac urna pharetra."
+        : data.task;
+    console.log(data.task);
     dispatch({ type: "ADD_TASK", payload: data });
     dispatch({ type: "SET_LAST_COLOR", payload: data.color });
     dispatch({ type: "SET_LAST_CATEGORY", payload: data.category });
@@ -90,28 +101,30 @@ function TaskAdd(props) {
           />
           <h3 className="form-h3">Color:</h3>
           <div className="form-radio-btns">
-            {colors.map((c) => {
-              return (
-                <span key={c.name} className="form-radio">
-                  <input
-                    name="color"
-                    type="radio"
-                    value={c.value}
-                    ref={register}
-                    defaultChecked={
-                      taskEdit
-                        ? c.value === thisTask.color
-                        : lastColor
-                        ? c.value === lastColor
-                        : c.value === "0"
-                    }
-                  />
-                  <span className={c.class} data-color={c.name}></span>
-                </span>
-              );
-            })}
+            {colors
+              ? colors.map((c) => {
+                  return (
+                    <span key={c.name} className="form-radio">
+                      <input
+                        name="color"
+                        type="radio"
+                        value={c.value}
+                        ref={register}
+                        defaultChecked={
+                          taskEdit
+                            ? c.value === thisTask.color
+                            : lastColor
+                            ? c.value === lastColor
+                            : c.value === "0"
+                        }
+                      />
+                      <span className={c.class} data-color={c.name}></span>
+                    </span>
+                  );
+                })
+              : null}
           </div>
-          {!showOptions || taskEdit ? (
+          {showOptions || taskEdit ? (
             <div>
               <h3 className="form-h3">Motivation (optional):</h3>
               <input
@@ -133,19 +146,13 @@ function TaskAdd(props) {
                   ref={register}
                   onChange={handleSelectCategory}
                 >
-                  {categories.map((c) => (
-                    <option
-                      key={c.name}
-                      value={c.name}
-                      selected={
-                        lastCategory
-                          ? c.name === lastCategory
-                          : c.name === "None"
-                      }
-                    >
-                      {c.name}
-                    </option>
-                  ))}
+                  {categories
+                    ? categories.map((c) => (
+                        <option key={c.name} value={c.name}>
+                          {c.name}
+                        </option>
+                      ))
+                    : null}
                   <option value="add-new-cat">+ Add a new category</option>
                 </select>
               </div>

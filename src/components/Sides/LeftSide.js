@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import TaskList from "../TaskList/TaskList";
 import TaskAdd from "../TaskAdd/TaskAdd";
@@ -13,6 +15,7 @@ const LeftSide = () => {
   const [addTask, setAddTask] = useState(false);
   const { tasks, justDeleted, hideLeftSide } = state;
   const filteredTasks = tasks.filter((t) => t.type === "todo");
+  const location = useLocation().pathname;
 
   let showTip = true;
 
@@ -21,15 +24,14 @@ const LeftSide = () => {
     const timeout = setTimeout(() => {
       dispatch({ type: "REMOVE_JUSTDELETED" });
     }, 5000);
-
     return () => clearTimeout(timeout);
   }, [justDeleted]);
 
-  const sideClassList = state.hideLeftSide
+  const sideClassList = hideLeftSide
     ? "side left-side left-side-out"
     : "side left-side";
 
-  const arrowClassList = state.hideLeftSide ? "arr-left rot-180" : "arr-left";
+  const arrowClassList = hideLeftSide ? "arr-left rot-180" : "arr-left";
 
   return (
     <React.Fragment>
@@ -91,3 +93,20 @@ const LeftSide = () => {
 };
 
 export default LeftSide;
+
+// // ADDS "N" KEYBOARD SHORTCUT FOR A "NEW TASK"
+// const handleKeyDown = (e) => {
+//   if (e.key === "n") {
+//     setAddTask(true);
+//   }
+// };
+
+// // LISTENS FOR KEYBOARD SHORTCUTS IF NOT DISABLED
+// useEffect(() => {
+//   if (location === "/" && !homeShortcutsDisable) {
+//     window.addEventListener("keydown", handleKeyDown);
+//     return () => {
+//       window.removeEventListener("keydown", handleKeyDown);
+//     };
+//   }
+// }, [homeShortcutsDisable]);

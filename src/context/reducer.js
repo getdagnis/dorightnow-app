@@ -22,6 +22,41 @@ export default function reducer(state, action) {
         tasks: addedTasks,
       };
 
+    case "UPDATE_TASK":
+      const updatedTasksIndex = state.tasks.findIndex(
+        (t) => t.id === action.payload.taskId
+      );
+      const currentTask = state.tasks[updatedTasksIndex];
+      currentTask.task =
+        action.payload.data.task.length > 0
+          ? action.payload.data.task
+          : currentTask.task;
+      currentTask.motivation =
+        action.payload.data.motivation.length > 0
+          ? action.payload.data.motivation
+          : currentTask.motivation;
+      currentTask.color =
+        action.payload.data.color.length > 0
+          ? action.payload.data.color
+          : currentTask.color;
+      currentTask.category =
+        action.payload.data.category.length > 0
+          ? action.payload.data.category
+          : currentTask.category;
+
+      const updatedTasks = [
+        ...state.tasks.slice(0, updatedTasksIndex),
+        currentTask,
+        ...state.tasks.slice(updatedTasksIndex + 1),
+      ];
+
+      console.log("updatedTasks", updatedTasks);
+
+      return {
+        ...state,
+        tasks: updatedTasks,
+      };
+
     case "DELETE_TASK":
       const nondeletedTasks = state.tasks.filter(
         (t) => t.id !== action.payload
@@ -102,32 +137,6 @@ export default function reducer(state, action) {
         tasks: newTasks.length > 0 ? newTasks : state.tasks,
         mainTaskMovement: "done",
         currentTask: null,
-      };
-
-    case "UPDATE_TASK":
-      const updatedTasksIndex = state.tasks.findIndex(
-        (t) => t.id === action.payload.taskId
-      );
-      const currentTask = state.tasks[updatedTasksIndex];
-      currentTask.task =
-        action.payload.data.task.length > 0
-          ? action.payload.data.task
-          : currentTask.task;
-      currentTask.motivation =
-        action.payload.data.motivation.length > 0
-          ? action.payload.data.motivation
-          : currentTask.motivation;
-
-      const updatedTasks = [
-        ...state.tasks.slice(0, updatedTasksIndex),
-        currentTask,
-        ...state.tasks.slice(updatedTasksIndex + 1),
-      ];
-
-      localStorage.setItem("dorightnowTasks", JSON.stringify(updatedTasks));
-
-      return {
-        tasks: updatedTasks,
       };
 
     case "HIDE_LEFT_SIDE":

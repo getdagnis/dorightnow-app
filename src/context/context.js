@@ -16,7 +16,6 @@ export const TasksContext = React.createContext({
   currentTask: null,
   lastColor: null,
   lastCategory: null,
-  mainTaskMovement: "in",
   hideLeftSide: false,
   hideRightSide: false,
 });
