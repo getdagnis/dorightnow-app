@@ -30,7 +30,7 @@
 .mainTaskIn {
   backface-visibility: visible !important;
   animation: mainTaskIn 0.7s;
-  animation-delay: 0.7s;
+  animation-delay: 0.3s;
   animation-fill-mode: backwards;
 }
 

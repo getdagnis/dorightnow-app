@@ -119,7 +119,7 @@ function MainTask(props) {
                     type: "MAIN_TASK_DONE",
                     payload: { taskId: mainTask.id, action: "done" },
                   });
-                }, 1450);
+                }, 1300);
                 setTimeout(() => {
                   dispatch({
                     type: "HIDE_LEFT_SIDE",
@@ -129,7 +129,7 @@ function MainTask(props) {
                     type: "HIDE_RIGHT_SIDE",
                     payload: "show",
                   });
-                }, 1500);
+                }, 1300);
               }}
               size="extra-large"
               color={mainBtnColor}
