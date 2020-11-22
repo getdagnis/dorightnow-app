@@ -112,14 +112,14 @@
   width: 100%;
   height: 100%;
   margin-top: -50px;
-  padding: 20px 20px 40px;
+  padding: 20px 30px 10px;
   color: var(--textColor);
   background: var(--bgNewTask);
   box-shadow: 0 10px 15px #00000011;
   box-sizing: border-box;
   border-radius: 0 0 12px 12px;
   transition: all 0.3s ease;
-  transform: translateY(50%);
+  transform: translateY(30%);
   opacity: 0;
   overflow: hidden;
   z-index: -2;
@@ -133,6 +133,10 @@
   opacity: 1;
   z-index: 3;
   transform: translateY(100%);
+}
+
+.subtask-h4 {
+  font-weight: 600;
 }
 
 .main-task-btns {

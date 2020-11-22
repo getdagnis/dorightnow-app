@@ -97,13 +97,7 @@ function MainTask(props) {
                     : "main-task-notes"
                 }
               >
-                <h3>Add some notes...</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolore illo consequatur repellat exercitationem quo, quibusdam
-                  quas deleniti illum earum quod ducimus eos sit. Atque saepe
-                  quidem quaerat sapiente beatae quam?
-                </p>
+                <h4 className="subtask-h4">Add a new subtask...</h4>
               </div>
             </div>
           </Animated>
