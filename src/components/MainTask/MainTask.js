@@ -14,18 +14,20 @@ function MainTask(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
   const [isMainTaskVisible, setIsMainTaskVisible] = useState(true);
+  const [notesVisible, setNotesVisible] = useState(false);
   const [mainTaskAnim, setMainTaskAnim] = useState({
     anim: "mainTaskDoneSimple",
     duration: 1200,
   });
-
-  console.log("main task", mainTask);
 
   let classList = "main-task " + taskSize;
   classList =
     mainTask.color !== "0"
       ? classList.concat(" main-task-color-" + mainTask.color)
       : classList;
+  classList = notesVisible
+    ? classList.concat(" main-task-with-notes")
+    : classList;
 
   const mainBtnColor = "xxl-done btn-" + mainTask.color;
 
@@ -71,79 +73,99 @@ function MainTask(props) {
             animationOutDuration={mainTaskAnim.duration}
             isVisible={isMainTaskVisible}
           >
-            <div
-              className={classList}
-              onClick={() => {
-                dispatch({
-                  type: "HIDE_LEFT_SIDE",
-                  payload: "toggle",
-                });
-                dispatch({
-                  type: "HIDE_RIGHT_SIDE",
-                  payload: "toggle",
-                });
-              }}
-            >
-              <p>{mainTask.task}</p>
+            <div className="notes-container">
+              <div
+                className={classList}
+                onClick={() => {
+                  setNotesVisible(!notesVisible);
+                  // dispatch({
+                  //   type: "HIDE_LEFT_SIDE",
+                  //   payload: "toggle",
+                  // });
+                  // dispatch({
+                  //   type: "HIDE_RIGHT_SIDE",
+                  //   payload: "toggle",
+                  // });
+                }}
+              >
+                <p>{mainTask.task}</p>
+              </div>
+              <div
+                className={
+                  notesVisible
+                    ? "main-task-notes notes-visible"
+                    : "main-task-notes"
+                }
+              >
+                <h3>Add some notes...</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolore illo consequatur repellat exercitationem quo, quibusdam
+                  quas deleniti illum earum quod ducimus eos sit. Atque saepe
+                  quidem quaerat sapiente beatae quam?
+                </p>
+              </div>
             </div>
           </Animated>
-          <div className="main-task-btns">
-            <ButtonSmall
-              onClick={() => {
-                setMainTaskAnim({
-                  anim: "mainTaskOut",
-                  duration: 1500,
-                });
-                setIsMainTaskVisible(false);
-                setTimeout(() => {
-                  dispatch({
-                    type: "CLEAR_MAIN_TASK",
+          <div className={notesVisible ? "main-btns-hide" : "main-btns-show"}>
+            <div className="main-task-btns">
+              <ButtonSmall
+                onClick={() => {
+                  setMainTaskAnim({
+                    anim: "mainTaskOut",
+                    duration: 1500,
                   });
-                }, 1450);
-                setTimeout(() => {
-                  dispatch({
-                    type: "HIDE_LEFT_SIDE",
-                    payload: "show",
+                  setIsMainTaskVisible(false);
+                  setTimeout(() => {
+                    dispatch({
+                      type: "CLEAR_MAIN_TASK",
+                    });
+                  }, 1450);
+                  setTimeout(() => {
+                    dispatch({
+                      type: "HIDE_LEFT_SIDE",
+                      payload: "show",
+                    });
+                    dispatch({
+                      type: "HIDE_RIGHT_SIDE",
+                      payload: "show",
+                    });
+                  }, 1500);
+                }}
+                size="extra-large"
+                color="xxl-grey"
+                title="give up"
+                mainColor={mainTask.color}
+              />
+              <ButtonSmall
+                onClick={() => {
+                  setMainTaskAnim({
+                    anim: "mainTaskDoneSimple",
+                    duration: 1400,
                   });
-                  dispatch({
-                    type: "HIDE_RIGHT_SIDE",
-                    payload: "show",
-                  });
-                }, 1500);
-              }}
-              size="extra-large"
-              color="xxl-grey"
-              title="give up"
-              mainColor={mainTask.color}
-            />
-            <ButtonSmall
-              onClick={() => {
-                setMainTaskAnim({
-                  anim: "mainTaskDoneSimple",
-                  duration: 1400,
-                });
-                setIsMainTaskVisible(false);
-                setTimeout(() => {
-                  dispatch({
-                    type: "MAIN_TASK_DONE",
-                    payload: { taskId: mainTask.id, action: "done" },
-                  });
-                }, 1100);
-                setTimeout(() => {
-                  dispatch({
-                    type: "HIDE_LEFT_SIDE",
-                    payload: "show",
-                  });
-                  dispatch({
-                    type: "HIDE_RIGHT_SIDE",
-                    payload: "show",
-                  });
-                }, 1100);
-              }}
-              size="extra-large"
-              color={mainBtnColor}
-              title="done"
-            />
+                  setIsMainTaskVisible(false);
+                  setTimeout(() => {
+                    dispatch({
+                      type: "MAIN_TASK_DONE",
+                      payload: { taskId: mainTask.id, action: "done" },
+                    });
+                  }, 1100);
+                  setTimeout(() => {
+                    dispatch({
+                      type: "HIDE_LEFT_SIDE",
+                      payload: "show",
+                    });
+                    dispatch({
+                      type: "HIDE_RIGHT_SIDE",
+                      payload: "show",
+                    });
+                  }, 1100);
+                }}
+                size="extra-large"
+                color={mainBtnColor}
+                title="done"
+              />
+            </div>
           </div>
         </div>
       </div>
