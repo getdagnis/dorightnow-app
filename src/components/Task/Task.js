@@ -14,7 +14,7 @@ const Task = (props) => {
 
   const { task, type, color, id } = props.task;
   const { delay } = props;
-  const categoryClasses = "cat cat-" + color;
+  const categoryClasses = color !== "0" ? "cat cat-" + color : null;
   const catColor = color ? color : "red";
   let taskClasses = "task " + type;
 
