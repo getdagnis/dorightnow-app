@@ -22,7 +22,7 @@ code {
   --colorRedDarkOpaque: #6e0025ee;
   --colorRedDark: #6e001bbb;
 
-  --cat0: #38384477;
+  --cat0: #a5072fcc;
   --cat0transp: #383844;
   --catA: rgb(0, 110, 124);
   --catAtransp: linear-gradient(
@@ -36,7 +36,7 @@ code {
     rgba(149, 168, 65, 0.8) 0%,
     rgba(91, 114, 27, 0.5) 100%
   );
-  --catC: rgb(204, 97, 64);
+  --catC: rgb(231, 114, 78);
   --catCtransp: linear-gradient(
     176deg,
     rgba(255, 107, 62, 0.85) 0%,
@@ -46,7 +46,7 @@ code {
   --catDtransp: linear-gradient(
     176deg,
     rgba(192, 185, 110, 0.85) 0%,
-    rgba(143, 138, 81, 0.7) 100%
+    rgba(126, 121, 66, 0.7) 100%
   );
   --catE: rgb(100, 67, 126);
   --catEtransp: linear-gradient(
@@ -94,14 +94,14 @@ $lightNth: nth($lightList, $imgKey);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
   --mainTaskShadows: inset -1px -1px 3px #00000022,
-    inset -2px -2px 6px #00000022, inset 0 0 30px #00000011,
-    2px 2px 8px #00000055, 0 0 50px #00000022;
+    inset -2px -2px 6px #00000020, inset 0 0 30px #00000011,
+    2px 2px 12px #00000044, 0 0 50px #00000022;
 }
 
 :root .light {
-  --colorRed: #00789c;
-  --colorRedDarkOpaque: #006b9699;
-  --colorRedDark: #0b6c92bb;
+  // --colorRed: #00789c;
+  // --colorRedDarkOpaque: #006b9699;
+  // --colorRedDark: #0b6c92bb;
 
   --mainColor: #6a6f7cc4;
   --textColor: #1c1d1fd5;
@@ -123,7 +123,13 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskInputFocus: #d5d8e2dd;
   --bgNewTaskCover: #caccd6aa;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
+  --bgMainTask: linear-gradient(
+    176deg,
+    rgba(190, 0, 41, 0.8) 0%,
+    rgba(151, 4, 36, 0.8) 40%,
+    rgba(110, 3, 30, 0.8) 100%
+  );
+  // --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
 }
