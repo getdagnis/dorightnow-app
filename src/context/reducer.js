@@ -50,7 +50,7 @@ export default function reducer(state, action) {
         ...state.tasks.slice(updatedTasksIndex + 1),
       ];
 
-      console.log("updatedTasks", updatedTasks);
+      localStorage.setItem("dorightnowTasks", JSON.stringify(updatedTasks));
 
       return {
         ...state,

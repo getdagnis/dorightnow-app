@@ -13,6 +13,8 @@ function TaskAdd(props) {
   const { state, dispatch } = useContext(TasksContext);
   const [showOptions, setShowOptions] = useState(true);
 
+  console.log("thisTask", thisTask);
+
   const { categories, colors, lastColor, lastCategory } = state;
 
   const showKeyboardTip =
@@ -148,7 +150,17 @@ function TaskAdd(props) {
                 >
                   {categories
                     ? categories.map((c) => (
-                        <option key={c.name} value={c.name}>
+                        <option
+                          key={c.name}
+                          value={c.name}
+                          selected={
+                            taskEdit
+                              ? c.name === thisTask.category
+                              : lastCategory
+                              ? c.name === lastCategory
+                              : c.name === "None"
+                          }
+                        >
                           {c.name}
                         </option>
                       ))
