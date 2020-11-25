@@ -7,7 +7,7 @@ import Sides from "../../components/Sides/Sides";
 import MainTask from "../../components/MainTask/MainTask";
 
 function HomePage(props) {
-  const { state } = useContext(TasksContext);
+  const { state, dispatch } = useContext(TasksContext);
   const { tasks, currentTask } = state;
 
   console.log("HOME state", state);
@@ -26,7 +26,19 @@ function HomePage(props) {
     tasks && tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
 
   return (
-    <div className="wrapper">
+    <div
+      className="wrapper"
+      onDoubleClick={() => {
+        dispatch({
+          type: "HIDE_LEFT_SIDE",
+          payload: "toggle",
+        });
+        dispatch({
+          type: "HIDE_RIGHT_SIDE",
+          payload: "toggle",
+        });
+      }}
+    >
       {mainTask ? (
         <MainTask taskSize={taskSize} mainTask={mainTask} />
       ) : (

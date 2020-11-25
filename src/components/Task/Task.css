@@ -163,10 +163,18 @@
   background-size: 60%;
 }
 
-.task-btn-delete:hover,
+.task-btn-delete:hover {
+  opacity: 1;
+  background: url(./bin.svg) center center no-repeat var(--bgSides);
+  background-size: 60%;
+  cursor: pointer;
+}
+
 .task-btn-hide:hover {
-  opacity: 0.8;
-  background-color: var(--bgTaskDone);
+  opacity: 1;
+  filter: invert(100%);
+  background: url(./cross.svg) center center no-repeat var(--bgGrey);
+  background-size: 70%;
   cursor: pointer;
 }
 

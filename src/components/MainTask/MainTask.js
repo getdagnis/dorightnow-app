@@ -63,6 +63,44 @@ function MainTask(props) {
     }
   };
 
+  const Stopwatch = () => (
+    <ReactStopwatch
+      seconds={0}
+      minutes={0}
+      hours={0}
+      // limit="00:00:10"
+      onChange={({ hours, minutes, seconds }) => {
+        // const localCounterData = localStorage.getItem("counterData")
+        //   ? localStorage.getItem("counterData")
+        //   : null;
+        // localCounterData &&
+        // (localCounterData.minutes > 0 || localCounterData.hours > 0)
+        //   ? console.log("local hours", localCounterData.minutes)
+        //   : console.log("empty local storage");
+        // const counterData = {
+        //   id: mainTask.id,
+        //   hours: hours,
+        //   minutes: minutes,
+        // };
+        // console.log("counterData", {
+        //   id: mainTask.id,
+        //   hours: hours,
+        //   minutes: minutes,
+        // });
+      }}
+      onCallback={() => console.log("Finish")}
+      render={({ formatted, hours, minutes, seconds }) => {
+        return (
+          <div className="countdown">
+            <span className="countdown-units">{hours}h</span>
+            <span className="countdown-units">{minutes}m</span>
+            <span className="countdown-units">{seconds}s</span>
+          </div>
+        );
+      }}
+    />
+  );
+
   return (
     <div className="main-task-wrapper">
       <div className="main-task-top">
@@ -78,6 +116,8 @@ function MainTask(props) {
                 className={classList}
                 onClick={() => {
                   // setNotesVisible(!notesVisible);
+                  const time = new Date().getTime();
+                  console.log("time", time);
                   dispatch({
                     type: "HIDE_LEFT_SIDE",
                     payload: "toggle",
@@ -168,16 +208,18 @@ function MainTask(props) {
         </div>
       </div>
       <div className="main-task-bottom">
-        Time's running out!
-        <Countdown
-          className="countdown"
-          date={Date.now() + 900000}
-          renderer={countdownRenderer}
-          controlled={false}
-        />
+        Time spent so far:
+        <Stopwatch />
       </div>
     </div>
   );
 }
 
 export default MainTask;
+
+// <Countdown
+//   className="countdown"
+//   date={Date.now() + 900000}
+//   renderer={countdownRenderer}
+//   controlled={false}
+// />

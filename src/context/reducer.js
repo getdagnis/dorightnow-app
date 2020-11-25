@@ -11,6 +11,8 @@ export default function reducer(state, action) {
         motivation: action.payload.motivation,
         color: action.payload.color,
         list: action.payload.list || "today",
+        timeAdded: action.payload.timeAdded,
+        timeSpent: { hours: 0, minutes: 0 },
       };
 
       const addedTasks = [...state.tasks, newTask];

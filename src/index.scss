@@ -39,8 +39,8 @@ code {
   --catC: rgb(231, 85, 59);
   --catCtransp: linear-gradient(
     176deg,
-    rgba(231, 85, 59, 0.85) 0%,
-    rgba(173, 40, 0, 0.7) 100%
+    rgba(250, 91, 62, 0.85) 0%,
+    rgba(190, 46, 2, 0.7) 100%
   );
   --catD: rgb(179, 172, 100);
   --catDtransp: linear-gradient(
@@ -52,7 +52,7 @@ code {
   --catEtransp: linear-gradient(
     176deg,
     rgba(163, 58, 204, 0.7) 0%,
-    rgba(59, 26, 87, 0.6) 100%
+    rgba(71, 31, 107, 0.6) 100%
   );
 }
 
@@ -97,6 +97,7 @@ $lightNth: nth($lightList, $imgKey);
     inset -2px -2px 6px #00000020, inset 0 0 30px #00000011,
     2px 2px 12px #00000044, 0 0 50px #00000022;
   --bgNotes: #737585ee;
+  --invertLight: invert(0%);
 }
 
 :root .light {
@@ -133,6 +134,7 @@ $lightNth: nth($lightList, $imgKey);
   // --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
+  --invertLight: invert(100%);
 }
 
 ul {
