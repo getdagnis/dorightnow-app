@@ -103,7 +103,7 @@ const TaskList = (props) => {
           )}
         </Droppable>
       ) : listType === "done" ? (
-        <h3 className="no-tasks">Nothing done today</h3>
+        <h3 className="no-tasks">No tasks here</h3>
       ) : (
         <h3 className="no-tasks">No tasks added</h3>
       )}

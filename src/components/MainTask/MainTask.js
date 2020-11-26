@@ -31,6 +31,8 @@ function MainTask(props) {
 
   const mainBtnColor = "xxl-done btn-" + mainTask.color;
 
+  const motivationColor = "motivation-block motiv-" + mainTask.color;
+
   switch (mainTaskMovement) {
     case "in":
       classList = classList.concat(" mainTaskIn");
@@ -174,10 +176,13 @@ function MainTask(props) {
                   }, 1500);
                 }}
                 size="extra-large"
-                color="xxl-grey"
+                color="xxl-grey give-up-btn"
                 title="give up"
                 mainColor={mainTask.color}
               />
+              {
+                // TODO LOCK THIS TASK button!!!
+              }
               {
                 // TODO Main task edit button will not work here as edit task window
                 // is currently launched from leftside component
@@ -228,6 +233,12 @@ function MainTask(props) {
         </div>
       </div>
       <div className="main-task-bottom">
+        {mainTask.motivation ? (
+          <div className="motivation-main">
+            This is what you will get when you finish:
+            <div className={motivationColor}>{mainTask.motivation}</div>
+          </div>
+        ) : null}
         Time spent so far (not yet working):
         <Stopwatch />
       </div>

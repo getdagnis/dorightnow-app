@@ -32,6 +32,23 @@ const LeftSide = () => {
 
   const arrowClassList = hideLeftSide ? "arr-left rot-180" : "arr-left";
 
+  useEffect(() => {
+    if (location === "/") {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, []);
+
+  // ADDS "N" KEYBOARD SHORTCUT FOR A "NEW TASK"
+  const handleKeyDown = (e) => {
+    if (e.key === "n" && e.ctrlKey === true) {
+      console.log(e);
+      setAddTask(true);
+    }
+  };
+
   return (
     <React.Fragment>
       {addTask ? (

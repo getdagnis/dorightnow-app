@@ -121,6 +121,7 @@ function TaskAdd(props) {
                             ? c.value === lastColor
                             : c.value === "0"
                         }
+                        onKeyPress={handleUserKeyPress}
                       />
                       <span className={c.class} data-color={c.name}></span>
                     </span>

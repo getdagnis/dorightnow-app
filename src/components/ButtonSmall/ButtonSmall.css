@@ -83,17 +83,21 @@
 }
 
 .btn-size-extra-large {
+  display: flex;
+  justify-content: center;
+  padding: 6px 10px;
+  min-width: 110px;
   font-size: 0.95rem;
   margin-left: 10px;
   opacity: 0.4;
   background: var(--bgMainTaskBtns);
-  padding: 6px 30px;
 }
 
 .btn-size-extra-large:hover {
-  padding: 6px 50px;
   background: var(--bgMainTaskBtns);
-  transition: all 0.3s ease;
+  padding: 6px 0;
+  min-width: 220px;
+  transition: all 0.2s ease;
 }
 
 .btn-red {
