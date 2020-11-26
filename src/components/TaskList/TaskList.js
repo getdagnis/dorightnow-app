@@ -13,6 +13,10 @@ const TaskList = (props) => {
   const otherTasks = tasks.filter((t) => t.type !== listType);
 
   function handleDragEnd(result) {
+    if (!result.destination) {
+      console.log("result", result);
+      return;
+    }
     const [reorderedItem] = thisListTasks.splice(result.source.index, 1);
     thisListTasks.splice(result.destination.index, 0, reorderedItem);
 
