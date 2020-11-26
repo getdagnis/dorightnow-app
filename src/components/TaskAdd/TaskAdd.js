@@ -12,8 +12,7 @@ function TaskAdd(props) {
   let { clickHandle, taskEdit, thisTask, showTip } = props;
   const { state, dispatch } = useContext(TasksContext);
   const [showOptions, setShowOptions] = useState(true);
-
-  console.log("thisTask", thisTask);
+  const timeNow = new Date().getTime();
 
   const { categories, colors, lastColor, lastCategory } = state;
 
@@ -43,7 +42,10 @@ function TaskAdd(props) {
         ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare ipsum sit amet interdum finibus. Donec sollicitudin aliquam venenatis. Praesent rutrum nunc ut mauris scelerisque, nec tincidunt odio aliquet. Morbi dolor felis, lacinia id dignissim a, dignissim ac mauris donec ac urna pharetra."
         : data.task;
     console.log(data.task);
-    dispatch({ type: "ADD_TASK", payload: data });
+    dispatch({
+      type: "ADD_TASK",
+      payload: { ...data, timeAdded: timeNow, timeModified: timeNow },
+    });
     dispatch({ type: "SET_LAST_COLOR", payload: data.color });
     dispatch({ type: "SET_LAST_CATEGORY", payload: data.category });
     clickHandle();

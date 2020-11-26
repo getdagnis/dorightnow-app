@@ -12,8 +12,11 @@ export default function reducer(state, action) {
         color: action.payload.color,
         list: action.payload.list || "today",
         timeAdded: action.payload.timeAdded,
+        timeModified: action.payload.timeAdded,
         timeSpent: { hours: 0, minutes: 0 },
       };
+
+      console.log("🚨 PAYLOAD DATA:", action.payload);
 
       const addedTasks = [...state.tasks, newTask];
 
@@ -123,8 +126,11 @@ export default function reducer(state, action) {
     case "MAIN_TASK_DONE":
       let newTasks = [];
 
-      if (action.payload.action === "done") {
-        const newType = "done";
+      if (
+        action.payload.action === "done" ||
+        action.payload.action === "todo"
+      ) {
+        const newType = action.payload.action;
         const thisTaskIndex = state.tasks.findIndex(
           (t) => t.id === action.payload.taskId
         );
@@ -136,8 +142,8 @@ export default function reducer(state, action) {
 
         newTasks = [
           ...state.tasks.slice(0, thisTaskIndex),
-          mainTaskDone,
           ...state.tasks.slice(thisTaskIndex + 1),
+          mainTaskDone,
         ];
       }
 

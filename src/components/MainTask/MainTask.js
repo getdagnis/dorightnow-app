@@ -179,8 +179,9 @@ function MainTask(props) {
                 mainColor={mainTask.color}
               />
               {
-                // TODO will not work here as edit task window is currently launched from leftside component
-                // need to movie it out and assign a router to it!
+                // TODO Main task edit button will not work here as edit task window
+                // is currently launched from leftside component
+                // Need to movie the edit task component outside and assign a router to it!
                 // <ButtonSmall
                 //   onClick={() => {
                 //     dispatch({
@@ -227,7 +228,7 @@ function MainTask(props) {
         </div>
       </div>
       <div className="main-task-bottom">
-        Time spent so far:
+        Time spent so far (not yet working):
         <Stopwatch />
       </div>
     </div>

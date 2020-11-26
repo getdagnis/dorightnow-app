@@ -3,7 +3,7 @@
   transform: translateY(-100%);
   text-align: center;
   background: var(--bgMainTaskEmpty);
-  padding: 18px 42px;
+  padding: 42px;
   border-radius: 4px;
   animation: fadeIn 0.7s ease;
 }

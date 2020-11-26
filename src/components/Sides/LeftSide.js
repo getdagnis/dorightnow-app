@@ -55,7 +55,7 @@ const LeftSide = () => {
             alt="Do Right Now logo"
           />
         </div>
-        <div className="overflow-bug-fix">
+        <div className="overflow-bug-fix left-side-marker">
           <div className="safari-flex-height-fix">
             <div className="side-top">
               <h3 className="side-top-h3 title-drop">
