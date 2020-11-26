@@ -38,7 +38,7 @@ const RightSide = () => {
             <h3 className="side-top-h3 title-drop">Done today</h3>
           </div>
         </div>
-        <TaskList tasks={filteredTasks} listType="done" />
+        {<TaskList tasks={filteredTasks} listType="done" />}
         {!isMobile ? <Feedback /> : null}
       </div>
     </div>

@@ -11,7 +11,6 @@ function HomePage(props) {
   const { tasks, currentTask } = state;
 
   console.log("HOME state", state);
-  console.log("HOME tasks", tasks);
 
   const i = state.tasks.findIndex((t) => t.id === currentTask);
   const mainTask = tasks[i];

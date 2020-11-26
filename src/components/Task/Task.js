@@ -13,7 +13,7 @@ const Task = (props) => {
   const [mobileTaskEditOpen, setMobileTaskEditOpen] = useState(false);
 
   const { task, type, color, id } = props.task;
-  const { delay } = props;
+  const { delay, ...draggableProps } = props;
   const categoryClasses = color !== "0" ? "cat cat-" + color : null;
   const catColor = color ? color : "red";
   let taskClasses = "task " + type;
@@ -35,6 +35,8 @@ const Task = (props) => {
 
   return (
     <div
+      ref={props.draggableRef}
+      {...draggableProps}
       className={taskClasses}
       onClick={
         isMobile ? () => setMobileTaskEditOpen(!mobileTaskEditOpen) : null

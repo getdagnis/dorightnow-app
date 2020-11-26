@@ -14,7 +14,7 @@
   overflow-wrap: break-word;
   animation: taskBounce 0.7s;
   animation-fill-mode: backwards;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
 
 .task:hover {
@@ -36,7 +36,7 @@
 .done {
   background: var(--bgGrey);
   padding: 12px;
-  transition: all 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 .done p {

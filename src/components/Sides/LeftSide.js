@@ -13,8 +13,7 @@ import { TasksContext } from "../../context/context";
 const LeftSide = () => {
   const { state, dispatch } = useContext(TasksContext);
   const [addTask, setAddTask] = useState(false);
-  const { tasks, justDeleted, hideLeftSide } = state;
-  const filteredTasks = tasks.filter((t) => t.type === "todo");
+  const { justDeleted, hideLeftSide } = state;
   const location = useLocation().pathname;
 
   let showTip = true;
@@ -75,7 +74,7 @@ const LeftSide = () => {
               />
             </div>
           </div>
-          <TaskList tasks={filteredTasks} />
+          <TaskList listType="todo" />
           {justDeleted ? (
             <div className="undo-btn">
               <ButtonSmall
