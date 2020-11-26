@@ -19,11 +19,11 @@ code {
   font-size: 1rem;
 
   --colorRed: #a5072f;
-  --colorRedDarkOpaque: #6e0025ee;
+  --colorRedDarkOpaque: #830726cc;
   --colorRedDark: #6e001bbb;
 
   --cat0: #830726cc;
-  --cat0transp: #383844;
+  --cat0transp: #830726cc;
   --catA: rgb(0, 110, 124);
   --catAtransp: linear-gradient(
     176deg,
@@ -51,7 +51,7 @@ code {
   --catE: rgb(100, 67, 126);
   --catEtransp: linear-gradient(
     176deg,
-    rgba(163, 58, 204, 0.7) 0%,
+    rgba(163, 58, 204, 0.65) 0%,
     rgba(71, 31, 107, 0.6) 100%
   );
 }
@@ -101,9 +101,9 @@ $lightNth: nth($lightList, $imgKey);
 }
 
 :root .light {
-  // --colorRed: #00789c;
-  // --colorRedDarkOpaque: #006b9699;
-  // --colorRedDark: #0b6c92bb;
+  --colorRed: rgb(0, 120, 190);
+  --cat0: #34383a99;
+  --colorRedDark: rgba(0, 120, 190, 0.5);
 
   --mainColor: #6a6f7cc4;
   --textColor: #1c1d1fd5;
@@ -125,16 +125,17 @@ $lightNth: nth($lightList, $imgKey);
   --bgNewTaskInputFocus: #d5d8e2dd;
   --bgNewTaskCover: #caccd6aa;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
-  --bgMainTask: linear-gradient(
-    176deg,
-    rgba(190, 0, 41, 0.8) 0%,
-    rgba(151, 4, 36, 0.8) 40%,
-    rgba(110, 3, 30, 0.8) 100%
-  );
+  --bgMainTask: rgba(0, 120, 190, 0.7);
   // --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
   --invertLight: invert(100%);
+
+  --catAtransp: var(--catA);
+  --catBtransp: var(--catB);
+  --catCtransp: var(--catC);
+  --catDtransp: var(--catD);
+  --catEtransp: var(--catE);
 }
 
 ul {

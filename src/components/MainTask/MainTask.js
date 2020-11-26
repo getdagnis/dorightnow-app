@@ -105,6 +105,9 @@ function MainTask(props) {
     <div className="main-task-wrapper">
       <div className="main-task-top">
         <h1 className="main-task-h1">do right now</h1>
+        <h3 className="empty-h3 main-task-h3">
+          (because you can only do one important thing at a time)
+        </h3>
         <div className="main-task-with-btns">
           <Animated
             animationOut={mainTaskAnim.anim}
@@ -175,6 +178,22 @@ function MainTask(props) {
                 title="give up"
                 mainColor={mainTask.color}
               />
+              {
+                // TODO will not work here as edit task window is currently launched from leftside component
+                // need to movie it out and assign a router to it!
+                // <ButtonSmall
+                //   onClick={() => {
+                //     dispatch({
+                //       type: "UPDATE_TASK",
+                //       payload: { taskId: mainTask.id },
+                //     });
+                //   }}
+                //   size="extra-large"
+                //   color="xxl-grey"
+                //   title="edit"
+                //   mainColor={mainTask.color}
+                // />
+              }
               <ButtonSmall
                 onClick={() => {
                   setMainTaskAnim({

@@ -35,9 +35,17 @@
   font-size: 2rem;
   font-weight: 700;
   color: var(--darkText);
-  margin-bottom: -20px;
+  margin-bottom: -18px;
   opacity: 0.8;
   animation: mainTaskFadeIn 1s ease;
+}
+
+.main-task-h3 {
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+  margin-bottom: -10px;
+  opacity: 0.8;
+  text-shadow: 0 1px 0px rgba(200, 200, 200, 0.4);
 }
 
 .main-task {
