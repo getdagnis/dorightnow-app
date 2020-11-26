@@ -131,14 +131,16 @@ function TaskAdd(props) {
           </div>
           {showOptions || taskEdit ? (
             <div>
-              <h3 className="form-h3">Motivation (optional):</h3>
+              <h3 className="form-h3">
+                Motivation to finish. What will you get? (optional):
+              </h3>
               <input
                 className="task-input"
                 autoComplete="off"
                 type="text"
                 defaultValue={taskEdit ? thisTask.motivation : ""}
                 onKeyPress={handleUserKeyPress}
-                placeholder="Motivation €300, a trip to Italy, avoid a punch in the face..."
+                placeholder="€5000, will get laid, drink beer, travel, avoid a punch in the face..."
                 name="motivation"
                 ref={register({ maxLength: 420 })}
               />

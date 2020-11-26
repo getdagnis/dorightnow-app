@@ -239,7 +239,7 @@ function MainTask(props) {
             <div className={motivationColor}>{mainTask.motivation}</div>
           </div>
         ) : null}
-        Time spent so far (not yet working):
+        Time spent so far (hopefully working):
         <Stopwatch />
       </div>
     </div>
