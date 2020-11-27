@@ -19,3 +19,12 @@ export const TasksContext = React.createContext({
   hideLeftSide: false,
   hideRightSide: false,
 });
+
+export const UserContext = React.createContext({
+  user: "guest",
+  settings: [],
+  tasks: [],
+  categories: [],
+  followers: [],
+  following: [],
+});

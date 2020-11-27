@@ -7,7 +7,8 @@ import logo from "./logo.svg";
 
 function Topbar() {
   let [isDark, setIsDark] = useState(
-    localStorage.getItem("isAppDark") === "true" || "false"
+    localStorage.getItem("isAppDark") === "true" ||
+      localStorage.getItem("isAppDark") === "false"
       ? JSON.parse(localStorage.getItem("isAppDark"))
       : true
   );
