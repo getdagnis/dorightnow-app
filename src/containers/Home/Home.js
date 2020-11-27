@@ -34,6 +34,8 @@ function HomePage(props) {
           e.target.classList.contains("wrapper") ||
           e.target.classList.contains("main-task-bottom") ||
           e.target.classList.contains("main-task-top") ||
+          e.target.classList.contains("main-task-empty") ||
+          e.target.parentElement.classList.contains("main-task-empty") ||
           e.target.classList.contains("overflow-bug-fix")
         ) {
           dispatch({
