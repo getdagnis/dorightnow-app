@@ -21,8 +21,9 @@ function HomePage(props) {
       ? "short-task"
       : "normal-task";
 
-  let chooseOrCreate =
-    tasks && tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
+  // let chooseOrCreate =
+  //   tasks && tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
+  let chooseOrCreate = tasks && tasks.length > 0 ? "Choose" : "Create";
 
   return (
     <div
