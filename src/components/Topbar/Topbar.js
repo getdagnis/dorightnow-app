@@ -13,6 +13,7 @@ function Topbar() {
       : true
   );
   let [menuOpen, setMenuOpen] = useState(false);
+  let [isFirstPageView, setFirstPageView] = useState(true);
 
   useEffect(() => {
     // Picks a random background from an array based on a random number
@@ -24,6 +25,7 @@ function Topbar() {
       ? "dark dark-bg" + randomBackground
       : "light light-bg" + randomBackground;
     document.body.classList = combinedBodyClass;
+
     JSON.stringify(localStorage.setItem("isAppDark", isDark));
   }, [isDark]);
 

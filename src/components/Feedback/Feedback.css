@@ -14,12 +14,17 @@
 
 .feedback-open {
   padding: 15px;
+  width: 83vw;
+  max-width: 620px;
+  min-width: 520px;
 }
 
 .feedback-closed {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--textColorTwo);
+  width: fit-content;
+  min-width: 200px;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
@@ -48,8 +53,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 30vw;
-  min-width: 400px;
+  width: auto;
 }
 
 .form-input {

@@ -27,4 +27,5 @@ export const UserContext = React.createContext({
   categories: [],
   followers: [],
   following: [],
+  leaderboardPoints: [],
 });
