@@ -25,6 +25,10 @@ function App() {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
 
   // DELETES ANY TASKS THAT DON'T HAVE AN ID (DEV MODE USAGE)
+  // console.log(
+  //   "local storage tasks",
+  //   JSON.parse(localStorage.getItem("dorightnowTasks"))
+  // );
   // useEffect(() => {
   //   dispatch({ type: "CLEAN_CORRUPT_TASKS" });
   // });
@@ -34,11 +38,6 @@ function App() {
   useEffect(() => {
     firebaseAnalytics.logEvent({ eventName: "first_page_visited" });
   });
-  console.clear();
-  console.log(
-    "local storage tasks",
-    JSON.parse(localStorage.getItem("dorightnowTasks"))
-  );
 
   return (
     <TasksContext.Provider value={{ state, dispatch }}>

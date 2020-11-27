@@ -35,7 +35,9 @@ const RightSide = () => {
       <div className="overflow-bug-fix right-side-marker">
         <div className="safari-flex-height-fix">
           <div className="side-top">
-            <h3 className="side-top-h3 title-drop">Done today</h3>
+            <h3 className="side-top-h3 title-drop">
+              Done today{filteredTasks.length > 0 ? " — hurrah!" : null}
+            </h3>
           </div>
         </div>
         {<TaskList tasks={filteredTasks} listType="done" />}

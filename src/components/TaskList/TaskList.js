@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import "./TaskList.css";
@@ -9,6 +9,7 @@ const TaskList = (props) => {
   const { listType } = props;
   const { dispatch, state } = useContext(TasksContext);
   let { tasks } = state;
+  const [currentlyDragged, setCurrentlyDragged] = useState(null);
 
   const thisListTasks = tasks.filter((t) => t.type === listType);
   const otherTasks = tasks.filter((t) => t.type !== listType);
@@ -17,10 +18,15 @@ const TaskList = (props) => {
   function handleDragStart(props) {
     draggedElementId = props.draggableId;
     console.log("🚀 handleDragStart ~ props", draggedElementId);
-    window.addEventListener("mouseup", droppedOutside);
+    setCurrentlyDragged(draggedElementId);
+    setTimeout(() => {
+      window.addEventListener("mouseup", droppedOutside);
+    }, 0);
   }
 
   function droppedOutside(e) {
+    console.log("🏁 handlefinish ~ props", draggedElementId);
+
     let newTasks = [];
     if (e.target.tagName === "HTML") {
       return window.removeEventListener("mouseup", droppedOutside);
@@ -66,8 +72,6 @@ const TaskList = (props) => {
 
   function handleDragEnd(result) {
     if (!result.destination) {
-      console.log("result", result);
-
       return;
     }
     // REORDER TASKS AFTER DRAG'N'DROPPING THEM
@@ -79,7 +83,10 @@ const TaskList = (props) => {
   }
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
+    <DragDropContext
+      onDragEnd={handleDragEnd}
+      onBeforeDragStart={handleDragStart}
+    >
       {thisListTasks && thisListTasks.length > 0 ? (
         <Droppable droppableId={listType}>
           {(provided) => (
