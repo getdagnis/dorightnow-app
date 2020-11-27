@@ -15,6 +15,7 @@ body {
   overflow: hidden;
 }
 
+/* wrapper class is probably used by an event listener in Home.js */
 .wrapper {
   display: flex;
   position: relative;

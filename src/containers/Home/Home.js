@@ -27,15 +27,23 @@ function HomePage(props) {
   return (
     <div
       className="wrapper"
-      onDoubleClick={() => {
-        dispatch({
-          type: "HIDE_LEFT_SIDE",
-          payload: "toggle",
-        });
-        dispatch({
-          type: "HIDE_RIGHT_SIDE",
-          payload: "toggle",
-        });
+      onClick={(e) => {
+        console.log(e.target);
+        if (
+          e.target.classList.contains("wrapper") ||
+          e.target.classList.contains("main-task-bottom") ||
+          e.target.classList.contains("main-task-top") ||
+          e.target.classList.contains("overflow-bug-fix")
+        ) {
+          dispatch({
+            type: "HIDE_LEFT_SIDE",
+            payload: "toggle",
+          });
+          dispatch({
+            type: "HIDE_RIGHT_SIDE",
+            payload: "toggle",
+          });
+        }
       }}
     >
       {mainTask ? (

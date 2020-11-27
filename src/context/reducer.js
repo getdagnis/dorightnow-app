@@ -37,10 +37,7 @@ export default function reducer(state, action) {
         action.payload.data.task.length > 0
           ? action.payload.data.task
           : currentTask.task;
-      currentTask.motivation =
-        action.payload.data.motivation.length > 0
-          ? action.payload.data.motivation
-          : currentTask.motivation;
+      currentTask.motivation = action.payload.data.motivation;
       currentTask.color =
         action.payload.data.color.length > 0
           ? action.payload.data.color

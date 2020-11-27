@@ -1,3 +1,4 @@
+/* main-task-empty class is probably used by an event listener in Home.js */
 .main-task-empty {
   display: block;
   transform: translateY(-100%);
