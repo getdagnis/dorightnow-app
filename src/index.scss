@@ -101,9 +101,9 @@ $lightNth: nth($lightList, $imgKey);
 }
 
 :root .light {
-  --colorRed: rgb(0, 120, 190);
+  --colorRed: rgb(0, 167, 218);
   --cat0: #34383a99;
-  --colorRedDark: rgba(0, 120, 190, 0.5);
+  --colorRedDark: rgba(27, 146, 214, 0.7);
 
   --mainColor: #6a6f7cc4;
   --textColor: #1c1d1fd5;
@@ -115,27 +115,28 @@ $lightNth: nth($lightList, $imgKey);
   --colorMidLight: #8d8d8dee;
   --colorGrey: #242833d5;
   --bgGrey: #d9d9ddc4;
-  --bgSides: #cbcdd8aa;
+  --bgSides: #dfe1e9aa;
   --bgTask: #ebedf3bb;
   --bgTaskEdit: #babfc2dd;
   --bgTaskDone: #ececf1ee;
-  --bgGreyButton: #8f8f9edd;
-  --bgNewTask: #dfdfe7cc;
-  --bgNewTaskInput: #d5d8e2dd;
-  --bgNewTaskInputFocus: #c6cbd8aa;
-  --bgNewTaskCover: #caccd6aa;
+  --bgGreyButton: #7c7c8ddd;
+  --bgNewTask: #ececf3ee;
+  --bgNewTaskInput: #e1e3ebdd;
+  --bgNewTaskInputFocus: #c7d0e6aa;
+  --bgNewTaskCover: #caccd6ee;
   --bgImage: url(img/bg_#{$lightNth}.jpg) no-repeat center center fixed;
   --bgMainTask: rgba(0, 120, 190, 0.7);
   // --bgMainTask: linear-gradient(176deg, #006b9c99 0%, #006b9c99 100%);
   --bgMainTaskInactive: #22242c88;
   --bgMainTaskBtns: #30323bea;
-  --invertLight: invert(100%);
+  --invertLight: invert(70%);
 
-  --catAtransp: var(--catA);
-  --catBtransp: var(--catB);
-  --catCtransp: var(--catC);
-  --catDtransp: var(--catD);
-  --catEtransp: var(--catE);
+  --cat0: #34383a99;
+  --catAtransp: rgba(0, 110, 124, 0.8);
+  --catBtransp: rgba(128, 158, 46, 0.8);
+  --catCtransp: rgba(231, 85, 59, 0.8);
+  --catDtransp: rgba(179, 172, 100, 0.8);
+  --catEtransp: rgba(100, 67, 126, 0.8);
 }
 
 ul {

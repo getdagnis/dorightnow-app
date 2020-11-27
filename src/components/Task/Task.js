@@ -7,7 +7,7 @@ import "./Task.css";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 import TaskAdd from "../TaskAdd/TaskAdd";
 
-const Task = (props) => {
+const Task = React.forwardRef((props, ref) => {
   const { dispatch } = useContext(TasksContext);
   const [editTask, setEditTask] = useState(false);
   const [mobileTaskEditOpen, setMobileTaskEditOpen] = useState(false);
@@ -35,7 +35,7 @@ const Task = (props) => {
 
   return (
     <div
-      ref={props.draggableRef}
+      ref={ref}
       {...draggableProps}
       className={taskClasses}
       onClick={
@@ -110,6 +110,6 @@ const Task = (props) => {
       ) : null}
     </div>
   );
-};
+});
 
 export default Task;

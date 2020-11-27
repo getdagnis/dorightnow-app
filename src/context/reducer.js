@@ -13,6 +13,7 @@ export default function reducer(state, action) {
         list: action.payload.list || "today",
         timeAdded: action.payload.timeAdded,
         timeModified: action.payload.timeAdded,
+        timeFinished: action.payload.timeAdded,
         timeSpent: { hours: 0, minutes: 0 },
       };
 
@@ -63,7 +64,13 @@ export default function reducer(state, action) {
       };
 
     case "UPDATE_TASK_LIST":
-      const incomingTasks = action.payload;
+      let incomingTasks = action.payload;
+
+      // SORT BY DATE MODIFIED (WILL OVERRIDE DRAG'N'DROP SORTING AT POINTS)
+      // incomingTasks = incomingTasks.sort((a, b) =>
+      //   a.timeModified > b.timeModified ? 1 : -1
+      // );
+
       localStorage.setItem("dorightnowTasks", JSON.stringify(incomingTasks));
 
       return {
@@ -125,6 +132,7 @@ export default function reducer(state, action) {
 
     case "MAIN_TASK_DONE":
       let newTasks = [];
+      const time = new Date().getTime();
 
       if (
         action.payload.action === "done" ||
@@ -137,14 +145,20 @@ export default function reducer(state, action) {
 
         let mainTaskDone = state.tasks[thisTaskIndex];
         mainTaskDone.type = newType;
-
-        localStorage.setItem("dorightnowTasks", JSON.stringify(state.tasks));
+        mainTaskDone.timeModified = time;
 
         newTasks = [
           ...state.tasks.slice(0, thisTaskIndex),
           ...state.tasks.slice(thisTaskIndex + 1),
           mainTaskDone,
         ];
+
+        // SORT BY DATE MODIFIED (WILL OVERRIDE DRAG'N'DROP SORTING AT POINTS)
+        // newTasks = newTasks.sort((a, b) =>
+        //   a.timeModified > b.timeModified ? 1 : -1
+        // );
+
+        localStorage.setItem("dorightnowTasks", JSON.stringify(newTasks));
       }
 
       localStorage.setItem("mainTask", JSON.stringify(null));

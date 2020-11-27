@@ -60,6 +60,7 @@
   display: inline-block;
   height: 20px;
   margin: -6px 2px -6px 0;
+  filter: var(--invertLight);
 }
 
 .title-drop:hover {

@@ -24,7 +24,7 @@ const LeftSide = () => {
       dispatch({ type: "REMOVE_JUSTDELETED" });
     }, 5000);
     return () => clearTimeout(timeout);
-  }, [justDeleted]);
+  }, [justDeleted, dispatch]);
 
   const sideClassList = hideLeftSide
     ? "side left-side left-side-out"
@@ -39,7 +39,7 @@ const LeftSide = () => {
         window.removeEventListener("keydown", handleKeyDown);
       };
     }
-  }, []);
+  }, [location]);
 
   // ADDS "N" KEYBOARD SHORTCUT FOR A "NEW TASK"
   const handleKeyDown = (e) => {

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Animated } from "react-animated-css";
-import Countdown from "react-countdown";
+// import Countdown from "react-countdown";
 import ReactStopwatch from "react-stopwatch";
 
 import { TasksContext } from "../../context/context";
@@ -14,20 +14,22 @@ function MainTask(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { mainTaskMovement } = state;
   const [isMainTaskVisible, setIsMainTaskVisible] = useState(true);
-  const [notesVisible, setNotesVisible] = useState(false);
   const [mainTaskAnim, setMainTaskAnim] = useState({
     anim: "mainTaskDoneSimple",
     duration: 1200,
   });
+
+  // EXPAND MAIN TASK INTO NOTES
+  const [notesVisible] = useState(false);
+  // classList = notesVisible
+  // ? classList.concat(" main-task-with-notes")
+  // : classList;
 
   let classList = "main-task " + taskSize;
   classList =
     mainTask.color !== "0"
       ? classList.concat(" main-task-color-" + mainTask.color)
       : classList;
-  classList = notesVisible
-    ? classList.concat(" main-task-with-notes")
-    : classList;
 
   const mainBtnColor = "xxl-done btn-" + mainTask.color;
 
@@ -47,23 +49,23 @@ function MainTask(props) {
       return null;
   }
 
-  const Completionist = () => <span>You missed the deadline!</span>;
-
-  const countdownRenderer = ({ hours, minutes, seconds, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return <Completionist />;
-    } else {
-      // Render a countdown
-      return (
-        <div className="countdown">
-          <span className="countdown-units">{hours}h</span>
-          <span className="countdown-units">{minutes}m</span>
-          <span className="countdown-units">{seconds}s</span>
-        </div>
-      );
-    }
-  };
+  // TODO COUNTDOWN TIMER
+  // const Completionist = () => <span>You missed the deadline!</span>;
+  // const countdownRenderer = ({ hours, minutes, seconds, completed }) => {
+  //   if (completed) {
+  //     // Render a completed state
+  //     return <Completionist />;
+  //   } else {
+  //     // Render a countdown
+  //     return (
+  //       <div className="countdown">
+  //         <span className="countdown-units">{hours}h</span>
+  //         <span className="countdown-units">{minutes}m</span>
+  //         <span className="countdown-units">{seconds}s</span>
+  //       </div>
+  //     );
+  //   }
+  // };
 
   const Stopwatch = () => (
     <ReactStopwatch

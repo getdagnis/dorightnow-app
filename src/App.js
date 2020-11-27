@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     firebaseAnalytics.logEvent({ eventName: "first_page_visited" });
   });
-
+  console.clear();
   console.log(
     "local storage tasks",
     JSON.parse(localStorage.getItem("dorightnowTasks"))

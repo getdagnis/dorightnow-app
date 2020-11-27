@@ -29,11 +29,12 @@
 .feedback-icon {
   height: 16px;
   margin: 0 6px -2px;
+  filter: invert(20%);
 }
 
 .feedback-closed:hover {
-  color: var(--textColor);
-  background: var(--bgTaskEdit);
+  color: var(--bgTopbar);
+  background: var(--colorGrey);
   padding: 10px 40px;
 }
 
