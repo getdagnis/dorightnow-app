@@ -29,7 +29,6 @@ function HomePage(props) {
     <div
       className="wrapper"
       onClick={(e) => {
-        console.log(e.target);
         if (
           e.target.classList.contains("wrapper") ||
           e.target.classList.contains("main-task-bottom") ||
