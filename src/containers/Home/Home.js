@@ -36,7 +36,9 @@ function HomePage(props) {
       <MobileView>
         <div className="wrapper-mobile">
           <div className="main-task-mobile">
-            <h1 className="mobile-h1">Mobile version temporarily stopped...</h1>
+            <h1 className="mobile-h1">
+              Mobile version temporarily disabled...
+            </h1>
             <h3 className="mobile-h3">
               Mobile version has been temporarily removed as it's increasingly
               difficult to maintain two versions at the same time. Please visit
