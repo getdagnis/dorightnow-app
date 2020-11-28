@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import css from "./Settings.css";
 
 function SettingsPage() {
   return (
@@ -7,8 +8,20 @@ function SettingsPage() {
       <div className="settings-main">
         <h1 className="empty-h1">Settings</h1>
         <h3 className="empty-h3">
-          Nothing here yet. <Link to="/">Go back to the home page!</Link>
+          Your personal settings (stored only on this browser)
         </h3>
+
+        <ul>
+          <li>
+            Require a double click to show/hide sides in the tasks page{" "}
+            <input
+              className={css.checkbox}
+              type="checkbox"
+              name="showhide_dblclick"
+              id="showhide_dblclick"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   );

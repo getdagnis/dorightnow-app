@@ -1,0 +1,32 @@
+.wrapper-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.mobile-h1 {
+  display: block;
+  margin: 20px auto -20px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--darkText);
+  letter-spacing: -1.2px;
+  text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.5);
+}
+
+.mobile-h3 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-top: 40px;
+  color: var(--darkText);
+  text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.5);
+}
