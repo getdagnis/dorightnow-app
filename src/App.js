@@ -11,7 +11,7 @@ import ContactsPage from "./containers/Contacts/Contacts";
 import FollowingPage from "./containers/Following/Following";
 
 import { TasksContext } from "./context/context";
-import tasksReducer from "./context/reducer";
+import tasksReducer from "./context/tasks.reducer";
 
 import firebase from "firebase/app";
 import "firebase/analytics";

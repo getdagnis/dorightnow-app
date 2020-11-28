@@ -20,12 +20,13 @@ export const TasksContext = React.createContext({
   hideRightSide: false,
 });
 
+// POTENTIAL IDEAS FOR THE USER CONTEXT
 export const UserContext = React.createContext({
   user: "guest",
   settings: [],
   tasks: [],
   categories: [],
-  followers: [],
-  following: [],
-  leaderboardPoints: [],
+  followers: [], // whose public tasks i see
+  following: [], // who sees my tasks
+  leaderboardPoints: [], // counted for adding and finishing tasks, shown publically
 });

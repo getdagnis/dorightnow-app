@@ -10,8 +10,6 @@ function HomePage(props) {
   const { state, dispatch } = useContext(TasksContext);
   const { tasks, currentTask } = state;
 
-  console.log("HOME state", state);
-
   const i = state.tasks.findIndex((t) => t.id === currentTask);
   const mainTask = tasks[i];
   const taskSize =
@@ -24,6 +22,12 @@ function HomePage(props) {
   // let chooseOrCreate =
   //   tasks && tasks.length > 0 ? "Choose" : <Link to="/create">Create</Link>;
   let chooseOrCreate = tasks && tasks.length > 0 ? "Choose" : "Create";
+
+  console.log(
+    "💾 localstorage tasks:",
+    JSON.parse(localStorage.getItem("dorightnowTasks"))
+  );
+  console.log("⛺️ HOME state", state);
 
   return (
     <div
