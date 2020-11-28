@@ -41,10 +41,14 @@ function HomePage(props) {
             </h1>
             <h3 className="mobile-h3">
               Mobile version has been temporarily removed as it's increasingly
-              difficult to maintain two versions at the same time. Please visit
-              the desktop version at <br />
-              <strong>dorightnow.app</strong>
+              difficult to maintain two versions while important changes are in
+              progress.{" "}
             </h3>
+            <h3 className="mobile-h3">Please visit on desktop: </h3>
+            <h3 className="mobile-h3-button">dorightnow.app</h3>
+            <h4 className="mobile-h4">
+              (this is not a link. go visit on desktop)
+            </h4>
           </div>
         </div>
       </MobileView>

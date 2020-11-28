@@ -22,11 +22,29 @@
   text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.5);
 }
 
-.mobile-h3 {
+.mobile-h3,
+.mobile-h4,
+.mobile-h3-button {
   font-size: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: 600;
+  letter-spacing: -0.5px;
   margin-top: 40px;
   color: var(--darkText);
   text-shadow: 0px 1px 0px rgba(200, 200, 200, 0.5);
+}
+
+.mobile-h3-button {
+  margin-top: -5px;
+  display: block;
+  padding: 10px;
+  background: var(--colorRed);
+  color: white;
+  text-shadow: 0 1px 1px #00000022;
+  border-radius: 6px;
+}
+
+.mobile-h4 {
+  font-size: 1rem;
+  margin-top: -10px;
 }
