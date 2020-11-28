@@ -47,7 +47,7 @@ function HomePage(props) {
             <h3 className="mobile-h3">Please visit on desktop: </h3>
             <h3 className="mobile-h3-button">dorightnow.app</h3>
             <h4 className="mobile-h4">
-              (this is not a link. go visit on desktop)
+              (this is not a button. go visit on desktop)
             </h4>
           </div>
         </div>
