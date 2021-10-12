@@ -13,12 +13,23 @@ import FollowingPage from "./containers/Following/Following";
 import { TasksContext } from "./context/context";
 import tasksReducer from "./context/tasks.reducer";
 
+import axios from "axios";
 import firebase from "firebase/app";
 import "firebase/analytics";
 import { firebaseConfig } from "./firebaseConfig";
 
 firebase.initializeApp(firebaseConfig);
 export const firebaseAnalytics = firebase.analytics();
+
+console.log("firebaseAnalytics", firebaseAnalytics);
+
+axios
+  .get(
+    "https://dorightnow.atlassian.net/rest/api/2/search?jql=assignee=currentuser()"
+  )
+  .then((res) => {
+    console.log(res);
+  });
 
 function App() {
   const initialState = useContext(TasksContext);
